@@ -18,9 +18,9 @@ Template is a regular JS class, so you can inherit it from any other class or in
 ## Features
 
 * Templates can be translated into code compatible with:
-** node.js
-** Google Closure Library
-** _other frameworks support can be added easily_
+    * node.js
+    * Google Closure Library
+    * _other frameworks support can be added easily_
 * Same template file _(if properly written)_ can be used to produce code for both node.js and Google Closure Library
 * Template blocks can be overriden _(similar to Django templates' blocks, but more rich)_
 * Parametrized template blocks are yet not ready, but planned
@@ -37,16 +37,10 @@ By examining .ojst files and their corresponding .js files (compilation results)
 Template syntax is similar to EJS, but it has some extra conceptions.
 All the special constructions are enclosed into *<% %>*:
 
-`<%= ... %>`  - calculate expression and render result escaped
-Will be translated into something like `this.append(this.escape(...))`
-
-`<%- ... %>`  - calculate expression and render result unescaped
-Will be translated into something like `this.append(...)`
-
-`<% @commandName ... %>`  - one of the commands _(described below)_
-
-`<% ... %>` - raw JS code fragment
-Will be transferred literally. Can contain any JS code including `this.append(...);` calls.
+* `<%= ... %>`  - calculate expression and render result escaped. Will be translated into something like `this.append(this.escape(...))`
+* `<%- ... %>`  - calculate expression and render result unescaped. Will be translated into something like `this.append(...)`
+* `<% @commandName ... %>`  - one of the commands _(described below)_.
+* `<% ... %>` - raw JS code fragment. Will be transferred literally. Can contain any JS code including `this.append(...);` calls.
 
 ### Commands
 
@@ -87,14 +81,14 @@ By default, text outside of any block will be supposed to be raw JS code.
 
 ## Readme TODO
 
-* move detailed descriptions to doc/ directory, here should be just quick examples
-* for doc/:
-** more on syntax
-*** all the commands
-*** locals
-** detailed usage of bin/ojster
-** guide to generated code
-** programmatic usage of ojster
+* move detailed descriptions to `doc/` directory, here should be just quick examples
+* for `doc/`:
+    * more on syntax
+    * all the commands
+    * locals
+    * detailed usage of `bin/ojster`
+    * guide to generated code
+    * programmatic usage of ojster
 * provide examples
-* provide short usage of bin/ojster
+* provide short usage of `bin/ojster`
 * describe difference between Node and Closure module systems and how it is handled by Ojster
