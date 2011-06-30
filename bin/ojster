@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+var argv = require('optimist').argv;
+var ojster = require('../');
+
+var args = argv._;
+var l = args.length;
+if (l < 1) {
+	abort('srcPath argument required');
+}
+
+var srcPath = args[0];
+var dstPath = null;
+if (l >= 2) {
+	dstPath = args[1];
+}
+
+var generatorClass = null;
+if (argv.goog) {
+	generatorClass = ojster.generators.GoogGenerator;
+}
+
+var options = {};
+if (generatorClass != null) {
+	options.generator = options.generator || {};
+	options.generator.generatorClass = generatorClass;
+}
+
+ojster.compile_path(srcPath, dstPath, options, function(err, results) {
+	if (err) {
+		process.exit(1);
+	}
+
+	process.exit(0);
+});
+
+
+function abort(str) {
+	console.error(str);
+	process.exit(1);
+}

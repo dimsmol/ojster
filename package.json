@@ -1,0 +1,17 @@
+{
+	"name": "ojster",
+	"description": "Objective JavaScript Templater",
+	"version": "0.0.1",
+	"author": "Dmitry Smolin <dimsmol@gmail.com>",
+	"dependencies": {
+		"async": ">= 0.1.9",
+		"optimist": ">= 0.2.3"
+	},
+	"keywords": ["template", "engine", "ojster", "ojst"],
+	"repository": "git://github.com/dimsmol/ojster",
+	"main": "index",
+	"bin": { "ojster": "./bin/ojster" },
+	"scripts": {
+		"test": "make test"
+	}
+}
