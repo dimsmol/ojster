@@ -25,9 +25,9 @@ Template is a regular JS class, so you can inherit it from any other class or in
 * Template blocks can be overriden _(similar to Django templates' blocks, but more rich)_
 * Parametrized template blocks are yet not ready, but planned
 * Any JS constructions allowed _(for, if, etc.)_
-* "Filters" are NOT supported - use JS code instead
+* "Filters" are NOT supported _(use JS code instead)_
 
-Compilation is very fast because it's dumb simple. All JS fragments of template are transferred to final code literally. Template blocks are translated into regular methods of compiled JS class. These methods capable of appending corresponding content and nothing more. So they can be called any number of times at any place of template, overriden in child templates and so on.
+Compilation is very fast because it's dumb simple. All JS fragments of template are transferred to final code literally. Template blocks are translated into regular methods of compiled JS class. These methods capable of appending corresponding content and nothing more. They can be called any number of times at any place of template, overriden in child templates and so on.
 
 ## Syntax
 
@@ -35,12 +35,12 @@ It's recommended to take a look at `examples` directory before continue to read.
 By examining .ojst files and their corresponding .js files (compilation results) you will understand how template code is translated into JS code clearly enough. Further reading will provide you with details you could missed.
 
 Template syntax is similar to EJS, but it has some extra conceptions.
-All the special constructions are enclosed into *<% %>*:
+All the special constructions are enclosed within *<% %>*:
 
 * `<%= ... %>`  - calculate expression and render result escaped. Will be translated into something like `this.append(this.escape(...))`
 * `<%- ... %>`  - calculate expression and render result unescaped. Will be translated into something like `this.append(...)`
 * `<% @commandName ... %>`  - one of the commands _(described below)_.
-* `<% ... %>` - raw JS code fragment. Will be transferred literally. Can contain any JS code including `this.append(...);` calls.
+* `<% ... %>` - raw JS code fragment. Will be transferred literally. Can contain any JS code including `this.append(...)` calls.
 
 ### Commands
 
@@ -55,8 +55,9 @@ _...other command descriptions to be added..._
 
 #### block command
 
-`<% @block blockName { %>` - opens block _blockName_
-`<% @block } blockName %>` - closes block _blockName_ (blockName is optional here)
+* `<% @block blockName { %>` - opens block _blockName_
+* `<% @block } blockName %>` - closes block _blockName_ (blockName is optional here)
+
 Code related to content between these two commands will be placed to _appendBlockBlockName_ method of resulting template class.
 Blocks can be nested. If block is nested corresponding method call will be placed in appropriate place of nesting block.
 
@@ -72,11 +73,10 @@ TemplateClass.prototype.appendBlockB = function() {
 };
 ```
 
-`<% @block blockName { } %>` - opens and closes block _blockName_
-Such an empty block can be defined to be overriden in child templates.
+`<% @block blockName { } %>` - opens and closes block _blockName_. Such an empty block can be defined to be overriden in child templates.
 
-There is one special block name `main` - it indicates a block that will be appended on template's `render()` method call.
-By default, text outside of any block will be supposed to be raw JS code.
+`main` is a special block name indicating a block that will be appended on template's `render()` method call.
+By default, text outside of any block will be supposed to be a raw JS code.
 
 
 ## Readme TODO
