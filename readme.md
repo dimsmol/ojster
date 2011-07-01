@@ -2,7 +2,7 @@
 
 Ojster is "objective javascript templater" - dead simple template engine which translates .ojst templates into javascript classes capable of template content rendering.
 
-## Concepts
+## Key Concepts
 
 * Templates are JS-based _(similar to EJS)_
 * Templates need "compilation" _(similar to Google Closure Templates)_
@@ -35,7 +35,7 @@ It's recommended to take a look at `examples` directory before continue to read.
 By examining .ojst files and their corresponding .js files (compilation results) you will understand how template code is translated into JS code clearly enough. Further reading will provide you with details you could missed.
 
 Template syntax is similar to EJS, but it has some extra conceptions.
-All the special constructions are enclosed within *<% %>*:
+All the special constructions are enclosed within `<% %>` tags:
 
 * `<%= ... %>`  - calculate expression and render result escaped. Will be translated into something like `this.append(this.escape(...))`
 * `<%- ... %>`  - calculate expression and render result unescaped. Will be translated into something like `this.append(...)`
@@ -73,7 +73,7 @@ TemplateClass.prototype.appendBlockB = function() {
 };
 ```
 
-`<% @block blockName { } %>` - opens and closes block _blockName_. Such an empty block can be defined to be overriden in child templates.
+* `<% @block blockName { } %>` - opens and closes block _blockName_. Such an empty block can be defined to be overriden in child templates.
 
 `main` is a special block name indicating a block that will be appended on template's `render()` method call.
 By default, text outside of any block will be supposed to be a raw JS code.
