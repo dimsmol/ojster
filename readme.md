@@ -61,19 +61,25 @@ _...other command descriptions to be added..._
 Code related to content between these two commands will be placed to _appendBlockBlockName_ method of resulting template class.
 Blocks can be nested. If block is nested corresponding method call will be placed in appropriate place of nesting block.
 
-`<% @block A { %>a <% @block B { %>b<% @block } %><% @block } %>` will be translated into something like
-```javascript
-TemplateClass.prototype.appendBlockA = function() {
-    this.append('a ');
-    this.appendBlockB();
-};
+    <% @block A { %>
+        a
+        <% @block B { %>
+            b
+        <% @block } %>
+    <% @block } %>
 
-TemplateClass.prototype.appendBlockB = function() {
-    this.append('b');
-};
-```
+will be translated into something like
 
-* `<% @block blockName { } %>` - opens and closes block _blockName_. Such an empty block can be defined to be overriden in child templates.
+    TemplateClass.prototype.appendBlockA = function() {
+        this.append('a ');
+        this.appendBlockB();
+    };
+
+    TemplateClass.prototype.appendBlockB = function() {
+        this.append('b');
+    };
+
+`<% @block blockName { } %>` - opens and closes block _blockName_. Such an empty block can be defined to be overriden in child templates.
 
 `main` is a special block name indicating a block that will be appended on template's `render()` method call.
 By default, text outside of any block will be supposed to be a raw JS code.
