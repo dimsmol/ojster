@@ -79,6 +79,30 @@ will be translated into something like
         this.append('b');
     };
 
+Note, that nested blocks haven't access to local variables of nesting block, because blocks are translated into completely separated (not nested) functions. Following example will not work as expected:
+
+    <% @block A { %>
+        <% for (var i=0; i<10; i++) { %>
+            <% @block B { %>
+                <%= i %>
+            <% @block } %>
+        <% } %>
+    <% @block } %>
+
+This examples will be translated into something like this:
+
+    TemplateClass.prototype.appendBlockA = function() {
+        for (var i=0; i<10; i++) {
+            this.appendBlockB();
+        }
+    };
+
+    TemplateClass.prototype.appendBlockB = function() {
+        this.append(i);
+    };
+
+And of course `i` is undefined within `appendBlockB` function scope. Use parametrized blocks to transfer local variables into scope of nested block.
+
 `<% @block blockName { } %>` - opens and closes block _blockName_. Such an empty block can be defined to be overriden in child templates.
 
 `main` is a special block name indicating a block that will be appended on template's `render()` method call.
