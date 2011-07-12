@@ -1,7 +1,5 @@
 # TODO
 
-* make stricter string trimming by default _(do not try to insert separating spaces)_
-* fix a bug causing requirement of fragment at beginning of template file
 * make usage of goog.scope an option _(GoogRenderer specific)_
 * create separated Renderer which can be used instead of templates' static `render` method because we possibly will need more static methods and don't want to expand compiler each time we want to add more
 
