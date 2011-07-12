@@ -2,6 +2,7 @@
 
 * fix problem with various number of line breaks between requires for default and custom template based templates
 * create separated Renderer which can be used instead of templates' static `render` method because we possibly will need more static methods and don't want to expand compiler each time we want to add more
+    * provide a way to set up buffer to write to
 
 * fix possible collisions problem with auto-requiring default base class and other such things
 
