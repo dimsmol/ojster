@@ -6,7 +6,7 @@
 
 <%
 // usually code is enclosed into such a "tag"
-function ojster.example.templates.Person.twistScore(value) {
+ojster.example.templates.Person.twistScore = function (value) {
     return value * 5 / 3;
 }
 %>
