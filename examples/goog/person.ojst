@@ -52,38 +52,29 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
         <% } %>
     <% } %>
     <%
-    // several ways to render other template:
+    this.writer.write('<div>this.writer.write() can be ', 'used at any moment', '</div>');
+    this.write('<div>this.write() is the same, but a little bit less effective', ' (designed primary to use in chains, see below)</div>');
+
     var Hobbies = ojster.example.templates.Hobbies; // just an alias
 
-    new Hobbies(this.ctx, d, this).render(); // shortest and recommended
-    this.template(Hobbies, this.ctx, d).render();
-    this.renderTemplate(Hobbies, this.ctx, d);
-    ojster.template(Hobbies, this.ctx, d, this).render();
-    ojster.render(Hobbies, this.ctx, d, [], this);
+    // how to render other template in place:
+    new Hobbies(this.ctx, d, this).render(); // NOTE third argument makes redirects rendering to our template writer
     %>
-    <% // possible but less effective ways: %>
-    <%- new Hobbies(this.ctx, d).getRendered() %>
+    <% // possible but less effective: %>
     <%- new Hobbies(this.ctx, d).render.done() %>
-    <%- ojster.render(Hobbies, this.ctx, d).done() %>
-    <%- ojster.getRendered(Hobbies, this.ctx, d) %>
-    <%- ojster.template(Hobbies, this.ctx, d).render().done() %>
 
     <%
-    // several ways to render block of other template:
     var Snippets = ojster.example.templates.Snippets;
 
-    new Snippets(this.ctx, d.email, this).renderBlockEmail(); // shortest and recommended
-    ojster.template(Snippets, this.ctx, d.email, this).renderBlockEmail();
-    this.template(Snippets, this.ctx, d.email).renderBlockEmail();
+    // how to render block of other template in place:
+    new Snippets(this.ctx, d.email, this).renderBlockEmail();
 
-    // rendering chains can be used as well:
-    new Snippets(this.ctx, d.about, this).renderBlockShort().renderBlockHidden();
-    this.template(Snippets, this.ctx, d.about).renderBlockShort().renderBlockHidden();
+    // rendering chains can be used:
     new Snippets(this.ctx, d.about, this).renderBlockShort().write(' -> ').renderBlockHidden();
     %>
-    <% // possible but less effective ways: %>
+    <% // possible but less effective: %>
     <%- new Snippets(this.ctx, d.email).renderBlockEmail().done() %>
-    <%- ojster.template(Hobbies, this.ctx, d.about).renderBlockShort().renderBlockHidden().done() %>
+    <%- ojster.template(Hobbies, this.ctx, d.about).renderBlockShort().write(' -> ').renderBlockHidden().done() %>
 <% @block } content %>
 
 <% @block skills { %>
