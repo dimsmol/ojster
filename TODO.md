@@ -1,5 +1,8 @@
 # TODO
 
+* move optional closing block name to be before `}` _(to simplify insertion of closing tag by just copying opening tag and replacing '{' with '}')_
+* add correct error message on compiling empty template file _(missed template definition instead of falling with exception)_
+
 * fix problem with various number of line breaks between requires for default and custom template based templates
 * create separated Renderer which can be used instead of templates' static `render` method because we possibly will need more static methods and don't want to expand compiler each time we want to add more
     * provide a way to set up buffer to write to

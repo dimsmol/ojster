@@ -1,0 +1,14 @@
+
+<% @template Base mtl %>
+
+<% @block main { %>
+<html>
+<head>
+<% @block meta {} %>
+<title><% @block title {} %></title>
+<% @block css {} %>
+<% @block script {} %>
+</head>
+<body><% @block content {} %></body>
+</html>
+<% @block } main %>

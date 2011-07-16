@@ -1,0 +1,114 @@
+<% @require page ojster.example.page %> // 'page' is an alias, can be used if goog.scope is enabled
+<% @require Hobbies ojster.example.templates.Hobbies %>
+
+<% @template Person ojster.example.templates %>
+<% @inherits Base ojster.example.templates %>
+
+<%
+// usually code is enclosed into such a "tag"
+function ojster.example.templates.Person.twistScore(value) {
+    return value * 5 / 3;
+}
+%>
+
+// but beyond blocks code can be inserted just plain
+ojster.example.templates.Person.prototype.calculateScore = function(person) {
+    return ojster.example.templates.Person.twistScore(person.score);
+};
+
+<% @block main { %>
+<%
+    // TODO bad example, need 'init' function instead
+    vars.score = this.calculateScore(d); // vars is right place for template-level variables
+    ojster.example.templates.Base.prototype.renderBlockMain();
+%>
+<% @block } main %>
+
+// code could be here too, almost anywhere
+
+<% @block title { %>Person #<%= d.id %><% @block } title %>
+
+<% @block script { %>
+<script>
+(function() {
+    // TODO good for node, but bad for goog
+    var settings = <%- JSON.stringify(ctx.pageSettings) %>; // inserting JSON unescaped
+    ojster.example.page.initPage(settings);
+})();
+</script>
+<% @block } script %>
+
+<% @block content { %>
+    <div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block } fullName %>!</div>
+    <div>Your score: <% vars.score; %>:</div>
+    <div>Your skills, <% this.renderBlockFullName(); %>:</div>
+    <% this.renderBlockSkills(); %>
+    <% if (d.events && d.events.length) { %>
+        <div>Your events:</div>
+        <% d.events.forEach(function(event) { %>
+            <% @block beforeEvent {} %>
+            <div><%= event.Name %></div>
+            <% self.renderBlockAfterEvent(); // 'self' alias of 'this' can be used when need %>
+        <% } %>
+    <% } %>
+    <%
+    // several ways to render other template:
+    var Hobbies = ojster.example.templates.Hobbies; // just an alias
+
+    new Hobbies(this.ctx, d, this).render(); // shortest and recommended
+    this.template(Hobbies, this.ctx, d).render();
+    this.renderTemplate(Hobbies, this.ctx, d);
+    ojster.template(Hobbies, this.ctx, d, this).render();
+    ojster.render(Hobbies, this.ctx, d, [], this);
+    %>
+    <% // possible but less effective ways: %>
+    <%- new Hobbies(this.ctx, d).getRendered() %>
+    <%- new Hobbies(this.ctx, d).render.done() %>
+    <%- ojster.render(Hobbies, this.ctx, d).done() %>
+    <%- ojster.getRendered(Hobbies, this.ctx, d) %>
+    <%- ojster.template(Hobbies, this.ctx, d).render().done() %>
+
+    <%
+    // several ways to render block of other template:
+    var Snippets = ojster.example.templates.Snippets;
+
+    new Snippets(this.ctx, d.email, this).renderBlockEmail(); // shortest and recommended
+    ojster.template(Snippets, this.ctx, d.email, this).renderBlockEmail();
+    this.template(Snippets, this.ctx, d.email).renderBlockEmail();
+
+    // rendering chains can be used as well:
+    new Snippets(this.ctx, d.about, this).renderBlockShort().renderBlockHidden();
+    this.template(Snippets, this.ctx, d.about).renderBlockShort().renderBlockHidden();
+    new Snippets(this.ctx, d.about, this).renderBlockShort().write(' -> ').renderBlockHidden();
+    %>
+    <% // possible but less effective ways: %>
+    <%- new Snippets(this.ctx, d.email).renderBlockEmail().done() %>
+    <%- ojster.template(Hobbies, this.ctx, d.about).renderBlockShort().renderBlockHidden().done() %>
+<% @block } content %>
+
+<% @block skills { %>
+<%
+    if (vars.areSkillsRendered) {
+        return this; // must return 'this' object if do return manually
+    }
+
+    vars.areSkillsRendered = true;
+
+    if (!d.skills) {
+        return this.renderBlockNoSkills();
+    }
+
+    for (var i=0, l=d.skills.length; i < l; i++) {
+        var skill = skills[i];
+%>
+        <div><%= skill.name %>: <%= skill.value %></div>
+<%
+    }
+%>
+<% @block } skills %>
+
+<% @block noSkills { %>
+    You have no skills :(
+<% @block } noSkills %>
+
+<% @block afterEvent {} %>
