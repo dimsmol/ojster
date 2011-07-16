@@ -22,9 +22,6 @@ ojster.example.Base.prototype.renderBlockMain = function() { // @3:1
 		'</title>'
 	); // @9:1
 	self.renderBlockCss();
-	self.writer.write(
-		' '
-	); // @10:1
 	self.renderBlockScript();
 	self.writer.write(
 		'</head><body>'
@@ -33,30 +30,36 @@ ojster.example.Base.prototype.renderBlockMain = function() { // @3:1
 	self.writer.write(
 		'</body></html>'
 	);
+	return this;
 }; // @14:1
 
 ojster.example.Base.prototype.renderBlockMeta = function() { // @7:1
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 
 ojster.example.Base.prototype.renderBlockTitle = function() { // @8:8
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 
 ojster.example.Base.prototype.renderBlockCss = function() { // @9:1
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 
 ojster.example.Base.prototype.renderBlockScript = function() { // @10:1
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 
 ojster.example.Base.prototype.renderBlockContent = function() { // @12:7
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 

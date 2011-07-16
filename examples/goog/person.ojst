@@ -8,7 +8,7 @@
 // usually code is enclosed into such a "tag"
 ojster.example.templates.Person.twistScore = function (value) {
     return value * 5 / 3;
-}
+};
 %>
 
 // but beyond blocks code can be inserted just plain
@@ -29,7 +29,7 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
 <% @block title { %>Person #<%= d.id %><% @block } title %>
 
 <% @block script { %>
-<script>
+<%-'<'%>script> // seems like jslint tries to check code within 'script' tags even if it's part of string constant, so avoid it
 (function() {
     // TODO good for node, but bad for goog
     var settings = <%- JSON.stringify(ctx.pageSettings) %>; // inserting JSON unescaped
@@ -40,7 +40,7 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
 
 <% @block content { %>
     <div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block } fullName %>!</div>
-    <div>Your score: <% vars.score; %>:</div>
+    <div>Your score: <%= vars.score %></div>
     <div>Your skills, <% this.renderBlockFullName(); %>:</div>
     <% this.renderBlockSkills(); %>
     <% if (d.events && d.events.length) { %>
@@ -49,8 +49,12 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
             <% @block beforeEvent {} %>
             <div><%= event.Name %></div>
             <% self.renderBlockAfterEvent(); // 'self' alias of 'this' can be used when need %>
-        <% } %>
+        <% }); %>
     <% } %>
+
+    <% // checking whitespaces compaction: %>
+    <%-'-'%> <%-'-'%>
+
     <%
     this.writer.write('<div>this.writer.write() can be ', 'used at any moment', '</div>');
     this.write('<div>this.write() is the same, but a little bit less effective', ' (designed primary to use in chains, see below)</div>');
