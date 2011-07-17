@@ -1,6 +1,7 @@
 
 goog.provide('ojster.example.templates.Person');
 goog.require('ojster.example.page'); // 'page' is an alias, can be used if goog.scope is enabled
+goog.require('ojster.example.templates.Base');
 goog.require('ojster.example.templates.Hobbies');
 
 ojster.example.templates.Person = function() {
@@ -20,7 +21,7 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
     return ojster.example.templates.Person.twistScore(person.score);
 };
 
-ojster.example.templates.Person.prototype.renderBlockMain = function() { // @19:1
+ojster.example.templates.Person.prototype.renderBlockMain = function() { // @20:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -29,50 +30,50 @@ ojster.example.templates.Person.prototype.renderBlockMain = function() { // @19:
     ojster.example.templates.Base.prototype.renderBlockMain();
 
 	return this;
-}; // @25:1
+}; // @26:1
 
 // code could be here too, almost anywhere
 
-ojster.example.templates.Person.prototype.renderBlockTitle = function() { // @29:1
+ojster.example.templates.Person.prototype.renderBlockTitle = function() { // @30:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'Person #',
-		self.escape(d.id) // @29:29
+		self.escape(d.id) // @30:29
 	);
 	return this;
-}; // @29:40
+}; // @30:40
 
-ojster.example.templates.Person.prototype.renderBlockScript = function() { // @31:1
+ojster.example.templates.Person.prototype.renderBlockScript = function() { // @32:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		'<', // @32:1
+		'<', // @33:1
 		'script> // seems like jslint tries to check code within \'script\' tags even if it\'s part of string constant, so avoid it\n(function() {\n    // TODO good for node, but bad for goog\n    var settings = ',
-		JSON.stringify(ctx.pageSettings), // @35:20
+		JSON.stringify(ctx.pageSettings), // @36:20
 		'; // inserting JSON unescaped\n    ojster.example.page.initPage(settings);\n})();</script>'
 	);
 	return this;
-}; // @39:1
+}; // @40:1
 
-ojster.example.templates.Person.prototype.renderBlockContent = function() { // @41:1
+ojster.example.templates.Person.prototype.renderBlockContent = function() { // @42:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<div>Hello, '
-	); // @42:17
+	); // @43:17
 	self.renderBlockFullName();
 	self.writer.write(
 		'!</div><div>Your score: ',
-		self.escape(vars.score), // @43:22
+		self.escape(vars.score), // @44:22
 		'</div><div>Your skills, '
-	); // @44:23
+	); // @45:23
 
 	this.renderBlockFullName();
 
 	self.writer.write(
 		':</div>'
-	); // @45:5
+	); // @46:5
 
 	this.renderBlockSkills();
 
@@ -81,18 +82,18 @@ ojster.example.templates.Person.prototype.renderBlockContent = function() { // @
 
 	self.writer.write(
 		'<div>Your events:</div>'
-	); // @48:9
+	); // @49:9
 
 	d.events.forEach(function(event) {
 
 	self.renderBlockBeforeEvent();
 	self.writer.write(
 		'<div>',
-		self.escape(event.Name), // @50:18
+		self.escape(event.Name), // @51:18
 		'</div>'
-	); // @51:13
+	); // @52:13
 
-	self.renderBlockAfterEvent(); // 'self' alias of 'this' can be used when need
+	self.renderBlockAfterEvent(); // 'self' alias of 'this' can be used when needed
 
 
 	});
@@ -104,10 +105,10 @@ ojster.example.templates.Person.prototype.renderBlockContent = function() { // @
 	// checking whitespaces compaction:
 
 	self.writer.write(
-		'-', // @56:5
+		'-', // @57:5
 		' ',
-		'-' // @56:14
-	); // @58:5
+		'-' // @57:14
+	); // @59:5
 
     this.writer.write('<div>this.writer.write() can be ', 'used at any moment', '</div>');
     this.write('<div>this.write() is the same, but a little bit less effective', ' (designed primary to use in chains, see below)</div>');
@@ -121,8 +122,8 @@ ojster.example.templates.Person.prototype.renderBlockContent = function() { // @
 	// possible but less effective:
 
 	self.writer.write(
-		new Hobbies(this.ctx, d).render.done() // @68:5
-	); // @70:5
+		new Hobbies(this.ctx, d).render.done() // @69:5
+	); // @71:5
 
     var Snippets = ojster.example.templates.Snippets;
 
@@ -136,30 +137,30 @@ ojster.example.templates.Person.prototype.renderBlockContent = function() { // @
 	// possible but less effective:
 
 	self.writer.write(
-		new Snippets(this.ctx, d.email).renderBlockEmail().done(), // @80:5
-		ojster.template(Hobbies, this.ctx, d.about).renderBlockShort().write(' -> ').renderBlockHidden().done() // @81:5
+		new Snippets(this.ctx, d.email).renderBlockEmail().done(), // @81:5
+		ojster.template(Hobbies, this.ctx, d.about).renderBlockShort().write(' -> ').renderBlockHidden().done() // @82:5
 	);
 	return this;
-}; // @82:1
+}; // @83:1
 
-ojster.example.templates.Person.prototype.renderBlockFullName = function() { // @42:17
+ojster.example.templates.Person.prototype.renderBlockFullName = function() { // @43:17
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		self.escape(d.firstName), // @42:40
+		self.escape(d.firstName), // @43:40
 		' ',
-		self.escape(d.lastName) // @42:59
+		self.escape(d.lastName) // @43:59
 	);
 	return this;
-}; // @42:76
+}; // @43:76
 
-ojster.example.templates.Person.prototype.renderBlockBeforeEvent = function() { // @49:13
+ojster.example.templates.Person.prototype.renderBlockBeforeEvent = function() { // @50:13
 	var self = this;
 	var d = this.data, vars = this.vars;
 	return this;
 };
 
-ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @84:1
+ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @85:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -178,27 +179,27 @@ ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @8
 
 	self.writer.write(
 		'<div>',
-		self.escape(skill.name), // @99:14
+		self.escape(skill.name), // @100:14
 		': ',
-		self.escape(skill.value), // @99:33
+		self.escape(skill.value), // @100:33
 		'</div>'
-	); // @100:1
+	); // @101:1
 
     }
 
 	return this;
-}; // @103:1
+}; // @104:1
 
-ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // @105:1
+ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // @106:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'You have no skills :('
 	);
 	return this;
-}; // @107:1
+}; // @108:1
 
-ojster.example.templates.Person.prototype.renderBlockAfterEvent = function() { // @109:1
+ojster.example.templates.Person.prototype.renderBlockAfterEvent = function() { // @110:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	return this;

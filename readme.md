@@ -56,7 +56,7 @@ _...other command descriptions to be added..._
 #### block command
 
 * `<% @block blockName { %>` - opens block _blockName_
-* `<% @block } blockName %>` - closes block _blockName_ (blockName is optional here)
+* `<% @block blockName } %>` - closes block _blockName_ (blockName is optional here)
 
 Code related to content between these two commands will be placed to _appendBlockBlockName_ method of resulting template class.
 Blocks can be nested. If block is nested corresponding method call will be placed in appropriate place of nesting block.
@@ -103,7 +103,7 @@ This examples will be translated into something like this:
 
 And of course `i` is undefined within `appendBlockB` function scope. Use parametrized blocks to transfer local variables into scope of nested block.
 
-`<% @block blockName { } %>` - opens and closes block _blockName_. Such an empty block can be defined to be overriden in child templates.
+`<% @block blockName {} %>` - opens and closes block _blockName_. Such an empty block can be defined to be overriden in child templates.
 
 `main` is a special block name indicating a block that will be appended on template's `render()` method call.
 By default, text outside of any block will be supposed to be a raw JS code.

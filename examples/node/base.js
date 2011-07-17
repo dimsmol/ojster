@@ -23,9 +23,6 @@ Base.prototype.renderBlockMain = function() { // @4:1
 		'</title>'
 	); // @9:1
 	self.renderBlockCss();
-	self.writer.write(
-		' '
-	); // @10:1
 	self.renderBlockScript();
 	self.writer.write(
 		'</head><body>'
@@ -34,31 +31,37 @@ Base.prototype.renderBlockMain = function() { // @4:1
 	self.writer.write(
 		'</body></html>'
 	);
+	return this;
 }; // @14:1
 
 Base.prototype.renderBlockMeta = function() { // @7:1
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 
 Base.prototype.renderBlockTitle = function() { // @8:8
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 
 Base.prototype.renderBlockCss = function() { // @9:1
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 
 Base.prototype.renderBlockScript = function() { // @10:1
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 
 Base.prototype.renderBlockContent = function() { // @12:7
 	var self = this;
 	var d = this.data, vars = this.vars;
+	return this;
 };
 
 module.exports = Base;

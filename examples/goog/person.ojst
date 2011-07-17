@@ -23,11 +23,11 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
     vars.score = this.calculateScore(d); // vars is right place for template-level variables
     ojster.example.templates.Base.prototype.renderBlockMain();
 %>
-<% @block } main %>
+<% @block main } %>
 
 // code could be here too, almost anywhere
 
-<% @block title { %>Person #<%= d.id %><% @block } title %>
+<% @block title { %>Person #<%= d.id %><% @block title } %>
 
 <% @block script { %>
 <%-'<'%>script> // seems like jslint tries to check code within 'script' tags even if it's part of string constant, so avoid it
@@ -37,10 +37,10 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
     ojster.example.page.initPage(settings);
 })();
 </script>
-<% @block } script %>
+<% @block script } %>
 
 <% @block content { %>
-    <div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block } fullName %>!</div>
+    <div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block fullName } %>!</div>
     <div>Your score: <%= vars.score %></div>
     <div>Your skills, <% this.renderBlockFullName(); %>:</div>
     <% this.renderBlockSkills(); %>
@@ -80,7 +80,7 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
     <% // possible but less effective: %>
     <%- new Snippets(this.ctx, d.email).renderBlockEmail().done() %>
     <%- ojster.template(Hobbies, this.ctx, d.about).renderBlockShort().write(' -> ').renderBlockHidden().done() %>
-<% @block } content %>
+<% @block content } %>
 
 <% @block skills { %>
 <%
@@ -101,10 +101,10 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
 <%
     }
 %>
-<% @block } skills %>
+<% @block skills } %>
 
 <% @block noSkills { %>
     You have no skills :(
-<% @block } noSkills %>
+<% @block noSkills } %>
 
 <% @block afterEvent {} %>
