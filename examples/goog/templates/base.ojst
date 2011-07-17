@@ -1,0 +1,31 @@
+<% // goog only templates does not need aliases %>
+<% @require ojster.Template %>
+
+<% @template ojster.example.templates.Base %>
+<% @inherits Template %>
+
+<%
+// never define variables and functions outside of blocks because they will be global
+// but you can use fully qualified name to store something
+
+ojster.example.templates.Base.myValue = 5;
+ojster.example.templates.Base.twistScore = function(value) {
+    return value * 5 / 3;
+};
+%>
+
+<% @block main { %>
+    <%
+        // within blocks you can freely define variables and functions
+        // they will be bound by generated method scope
+        var tmp = ojster.Template.prototype;
+
+        function f() {
+            return 'f';
+        }
+
+        // you have no automatically defined aliases, but here you can use your own
+        var Base = ojster.example.templates.Base;
+        // they will be visible within block
+    %>
+<% @block main } %>

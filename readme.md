@@ -71,7 +71,7 @@ Blocks can be nested. If block is nested corresponding method call will be place
 will be translated into something like
 
     TemplateClass.prototype.appendBlockA = function() {
-        this.append('a ');
+        this.append('a');
         this.appendBlockB();
     };
 

@@ -1,0 +1,28 @@
+<% @require Template ojster.Template %>
+
+<% @template Base ojster.example.templates.Base %>
+<%
+// goog.scope will be started rigth after template definition
+// any aliases defined above can be used within scope,
+// because they will be explicitly defined
+%>
+<% @inherits Template %>
+
+<%
+// it is safe to define any variables within scope,
+// they will not be available outside
+
+var tmp = Template.prototype; // using alias
+var tmp1 = ojster.Template; // fully qualified names can be used as well
+%>
+
+<% @block main { %>
+    <%
+        var tmp = Template.prototype;
+        var tmp1 = ojster.Template;
+    %>
+<% @block main } %>
+
+<%
+// goog.scope will be finished at the end of file
+%>

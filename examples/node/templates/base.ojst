@@ -1,0 +1,27 @@
+<% // templates designed exclusively for node do not need fully qualified names %>
+
+<%
+// variables can be safely defined at any place
+// they are bound to produced module only
+var tmp;
+
+// the same is true for functions
+function abc() {
+    return 'abc';
+}
+%>
+
+<% // @require needs path and optional subpath as defined below  %>
+<% @require Template = 'ojster'.Template %>
+<% @require MyLib = './my_lib' %>
+
+<% // @template and @inherits need alias only %>
+<% @template Base %>
+<% @inherits Template %>
+
+<%
+// any code within and outside of blocks can use any of aliases defined above
+var tmp1 = Base.prototype;
+%>
+
+<% @block main {} %>

@@ -1,0 +1,33 @@
+<% // universal templates must provide both aliases and fully qualified names %>
+
+<% // @require also needs path to library for node %>
+<% @require Template = 'ojster'.Template ojster.Template %>
+
+<% @template Base ojster.example.Base %>
+<% @inherits Template ojster.Template %>
+
+<%
+// aliases can be used only if you are planning to compile with goog.scope enabled
+// else there is no way to introduce them without poluting global
+
+// variables defined outside of blocks will become global if goog.scope is not enabled
+// the same is true for functions
+
+// on the other hand, fully qualified names also cannot be used,
+// because node knows nothing about them
+
+// so, enabling goog.scope can sometimes be the only way to get trully universal template
+%>
+
+<% @block main { %>
+<!DOCTYPE HTML>
+<html>
+<head>
+<% @block meta {} %>
+<title><% @block title {} %></title>
+<% @block css {} %>
+<% @block script {} %>
+</head>
+<body><% @block content {} %></body>
+</html>
+<% @block main } %>
