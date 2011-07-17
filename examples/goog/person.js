@@ -113,21 +113,15 @@ ojster.example.templates.Person.prototype.renderBlockContent = function() { // @
     var Hobbies = ojster.example.templates.Hobbies; // just an alias
 
     // how to render other template in place:
-    new Hobbies(this.ctx, d, this).render(); // NOTE third argument redirects rendering to our template writer
+    new Hobbies(this.ctx, d).renderTo(this);
     
 
 	// possible but less effective:
 
 	self.writer.write(
 		new Hobbies(this.ctx, d).render() // @66:5
-	); // @68:5
-
-    var Snippets = ojster.example.templates.Snippets;
-
-    // how to render block of other template in place:
-    new Snippets(this.ctx, d.email, this).renderBlockEmail();
-    
-}; // @74:1
+	);
+}; // @67:1
 
 ojster.example.templates.Person.prototype.renderBlockFullName = function() { // @43:17
 	var self = this;
@@ -144,7 +138,7 @@ ojster.example.templates.Person.prototype.renderBlockBeforeEvent = function() { 
 	var d = this.data, vars = this.vars;
 };
 
-ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @76:1
+ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @69:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -164,25 +158,25 @@ ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @7
 
 	self.writer.write(
 		'<div>',
-		self.escape(skill.name), // @92:14
+		self.escape(skill.name), // @85:14
 		': ',
-		self.escape(skill.value), // @92:33
+		self.escape(skill.value), // @85:33
 		'</div>'
-	); // @93:1
+	); // @86:1
 
     }
 
-}; // @96:1
+}; // @89:1
 
-ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // @98:1
+ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // @91:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'You have no skills :('
 	);
-}; // @100:1
+}; // @93:1
 
-ojster.example.templates.Person.prototype.renderBlockAfterEvent = function() { // @102:1
+ojster.example.templates.Person.prototype.renderBlockAfterEvent = function() { // @95:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };

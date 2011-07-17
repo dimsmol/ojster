@@ -60,17 +60,10 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
     var Hobbies = ojster.example.templates.Hobbies; // just an alias
 
     // how to render other template in place:
-    new Hobbies(this.ctx, d, this).render(); // NOTE third argument redirects rendering to our template writer
+    new Hobbies(this.ctx, d).renderTo(this);
     %>
     <% // possible but less effective: %>
     <%- new Hobbies(this.ctx, d).render() %>
-
-    <%
-    var Snippets = ojster.example.templates.Snippets;
-
-    // how to render block of other template in place:
-    new Snippets(this.ctx, d.email, this).renderBlockEmail();
-    %>
 <% @block content } %>
 
 <% @block skills { %>

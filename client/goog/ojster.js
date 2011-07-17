@@ -8,14 +8,21 @@ goog.require('goog.dom.TagName');
 
 // StringWriter
 
-ojster.StringWriter = function() {
+ojster.StringWriter = function(owner) {
+	this.owner = owner;
 	this.buff = [];
-	this.owner = null;
 };
 
-// used to get true writer if wrapper object is passed instead (see Template class code)
-ojster.StringWriter.prototype.getWriter = function() {
-	return this;
+ojster.StringWriter.prototype.becomeOwnedBy = function(owner) {
+	if (this.owner == null) {
+		this.owner = owner;
+		return true;
+	}
+	return false;
+};
+
+ojster.StringWriter.prototype.isOwnedBy = function(owner) {
+	return this.owner == owner;
 };
 
 ojster.StringWriter.prototype.write = function() {
@@ -34,38 +41,36 @@ ojster.DefaultWriterClass = ojster.StringWriter;
 ojster.Template = function(ctx, data, writer) {
 	this.ctx = ctx;
 	this.data = data;
-	this.writer = writer == null ? new DefaultWriterClass() : writer.getWriter(); // writer argument can actually be writer's wrapper, unwrapping it
-	if (this.writer.owner == null) {
-		this.writer.owner = this;
-	}
-};
-
-// an example, will be overriden by child template
-ojster.Template.prototype.renderBlockMain = function() {
-	var self = this;
-	var d = this.data, vars = this.vars; // block locals
-
-	self.writer.write(
-		'Template example, data are:\n',
-		d
-	);
+	this.writer = writer;
 };
 
 ojster.Template.prototype.escape = function(str) {
 	return ojster.escape(str);
 };
 
-// used to get true writer if template is passed instead of it
-ojster.Template.prototype.getWriter = function() {
-	return this.writer;
-};
-
 ojster.Template.prototype.render = function() {
+	// ensure we have a writer
+	if (this.writer == null) {
+		this.writer = new ojster.DefaultWriterClass(this);
+	} else {
+		this.writer.becomeOwnedBy(this);
+	}
+
+	// render
 	this.renderBlockMain();
-	if (this.writer.owner == this) {
+	if (this.writer.isOwnedBy(this)) {
 		return this.writer.done();
 	}
 	return undefined;
+};
+
+ojster.Template.prototype.renderTo = function(template) {
+	this.writer = template.writer;
+	this.renderBlockMain();
+};
+
+ojster.Template.prototype.renderBlockMain = function() {
+	throw new Error('Not implemented');
 };
 
 
