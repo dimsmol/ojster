@@ -1,5 +1,7 @@
+<% @require Template = 'ojster/lib/template' %>
 
 <% @template Base mtl %>
+<% @inherits Template ojster %>
 
 <% @block main { %>
 <html>

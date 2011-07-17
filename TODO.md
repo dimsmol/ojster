@@ -1,5 +1,6 @@
 # TODO
 
+* allow to not specify require alias for goog without goog.scope
 * parametrized blocks
 * way to override constructor
 * fix single file compilation support for path_compiler (works partially)

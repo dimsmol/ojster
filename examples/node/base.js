@@ -2,7 +2,6 @@
 // usually, there is no reason to edit it manually
 
 var inherits = require('util').inherits;
-
 var Template = require('ojster/lib/template');
 
 var Base = function() {
@@ -10,57 +9,57 @@ var Base = function() {
 };
 inherits(Base, Template);
 
-Base.prototype.renderBlockMain = function() { // @4:1
+Base.prototype.renderBlockMain = function() { // @6:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<html><head>'
-	); // @7:1
+	); // @9:1
 	self.renderBlockMeta();
 	self.writer.write(
 		'<title>'
-	); // @8:8
+	); // @10:8
 	self.renderBlockTitle();
 	self.writer.write(
 		'</title>'
-	); // @9:1
+	); // @11:1
 	self.renderBlockCss();
 	self.renderBlockScript();
 	self.writer.write(
 		'</head><body>'
-	); // @12:7
+	); // @14:7
 	self.renderBlockContent();
 	self.writer.write(
 		'</body></html>'
 	);
 	return this;
-}; // @14:1
+}; // @16:1
 
-Base.prototype.renderBlockMeta = function() { // @7:1
+Base.prototype.renderBlockMeta = function() { // @9:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	return this;
 };
 
-Base.prototype.renderBlockTitle = function() { // @8:8
+Base.prototype.renderBlockTitle = function() { // @10:8
 	var self = this;
 	var d = this.data, vars = this.vars;
 	return this;
 };
 
-Base.prototype.renderBlockCss = function() { // @9:1
+Base.prototype.renderBlockCss = function() { // @11:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	return this;
 };
 
-Base.prototype.renderBlockScript = function() { // @10:1
+Base.prototype.renderBlockScript = function() { // @12:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	return this;
 };
 
-Base.prototype.renderBlockContent = function() { // @12:7
+Base.prototype.renderBlockContent = function() { // @14:7
 	var self = this;
 	var d = this.data, vars = this.vars;
 	return this;
