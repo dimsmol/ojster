@@ -3,7 +3,6 @@
 
 goog.provide('ojster.example.templates.Person');
 
-goog.require('ojster.example.page');
 goog.require('ojster.example.templates.Base');
 goog.require('ojster.example.templates.Hobbies');
 
@@ -17,6 +16,8 @@ goog.inherits(ojster.example.templates.Person, ojster.example.templates.Base);
 // some of features used will provide non-working code if goog.scope is not enabled
 // i.g. function definition outside of block and using aliases
 
+// fully qualified names cannot be used here, because node does not understand them
+
 
 
 // usually code is enclosed into such a "tag"
@@ -27,64 +28,64 @@ function twistScore(value) {
 
 // but beyond blocks code can be inserted just plain
 Person.prototype.calculateScore = function(person) {
-    return Person.twistScore(person.score);
+    return twistScore(person.score);
 };
 
-ojster.example.templates.Person.prototype.renderBlockMain = function() { // @26:1
+ojster.example.templates.Person.prototype.renderBlockMain = function() { // @27:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
     // TODO bad example, need 'init' function instead
     vars.score = this.calculateScore(d); // vars is right place for template-level variables
-    ojster.example.templates.Base.prototype.renderBlockMain();
+    Base.prototype.renderBlockMain.call(this);
 
-}; // @32:1
+}; // @33:1
 
 // code could be here too, almost anywhere
 
-ojster.example.templates.Person.prototype.renderBlockTitle = function() { // @36:1
+ojster.example.templates.Person.prototype.renderBlockTitle = function() { // @37:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'Person #',
-		self.escape(d.id) // @36:29
+		self.escape(d.id) // @37:29
 	);
-}; // @36:40
+}; // @37:40
 
-ojster.example.templates.Person.prototype.renderBlockScript = function() { // @38:1
+ojster.example.templates.Person.prototype.renderBlockScript = function() { // @39:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<script>'
-	); // @40:1
+	); // @41:1
 
 	// seems like jslint tries to check code within 'script' tags even if it's part of string constant, so avoid it
 
 	self.writer.write(
 		'(function() {\n    // TODO good for node, but bad for goog\n    var settings = ',
-		JSON.stringify(ctx.pageSettings), // @43:20
+		JSON.stringify(this.ctx.pageSettings), // @44:20
 		'; // inserting JSON unescaped\n    ojster.example.page.initPage(settings);\n})();</script>'
 	);
-}; // @47:1
+}; // @48:1
 
-ojster.example.templates.Person.prototype.renderBlockContent = function() { // @49:1
+ojster.example.templates.Person.prototype.renderBlockContent = function() { // @50:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<div>Hello, '
-	); // @50:17
+	); // @51:17
 	self.renderBlockFullName();
 	self.writer.write(
 		'!</div><div>Your score: ',
-		self.escape(vars.score), // @51:22
+		self.escape(vars.score), // @52:22
 		'</div><div>Your skills, '
-	); // @52:23
+	); // @53:23
 
 	this.renderBlockFullName();
 
 	self.writer.write(
 		':</div>'
-	); // @53:5
+	); // @54:5
 
 	this.renderBlockSkills();
 
@@ -93,16 +94,16 @@ ojster.example.templates.Person.prototype.renderBlockContent = function() { // @
 
 	self.writer.write(
 		'<div>Your events:</div>'
-	); // @56:9
+	); // @57:9
 
 	d.events.forEach(function(event) {
 
 	self.renderBlockBeforeEvent();
 	self.writer.write(
 		'<div>',
-		self.escape(event.Name), // @58:18
+		self.escape(event.Name), // @59:18
 		'</div>'
-	); // @59:13
+	); // @60:13
 
 	self.renderBlockAfterEvent(); // 'self' alias of 'this' can be used when needed
 
@@ -116,38 +117,38 @@ ojster.example.templates.Person.prototype.renderBlockContent = function() { // @
 	// checking whitespaces compaction:
 
 	self.writer.write(
-		'-', // @64:5
+		'<div>-', // @65:5
 		' ',
-		'-' // @64:14
-	); // @66:5
+		'-</div>' // @65:19
+	); // @67:5
 
     // rendering other template in place:
     new Hobbies(this.ctx, d).renderTo(this);
-
+    
 
 	// possible but less effective:
 
 	self.writer.write(
-		new Hobbies(this.ctx, d).render() // @71:5
+		new Hobbies(this.ctx, d).render() // @72:5
 	);
-}; // @72:1
+}; // @73:1
 
-ojster.example.templates.Person.prototype.renderBlockFullName = function() { // @50:17
+ojster.example.templates.Person.prototype.renderBlockFullName = function() { // @51:17
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		self.escape(d.firstName), // @50:40
+		self.escape(d.firstName), // @51:40
 		' ',
-		self.escape(d.lastName) // @50:59
+		self.escape(d.lastName) // @51:59
 	);
-}; // @50:76
+}; // @51:76
 
-ojster.example.templates.Person.prototype.renderBlockBeforeEvent = function() { // @57:13
+ojster.example.templates.Person.prototype.renderBlockBeforeEvent = function() { // @58:13
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @74:1
+ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @75:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -163,29 +164,29 @@ ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @7
     }
 
     for (var i=0, l=d.skills.length; i < l; i++) {
-        var skill = skills[i];
+        var skill = d.skills[i];
 
 	self.writer.write(
 		'<div>',
-		self.escape(skill.name), // @90:14
+		self.escape(skill.name), // @91:14
 		': ',
-		self.escape(skill.value), // @90:33
+		self.escape(skill.value), // @91:33
 		'</div>'
-	); // @91:1
+	); // @92:1
 
     }
 
-}; // @94:1
+}; // @95:1
 
-ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // @96:1
+ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // @97:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		'You have no skills :('
+		'<div>You have no skills :(</div>'
 	);
-}; // @98:1
+}; // @99:1
 
-ojster.example.templates.Person.prototype.renderBlockAfterEvent = function() { // @100:1
+ojster.example.templates.Person.prototype.renderBlockAfterEvent = function() { // @101:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };

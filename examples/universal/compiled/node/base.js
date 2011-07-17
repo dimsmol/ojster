@@ -5,7 +5,7 @@ var inherits = require('util').inherits;
 // universal templates must provide both aliases and fully qualified names
 
 // @require also needs path to library for node
-var Template = require('ojster').Template;
+var Template = require('../../../../lib/ojster').Template; // normally path will be just 'ojster'
 
 var Base = function() {
 	Template.apply(this, arguments);

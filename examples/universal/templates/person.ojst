@@ -1,4 +1,3 @@
-<% @require page = '../page' ojster.example.page %>
 <% @require Base = './base' ojster.example.templates.Base %>
 <% @require Hobbies = './hobbies' ojster.example.templates.Hobbies %>
 
@@ -9,6 +8,8 @@
 // here is assumed that template will be compiled with goog.scope enabled
 // some of features used will provide non-working code if goog.scope is not enabled
 // i.g. function definition outside of block and using aliases
+
+// fully qualified names cannot be used here, because node does not understand them
 %>
 
 <%
@@ -20,14 +21,14 @@ function twistScore(value) {
 
 // but beyond blocks code can be inserted just plain
 Person.prototype.calculateScore = function(person) {
-    return Person.twistScore(person.score);
+    return twistScore(person.score);
 };
 
 <% @block main { %>
 <%
     // TODO bad example, need 'init' function instead
     vars.score = this.calculateScore(d); // vars is right place for template-level variables
-    ojster.example.templates.Base.prototype.renderBlockMain();
+    Base.prototype.renderBlockMain.call(this);
 %>
 <% @block main } %>
 
@@ -40,7 +41,7 @@ Person.prototype.calculateScore = function(person) {
 <% // seems like jslint tries to check code within 'script' tags even if it's part of string constant, so avoid it %>
 (function() {
     // TODO good for node, but bad for goog
-    var settings = <%- JSON.stringify(ctx.pageSettings) %>; // inserting JSON unescaped
+    var settings = <%- JSON.stringify(this.ctx.pageSettings) %>; // inserting JSON unescaped
     ojster.example.page.initPage(settings);
 })();
 </script>
@@ -61,7 +62,7 @@ Person.prototype.calculateScore = function(person) {
     <% } %>
 
     <% // checking whitespaces compaction: %>
-    <%-'-'%> <%-'-'%>
+    <%-'<div>-'%> <%-'-</div>'%>
 
     <%
     // rendering other template in place:
@@ -85,7 +86,7 @@ Person.prototype.calculateScore = function(person) {
     }
 
     for (var i=0, l=d.skills.length; i < l; i++) {
-        var skill = skills[i];
+        var skill = d.skills[i];
 %>
         <div><%= skill.name %>: <%= skill.value %></div>
 <%
@@ -94,7 +95,7 @@ Person.prototype.calculateScore = function(person) {
 <% @block skills } %>
 
 <% @block noSkills { %>
-    You have no skills :(
+    <div>You have no skills :(</div>
 <% @block noSkills } %>
 
 <% @block afterEvent {} %>

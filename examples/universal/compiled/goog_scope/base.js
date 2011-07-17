@@ -6,7 +6,7 @@ goog.provide('ojster.example.Base');
 // universal templates must provide both aliases and fully qualified names
 
 // @require also needs path to library for node
-goog.require('ojster.Template');
+goog.require('ojster.Template'); // normally path will be just 'ojster'
 
 ojster.example.Base = function() {
 	ojster.Template.apply(this, arguments);

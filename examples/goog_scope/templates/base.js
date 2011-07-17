@@ -29,7 +29,7 @@ ojster.example.templates.Base.prototype.renderBlockMain = function() { // @19:1
 
         var tmp = Template.prototype;
         var tmp1 = ojster.Template;
-
+    
 }; // @24:1
 
 

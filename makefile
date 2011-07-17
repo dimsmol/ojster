@@ -14,6 +14,7 @@ examples-universal: examples-universal-node examples-universal-goog-scope
 
 examples-universal-node:
 	@ojster ./examples/universal/templates ./examples/universal/compiled/node
+	@node ./examples/universal/node_example.js
 
 examples-universal-goog-scope:
 	@ojster ./examples/universal/templates ./examples/universal/compiled/goog_scope --goog --scope

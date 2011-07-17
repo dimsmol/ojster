@@ -3,7 +3,7 @@
 
 goog.provide('ojster.example.templates.Base');
 
-// goog only templates does not need aliases
+// goog-only templates does not need aliases
 goog.require('ojster.Template');
 
 ojster.example.templates.Base = function() {
@@ -36,6 +36,6 @@ ojster.example.templates.Base.prototype.renderBlockMain = function() { // @17:1
         // you have no automatically defined aliases, but here you can use your own
         var Base = ojster.example.templates.Base;
         // they will be visible within block
-
+    
 }; // @31:1
 

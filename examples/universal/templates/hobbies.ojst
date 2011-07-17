@@ -1,0 +1,8 @@
+<% @require Template = '../../../../lib/ojster'.Template ojster.example.templates.Base %> <% // normally path will be just 'ojster' %>
+
+<% @template Hobbies ojster.example.templates.Hobbies %>
+<% @inherits Template ojster.Template %>
+
+<% @block main { %>
+    <div>No hobbies detected.</div>
+<% @block main } %>

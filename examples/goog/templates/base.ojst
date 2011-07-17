@@ -1,4 +1,4 @@
-<% // goog only templates does not need aliases %>
+<% // goog-only templates does not need aliases %>
 <% @require ojster.Template %>
 
 <% @template ojster.example.templates.Base %>
