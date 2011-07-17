@@ -1,9 +1,9 @@
-<% @require page ojster.example.page %> // 'page' is an alias, can be used if goog.scope is enabled
-<% @require Base ojster.example.templates.Base %>
-<% @require Hobbies ojster.example.templates.Hobbies %>
+<% @require ojster.example.page %>
+<% @require ojster.example.templates.Base %>
+<% @require ojster.example.templates.Hobbies %>
 
-<% @template Person ojster.example.templates %>
-<% @inherits Base ojster.example.templates %>
+<% @template ojster.example.templates.Person %>
+<% @inherits ojster.example.templates.Base %>
 
 <%
 // usually code is enclosed into such a "tag"

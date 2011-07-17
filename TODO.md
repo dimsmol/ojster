@@ -1,12 +1,14 @@
 # TODO
 
 * allow to not specify require alias for goog without goog.scope
+* add --scope option, check correctness in scope mode
 * parametrized blocks
 * way to override constructor
 * fix single file compilation support for path_compiler (works partially)
 
 * add template examples
 
+* fix identifierRegExp in tokenizer (too strict for now)
 * fix problem with various number of line breaks between requires for default and custom template based templates
 * fix possible collisions problem with auto-requiring default base class and other such things
 
@@ -24,5 +26,4 @@
 
 ## GoogRenderer
 
-* fix handling of module subObjects (prohibited now)
 * move all goog-related stuff from default generator to GoogGenerator

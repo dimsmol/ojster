@@ -1,7 +1,7 @@
-<% @require Template ojster.Template %>
+<% @require ojster.Template %>
 
-<% @template Base ojster.example %>
-<% @inherits Template ojster %>
+<% @template ojster.example.Base %>
+<% @inherits ojster.Template %>
 
 <% @block main { %>
 <!DOCTYPE HTML>
