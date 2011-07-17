@@ -28,6 +28,8 @@ ojster.Template = function(ctx, data, writer) {
 	this.ctx = ctx;
 	this.data = data;
 	this.writer = writer;
+
+	this.vars = {};
 };
 
 ojster.Template.prototype.escape = function(str) {
