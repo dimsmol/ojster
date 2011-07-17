@@ -8,21 +8,7 @@ goog.require('goog.dom.TagName');
 
 // StringWriter
 
-ojster.StringWriter = function(owner) {
-	this.owner = owner;
-	this.buff = [];
-};
-
-ojster.StringWriter.prototype.becomeOwnedBy = function(owner) {
-	if (this.owner == null) {
-		this.owner = owner;
-		return true;
-	}
-	return false;
-};
-
-ojster.StringWriter.prototype.isOwnedBy = function(owner) {
-	return this.owner == owner;
+ojster.StringWriter = function() {
 };
 
 ojster.StringWriter.prototype.write = function() {
@@ -51,17 +37,12 @@ ojster.Template.prototype.escape = function(str) {
 ojster.Template.prototype.render = function() {
 	// ensure we have a writer
 	if (this.writer == null) {
-		this.writer = new ojster.DefaultWriterClass(this);
-	} else {
-		this.writer.becomeOwnedBy(this);
+		this.writer = new ojster.DefaultWriterClass();
 	}
 
 	// render
 	this.renderBlockMain();
-	if (this.writer.isOwnedBy(this)) {
-		return this.writer.done();
-	}
-	return undefined;
+	return this.writer.done();
 };
 
 ojster.Template.prototype.renderTo = function(template) {
