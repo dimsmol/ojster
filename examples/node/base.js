@@ -32,37 +32,31 @@ Base.prototype.renderBlockMain = function() { // @6:1
 	self.writer.write(
 		'</body></html>'
 	);
-	return this;
 }; // @16:1
 
 Base.prototype.renderBlockMeta = function() { // @9:1
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
 Base.prototype.renderBlockTitle = function() { // @10:8
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
 Base.prototype.renderBlockCss = function() { // @11:1
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
 Base.prototype.renderBlockScript = function() { // @12:1
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
 Base.prototype.renderBlockContent = function() { // @14:7
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
 module.exports = Base;

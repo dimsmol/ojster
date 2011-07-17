@@ -33,36 +33,30 @@ ojster.example.Base.prototype.renderBlockMain = function() { // @6:1
 	self.writer.write(
 		'</body></html>'
 	);
-	return this;
 }; // @17:1
 
 ojster.example.Base.prototype.renderBlockMeta = function() { // @10:1
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
 ojster.example.Base.prototype.renderBlockTitle = function() { // @11:8
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
 ojster.example.Base.prototype.renderBlockCss = function() { // @12:1
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
 ojster.example.Base.prototype.renderBlockScript = function() { // @13:1
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
 ojster.example.Base.prototype.renderBlockContent = function() { // @15:7
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 

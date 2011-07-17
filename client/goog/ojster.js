@@ -10,6 +10,7 @@ goog.require('goog.dom.TagName');
 
 ojster.StringWriter = function() {
 	this.buff = [];
+	this.owner = null;
 };
 
 // used to get true writer if wrapper object is passed instead (see Template class code)
@@ -34,6 +35,9 @@ ojster.Template = function(ctx, data, writer) {
 	this.ctx = ctx;
 	this.data = data;
 	this.writer = writer == null ? new DefaultWriterClass() : writer.getWriter(); // writer argument can actually be writer's wrapper, unwrapping it
+	if (this.writer.owner == null) {
+		this.writer.owner = this;
+	}
 };
 
 // an example, will be overriden by child template
@@ -56,20 +60,12 @@ ojster.Template.prototype.getWriter = function() {
 	return this.writer;
 };
 
-ojster.Template.prototype.write = function() {
-	this.writer.write.apply(this.writer, arguments);
-	return this;
-};
-
-ojster.Template.prototype.done = function() {
-    return this.writer.done();
-};
-
 ojster.Template.prototype.render = function() {
-	if (arguments.length == 0) {
-		return this.renderBlockMain();
+	this.renderBlockMain();
+	if (this.writer.owner == this) {
+		return this.writer.done();
 	}
-	return this.renderBlockMain.apply(this, arguments);
+	return undefined;
 };
 
 
@@ -82,19 +78,15 @@ ojster.escape = function(str) {
 			       .replace(/"/g, '&quot;');
 };
 
-ojster._getRendered = function(templateClass, ctx, data, args, writer) {
-	return ojster.render(templateClass, ctx, data, args, writer).done();
-};
-
-ojster.fillElement = function(element, html) {
-	element.innerHTML = html;
+ojster.fillElement = function(element, template) {
+	element.innerHTML = template.render();
 	return element;
 };
 
-ojster.createElement = function(html, domHelper) {
+ojster.createElement = function(template, domHelper) {
 	var dom = opt_domHelper || goog.dom.getDomHelper();
 	var wrapper = dom.createElement(goog.dom.TagName.DIV);
-	wrapper.innerHTML = html;
+	wrapper.innerHTML = template.render();
 
 	if (wrapper.childNodes.length == 1) {
 		var firstChild = wrapper.firstChild;
@@ -106,20 +98,7 @@ ojster.createElement = function(html, domHelper) {
 	return wrapper;
 };
 
-ojster.createFragment = function(html, domHelper) {
+ojster.createFragment = function(template, domHelper) {
 	var dom = opt_domHelper || goog.dom.getDomHelper();
-	return dom.htmlToDocumentFragment(html);
+	return dom.htmlToDocumentFragment(template.render());
 };
-
-ojster.renderToElement = function(element, templateClass, ctx, data, args) {
-	return ojster.fillElement(element, ojster._getRendered(templateClass, ctx, data, args));
-};
-
-ojster.renderAsElement = function(templateClass, ctx, data, args, domHelper) {
-	return ojster.createElement(ojster._getRendered(templateClass, ctx, data, args), domHelper);
-};
-
-ojster.renderAsFragment = function(templateClass, ctx, data, args, domHelper) {
-	return ojster.createFragment(ojster._getRendered(templateClass, ctx, data, args), domHelper);
-};
-

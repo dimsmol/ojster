@@ -57,41 +57,33 @@ ojster.example.templates.Person.prototype.calculateScore = function(person) {
     <%-'-'%> <%-'-'%>
 
     <%
-    this.writer.write('<div>this.writer.write() can be ', 'used at any moment', '</div>');
-    this.write('<div>this.write() is the same, but a little bit less effective', ' (designed primary to use in chains, see below)</div>');
-
     var Hobbies = ojster.example.templates.Hobbies; // just an alias
 
     // how to render other template in place:
-    new Hobbies(this.ctx, d, this).render(); // NOTE third argument makes redirects rendering to our template writer
+    new Hobbies(this.ctx, d, this).render(); // NOTE third argument redirects rendering to our template writer
     %>
     <% // possible but less effective: %>
-    <%- new Hobbies(this.ctx, d).render.done() %>
+    <%- new Hobbies(this.ctx, d).render() %>
 
     <%
     var Snippets = ojster.example.templates.Snippets;
 
     // how to render block of other template in place:
     new Snippets(this.ctx, d.email, this).renderBlockEmail();
-
-    // rendering chains can be used:
-    new Snippets(this.ctx, d.about, this).renderBlockShort().write(' -> ').renderBlockHidden();
     %>
-    <% // possible but less effective: %>
-    <%- new Snippets(this.ctx, d.email).renderBlockEmail().done() %>
-    <%- ojster.template(Hobbies, this.ctx, d.about).renderBlockShort().write(' -> ').renderBlockHidden().done() %>
 <% @block content } %>
 
 <% @block skills { %>
 <%
     if (vars.areSkillsRendered) {
-        return this; // must return 'this' object if do return manually
+        return;
     }
 
     vars.areSkillsRendered = true;
 
     if (!d.skills) {
-        return this.renderBlockNoSkills();
+        this.renderBlockNoSkills();
+        return;
     }
 
     for (var i=0, l=d.skills.length; i < l; i++) {

@@ -32,7 +32,6 @@ ojster.example.templates.Person.prototype.renderBlockMain = function() { // @20:
     vars.score = this.calculateScore(d); // vars is right place for template-level variables
     ojster.example.templates.Base.prototype.renderBlockMain();
 
-	return this;
 }; // @26:1
 
 // code could be here too, almost anywhere
@@ -44,7 +43,6 @@ ojster.example.templates.Person.prototype.renderBlockTitle = function() { // @30
 		'Person #',
 		self.escape(d.id) // @30:29
 	);
-	return this;
 }; // @30:40
 
 ojster.example.templates.Person.prototype.renderBlockScript = function() { // @32:1
@@ -56,7 +54,6 @@ ojster.example.templates.Person.prototype.renderBlockScript = function() { // @3
 		JSON.stringify(ctx.pageSettings), // @36:20
 		'; // inserting JSON unescaped\n    ojster.example.page.initPage(settings);\n})();</script>'
 	);
-	return this;
 }; // @40:1
 
 ojster.example.templates.Person.prototype.renderBlockContent = function() { // @42:1
@@ -113,38 +110,24 @@ ojster.example.templates.Person.prototype.renderBlockContent = function() { // @
 		'-' // @57:14
 	); // @59:5
 
-    this.writer.write('<div>this.writer.write() can be ', 'used at any moment', '</div>');
-    this.write('<div>this.write() is the same, but a little bit less effective', ' (designed primary to use in chains, see below)</div>');
-
     var Hobbies = ojster.example.templates.Hobbies; // just an alias
 
     // how to render other template in place:
-    new Hobbies(this.ctx, d, this).render(); // NOTE third argument makes redirects rendering to our template writer
+    new Hobbies(this.ctx, d, this).render(); // NOTE third argument redirects rendering to our template writer
     
 
 	// possible but less effective:
 
 	self.writer.write(
-		new Hobbies(this.ctx, d).render.done() // @69:5
-	); // @71:5
+		new Hobbies(this.ctx, d).render() // @66:5
+	); // @68:5
 
     var Snippets = ojster.example.templates.Snippets;
 
     // how to render block of other template in place:
     new Snippets(this.ctx, d.email, this).renderBlockEmail();
-
-    // rendering chains can be used:
-    new Snippets(this.ctx, d.about, this).renderBlockShort().write(' -> ').renderBlockHidden();
     
-
-	// possible but less effective:
-
-	self.writer.write(
-		new Snippets(this.ctx, d.email).renderBlockEmail().done(), // @81:5
-		ojster.template(Hobbies, this.ctx, d.about).renderBlockShort().write(' -> ').renderBlockHidden().done() // @82:5
-	);
-	return this;
-}; // @83:1
+}; // @74:1
 
 ojster.example.templates.Person.prototype.renderBlockFullName = function() { // @43:17
 	var self = this;
@@ -154,27 +137,26 @@ ojster.example.templates.Person.prototype.renderBlockFullName = function() { // 
 		' ',
 		self.escape(d.lastName) // @43:59
 	);
-	return this;
 }; // @43:76
 
 ojster.example.templates.Person.prototype.renderBlockBeforeEvent = function() { // @50:13
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 
-ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @85:1
+ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @76:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
     if (vars.areSkillsRendered) {
-        return this; // must return 'this' object if do return manually
+        return;
     }
 
     vars.areSkillsRendered = true;
 
     if (!d.skills) {
-        return this.renderBlockNoSkills();
+        this.renderBlockNoSkills();
+        return;
     }
 
     for (var i=0, l=d.skills.length; i < l; i++) {
@@ -182,29 +164,26 @@ ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @8
 
 	self.writer.write(
 		'<div>',
-		self.escape(skill.name), // @100:14
+		self.escape(skill.name), // @92:14
 		': ',
-		self.escape(skill.value), // @100:33
+		self.escape(skill.value), // @92:33
 		'</div>'
-	); // @101:1
+	); // @93:1
 
     }
 
-	return this;
-}; // @104:1
+}; // @96:1
 
-ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // @106:1
+ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // @98:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'You have no skills :('
 	);
-	return this;
-}; // @108:1
+}; // @100:1
 
-ojster.example.templates.Person.prototype.renderBlockAfterEvent = function() { // @110:1
+ojster.example.templates.Person.prototype.renderBlockAfterEvent = function() { // @102:1
 	var self = this;
 	var d = this.data, vars = this.vars;
-	return this;
 };
 

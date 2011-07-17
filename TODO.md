@@ -8,6 +8,7 @@
 
 * add template examples
 * finalize readme.md
+    * mention that render() always calls renderMainBlock() without arguments
 
 * write usage for bin/ojster (within the script)
 * way to override constructor
