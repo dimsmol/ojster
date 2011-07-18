@@ -1,4 +1,3 @@
-
 goog.provide('ojster');
 
 goog.require('goog.dom');
@@ -6,8 +5,9 @@ goog.require('goog.dom.NodeType');
 goog.require('goog.dom.TagName');
 
 
-// StringWriter
-
+/**
+ * @constructor
+ */
 ojster.StringWriter = function() {
 	this.buff = [];
 };
@@ -16,6 +16,9 @@ ojster.StringWriter.prototype.write = function() {
 	this.buff.push.apply(this.buff, arguments);
 };
 
+/**
+ * @return {string}
+ */
 ojster.StringWriter.prototype.done = function() {
 	return this.buff.join('');
 };
@@ -23,23 +26,54 @@ ojster.StringWriter.prototype.done = function() {
 ojster.DefaultWriterClass = ojster.StringWriter;
 
 
-// Template
-
-ojster.Template = function(data, ctx, writer) {
-	this.data = data;
-	this.ctx = ctx;
-	this.writer = writer;
-
+/**
+ * @param {Object=} opt_data
+ * @param {Object=} opt_ctx
+ * @param {Object=} opt_writer
+ * @constructor
+ */
+ojster.Template = function(opt_data, opt_ctx, opt_writer) {
+	this.data = opt_data || null;
+	this.ctx = opt_ctx || null;
+	this.writer = opt_writer || null;
 	this.vars = {};
 };
 
+/**
+ * @type {?Object}
+ */
+ojster.Template.data;
+
+/**
+ * @type {?Object}
+ */
+ojster.Template.ctx;
+
+/**
+ * @type {?Object}
+ */
+ojster.Template.writer;
+
+/**
+ * @type {Object}
+ */
+ojster.Template.vars;
+
+
+/**
+ * @param {string} str
+ * @return {string}
+ */
 ojster.Template.prototype.escape = function(str) {
 	return ojster.escape(str);
 };
 
+/**
+ * @return {string}
+ */
 ojster.Template.prototype.render = function() {
 	// ensure we have a writer
-	if (this.writer == null) {
+	if (null === this.writer) {
 		this.writer = new ojster.DefaultWriterClass();
 	}
 
@@ -48,6 +82,9 @@ ojster.Template.prototype.render = function() {
 	return this.writer.done();
 };
 
+/**
+ * @param {ojster.Template} template
+ */
 ojster.Template.prototype.renderTo = function(template) {
 	this.writer = template.writer;
 	this.renderBlockMain();
@@ -60,25 +97,43 @@ ojster.Template.prototype.renderBlockMain = function() {
 
 // functions
 
+/**
+ * @param {string} str
+ * @return {string}
+ */
 ojster.escape = function(str) {
 	return (str+'').replace(/&/g, '&amp;')
-   			       .replace(/</g, '&lt;')
-			       .replace(/>/g, '&gt;')
-			       .replace(/"/g, '&quot;');
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;');
 };
 
+/**
+ * @param {Element} element
+ * @param {ojster.Template} template
+ * @return {Element}
+ */
 ojster.fillElement = function(element, template) {
 	element.innerHTML = template.render();
 	return element;
 };
 
-ojster.createElement = function(template, domHelper) {
+/**
+ * @param {ojster.Template} template
+ * @param {goog.dom.DomHelper=} opt_domHelper
+ * @return {Element}
+ */
+ojster.createElement = function(template, opt_domHelper) {
+	/** @type {goog.dom.DomHelper} */
 	var dom = opt_domHelper || goog.dom.getDomHelper();
+	/** @type {Element} */
 	var wrapper = dom.createElement(goog.dom.TagName.DIV);
 	wrapper.innerHTML = template.render();
 
 	if (wrapper.childNodes.length == 1) {
+		/** @type {Element} */
 		var firstChild = wrapper.firstChild;
+
 		if (firstChild.nodeType == goog.dom.NodeType.ELEMENT) {
 			return firstChild;
 		}
@@ -87,7 +142,12 @@ ojster.createElement = function(template, domHelper) {
 	return wrapper;
 };
 
-ojster.createFragment = function(template, domHelper) {
+/**
+ * @param {ojster.Template} template
+ * @param {goog.dom.DomHelper=} opt_domHelper
+ * @return {Node}
+ */
+ojster.createFragment = function(template, opt_domHelper) {
 	var dom = opt_domHelper || goog.dom.getDomHelper();
 	return dom.htmlToDocumentFragment(template.render());
 };
