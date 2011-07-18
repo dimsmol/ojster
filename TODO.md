@@ -1,5 +1,11 @@
 # TODO
 
+* fix examples
+    * fix '../../../../lib/ojster'
+    * fixes related to alias->name in @require
+* allow to use alias as path in @require if no path specified
+* allow to use subobjects in @require (just like subpath, but relative to fullName)
+
 * add createElement(html) and others (?)
 
 * add --scope option, check correctness in scope mode
