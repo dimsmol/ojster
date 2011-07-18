@@ -2,12 +2,12 @@
 // usually there is no reason to edit it manually
 
 var inherits = require('util').inherits;
-var Template = require('../../../../lib/ojster').Template; // normally path will be just 'ojster'
+var ojster = require('../../../../lib/ojster'); // normally path will be just 'ojster'
 
 var Hobbies = function() {
-	Template.apply(this, arguments);
+	ojster.Template.apply(this, arguments);
 };
-inherits(Hobbies, Template);
+inherits(Hobbies, ojster.Template);
 
 Hobbies.prototype.renderBlockMain = function() { // @6:1
 	var self = this;

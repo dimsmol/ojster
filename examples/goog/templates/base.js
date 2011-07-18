@@ -3,13 +3,13 @@
 
 goog.provide('ojster.example.templates.Base');
 
-// goog-only templates does not need aliases
-goog.require('ojster.Template');
+// goog-only templates do not need aliases
+goog.require('ojster');
 
 ojster.example.templates.Base = function() {
-	Template.apply(this, arguments);
+	ojster.Template.apply(this, arguments);
 };
-goog.inherits(ojster.example.templates.Base, Template);
+goog.inherits(ojster.example.templates.Base, ojster.Template);
 
 
 // never define variables and functions outside of blocks because they will be global

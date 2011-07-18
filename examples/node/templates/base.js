@@ -16,14 +16,14 @@ function abc() {
 
 
 // @require needs path and optional subpath as defined below
-var Template = require('ojster').Template;
+var ojster = require('ojster');
 var MyLib = require('./my_lib');
 
 // @template and @inherits need alias only
 var Base = function() {
-	Template.apply(this, arguments);
+	ojster.Template.apply(this, arguments);
 };
-inherits(Base, Template);
+inherits(Base, ojster.Template);
 
 
 // any code within and outside of blocks can use any of aliases defined above

@@ -1,8 +1,8 @@
-<% // goog-only templates does not need aliases %>
-<% @require ojster.Template %>
+<% // goog-only templates do not need aliases %>
+<% @require ojster %>
 
 <% @template ojster.example.templates.Base %>
-<% @inherits Template %>
+<% @inherits ojster.Template %>
 
 <%
 // never define variables and functions outside of blocks because they will be global

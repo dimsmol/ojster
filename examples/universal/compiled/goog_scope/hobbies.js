@@ -3,7 +3,7 @@
 
 goog.provide('ojster.example.templates.Hobbies');
 
-goog.require('ojster.example.templates.Base'); // normally path will be just 'ojster'
+goog.require('ojster'); // normally path will be just 'ojster'
 
 ojster.example.templates.Hobbies = function() {
 	ojster.Template.apply(this, arguments);
