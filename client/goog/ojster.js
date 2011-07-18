@@ -9,6 +9,7 @@ goog.require('goog.dom.TagName');
 // StringWriter
 
 ojster.StringWriter = function() {
+	this.buff = [];
 };
 
 ojster.StringWriter.prototype.write = function() {
@@ -16,7 +17,7 @@ ojster.StringWriter.prototype.write = function() {
 };
 
 ojster.StringWriter.prototype.done = function() {
-	this.buff.join('');
+	return this.buff.join('');
 };
 
 ojster.DefaultWriterClass = ojster.StringWriter;
