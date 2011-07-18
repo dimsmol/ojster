@@ -10,7 +10,7 @@ ojster.example.renderTemplate = function() {
 
 	var rendered = new Base().render();
 
-	var element = ojster.createElement(new Base(ctx, data));
-	var fragment = ojster.createFragment(new Base(null, data));
+	var element = ojster.createElement(new Base(data, ctx));
+	var fragment = ojster.createFragment(new Base(data));
 	ojster.fillElement(element, new Base());
 };

@@ -24,9 +24,9 @@ ojster.DefaultWriterClass = ojster.StringWriter;
 
 // Template
 
-ojster.Template = function(ctx, data, writer) {
-	this.ctx = ctx;
+ojster.Template = function(data, ctx, writer) {
 	this.data = data;
+	this.ctx = ctx;
 	this.writer = writer;
 
 	this.vars = {};

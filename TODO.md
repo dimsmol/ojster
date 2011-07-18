@@ -1,5 +1,7 @@
 # TODO
 
+* add createElement(html) and others (?)
+
 * add --scope option, check correctness in scope mode
 * parametrized blocks
 

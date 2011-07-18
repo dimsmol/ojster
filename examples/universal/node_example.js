@@ -15,6 +15,6 @@ var data = {
 	]
 };
 
-var rendered = new Person(ctx, data).render();
+var rendered = new Person(data, ctx).render();
 
 fs.writeFileSync(path.join(__dirname, 'rendered', 'person.html'), rendered);
