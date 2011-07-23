@@ -4,6 +4,7 @@
 * add createElement(html) and others (?)
 * parametrized blocks
 * fix single file compilation support for path_compiler (works partially)
+* generator-specific includes (parts of template script that will be included for specific generators only)
 
 * write usage for bin/ojster (within the script)
 * way to override constructor
