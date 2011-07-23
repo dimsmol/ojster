@@ -12,7 +12,7 @@ function abc() {
 %>
 
 <% // @require needs path and optional subpath as defined below  %>
-<% @require ojster = 'ojster' %>
+<% @require ojster %> // equivalent to: ojster = 'ojster'
 <% @require MyLib = './my_lib' %>
 
 <% // @template and @inherits need alias only %>

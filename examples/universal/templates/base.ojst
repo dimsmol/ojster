@@ -1,7 +1,7 @@
 <% // universal templates must provide both aliases and fully qualified names %>
 
 <% // @require also needs path to library for node %>
-<% @require ojster = '../../../../lib/ojster' %> <% // normally path will be just 'ojster' %>
+<% @require ojster = '../../../..' %> <% // normally path will be just 'ojster' %>
 
 <% @template Base ojster.example.Base %>
 <% @inherits ojster.Template %>

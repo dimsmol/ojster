@@ -16,7 +16,7 @@ function abc() {
 
 
 // @require needs path and optional subpath as defined below
-var ojster = require('ojster');
+var ojster = require('ojster'); // equivalent to: ojster = 'ojster'
 var MyLib = require('./my_lib');
 
 // @template and @inherits need alias only

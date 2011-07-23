@@ -1,4 +1,4 @@
-<% @require ojster = '../../../../lib/ojster' %> <% // normally path will be just 'ojster' %>
+<% @require ojster = '../../../..' %> <% // normally path will be just 'ojster' %>
 
 <% @template Hobbies ojster.example.templates.Hobbies %>
 <% @inherits ojster.Template %>
