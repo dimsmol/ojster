@@ -8,7 +8,6 @@
 * parametrized blocks
 
 * fix single file compilation support for path_compiler (works partially)
-* move all goog-related stuff from default generator to GoogGenerator
 
 * add template examples
 * finalize readme.md
