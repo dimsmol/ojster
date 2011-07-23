@@ -5,7 +5,9 @@ var inherits = require('util').inherits;
 // universal templates must provide both aliases and fully qualified names
 
 // @require also needs path to library for node
-var ojster = require('../../../..'); // normally path will be just 'ojster'
+var ojster = require('../../../..'); // normally path will be just 'ojster', fullName = alias if not explicitly specified
+// example of handling subpath and subname
+var SomeClass = require('../../../somemodule').sub.SomeClass;
 
 var Base = function() {
 	ojster.Template.apply(this, arguments);
@@ -25,52 +27,52 @@ inherits(Base, ojster.Template);
 // so, enabling goog.scope can sometimes be the only way to get trully universal template
 
 
-Base.prototype.renderBlockMain = function() { // @22:1
+Base.prototype.renderBlockMain = function() { // @24:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<!DOCTYPE HTML><html><head>'
-	); // @26:1
+	); // @28:1
 	self.renderBlockMeta();
 	self.writer.write(
 		'<title>'
-	); // @27:8
+	); // @29:8
 	self.renderBlockTitle();
 	self.writer.write(
 		'</title>'
-	); // @28:1
+	); // @30:1
 	self.renderBlockCss();
 	self.renderBlockScript();
 	self.writer.write(
 		'</head><body>'
-	); // @31:7
+	); // @33:7
 	self.renderBlockContent();
 	self.writer.write(
 		'</body></html>'
 	);
-}; // @33:1
+}; // @35:1
 
-Base.prototype.renderBlockMeta = function() { // @26:1
+Base.prototype.renderBlockMeta = function() { // @28:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockTitle = function() { // @27:8
+Base.prototype.renderBlockTitle = function() { // @29:8
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockCss = function() { // @28:1
+Base.prototype.renderBlockCss = function() { // @30:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockScript = function() { // @29:1
+Base.prototype.renderBlockScript = function() { // @31:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockContent = function() { // @31:7
+Base.prototype.renderBlockContent = function() { // @33:7
 	var self = this;
 	var d = this.data, vars = this.vars;
 };

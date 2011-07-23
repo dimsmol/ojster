@@ -4,16 +4,22 @@
 goog.provide('ojster.example.templates.Base');
 
 goog.require('ojster');
+goog.require('ojster.examples.somemodule');
+
+
+// goog.scope will be started right before template definition
+// any aliases defined above can be used within scope,
+// because they will be explicitly defined
+
+goog.scope(function() {
+
+var SomeClass = ojster.examples.somemodule.sub.SomeClass;
 
 ojster.example.templates.Base = function() {
 	ojster.Template.apply(this, arguments);
 };
-
-// goog.scope will be started rigth after template definition
-// any aliases defined above can be used within scope,
-// because they will be explicitly defined
-
-goog.inherits(ojster.example.templates.Base, ojster.Template);
+var Base = ojster.example.templates.Base;
+goog.inherits(Base, ojster.Template);
 
 
 // it is safe to define any variables within scope,
@@ -23,16 +29,17 @@ var tmp = Base.prototype; // using alias
 var tmp1 = ojster.example.templates.Base; // fully qualified names can be used as well
 
 
-ojster.example.templates.Base.prototype.renderBlockMain = function() { // @19:1
+Base.prototype.renderBlockMain = function() { // @20:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
         var tmp = ojster.Template.prototype;
         var tmp1 = ojster.Template;
     
-}; // @24:1
+}; // @25:1
 
 
-// goog.scope will be finished at the end of file
+// goog.scope will be closed at the end of file
 
 
+}); // goog.scope

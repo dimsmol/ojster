@@ -6,10 +6,16 @@ goog.provide('ojster.example.templates.Person');
 goog.require('ojster.example.templates.Base');
 goog.require('ojster.example.templates.Hobbies');
 
+goog.scope(function() {
+
+var Base = ojster.example.templates.Base;
+var Hobbies = ojster.example.templates.Hobbies;
+
 ojster.example.templates.Person = function() {
-	ojster.example.templates.Base.apply(this, arguments);
+	Base.apply(this, arguments);
 };
-goog.inherits(ojster.example.templates.Person, ojster.example.templates.Base);
+var Person = ojster.example.templates.Person;
+goog.inherits(Person, Base);
 
 
 // here is assumed that template will be compiled with goog.scope enabled
@@ -31,7 +37,7 @@ Person.prototype.calculateScore = function(person) {
     return twistScore(person.score);
 };
 
-ojster.example.templates.Person.prototype.renderBlockMain = function() { // @27:1
+Person.prototype.renderBlockMain = function() { // @27:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -43,7 +49,7 @@ ojster.example.templates.Person.prototype.renderBlockMain = function() { // @27:
 
 // code could be here too, almost anywhere
 
-ojster.example.templates.Person.prototype.renderBlockTitle = function() { // @37:1
+Person.prototype.renderBlockTitle = function() { // @37:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -52,7 +58,7 @@ ojster.example.templates.Person.prototype.renderBlockTitle = function() { // @37
 	);
 }; // @37:40
 
-ojster.example.templates.Person.prototype.renderBlockScript = function() { // @39:1
+Person.prototype.renderBlockScript = function() { // @39:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -68,7 +74,7 @@ ojster.example.templates.Person.prototype.renderBlockScript = function() { // @3
 	);
 }; // @48:1
 
-ojster.example.templates.Person.prototype.renderBlockContent = function() { // @50:1
+Person.prototype.renderBlockContent = function() { // @50:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -133,7 +139,7 @@ ojster.example.templates.Person.prototype.renderBlockContent = function() { // @
 	);
 }; // @73:1
 
-ojster.example.templates.Person.prototype.renderBlockFullName = function() { // @51:17
+Person.prototype.renderBlockFullName = function() { // @51:17
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -143,12 +149,12 @@ ojster.example.templates.Person.prototype.renderBlockFullName = function() { // 
 	);
 }; // @51:76
 
-ojster.example.templates.Person.prototype.renderBlockBeforeEvent = function() { // @58:13
+Person.prototype.renderBlockBeforeEvent = function() { // @58:13
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @75:1
+Person.prototype.renderBlockSkills = function() { // @75:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -178,7 +184,7 @@ ojster.example.templates.Person.prototype.renderBlockSkills = function() { // @7
 
 }; // @95:1
 
-ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // @97:1
+Person.prototype.renderBlockNoSkills = function() { // @97:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -186,8 +192,9 @@ ojster.example.templates.Person.prototype.renderBlockNoSkills = function() { // 
 	);
 }; // @99:1
 
-ojster.example.templates.Person.prototype.renderBlockAfterEvent = function() { // @101:1
+Person.prototype.renderBlockAfterEvent = function() { // @101:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
+}); // goog.scope

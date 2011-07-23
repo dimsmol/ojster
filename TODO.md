@@ -1,13 +1,10 @@
 # TODO
 
-* fix examples
-    * fixes related to alias->name in @require
-* allow to use subobjects in @require (just like subpath, but relative to fullName)
+* examples need fixes related to alias->name in @require
 * fail with error in generator if some required component is not found (alias, path, etc.)
 
 * add createElement(html) and others (?)
 
-* add --scope option, check correctness in scope mode
 * parametrized blocks
 
 * fix single file compilation support for path_compiler (works partially)

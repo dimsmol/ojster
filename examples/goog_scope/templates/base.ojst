@@ -1,11 +1,12 @@
 <% @require ojster %>
+<% @require SomeClass ojster.examples.somemodule..sub.SomeClass %>
 
-<% @template Base ojster.example.templates.Base %>
 <%
-// goog.scope will be started rigth after template definition
+// goog.scope will be started right before template definition
 // any aliases defined above can be used within scope,
 // because they will be explicitly defined
 %>
+<% @template Base ojster.example.templates.Base %>
 <% @inherits ojster.Template %>
 
 <%
@@ -24,5 +25,5 @@ var tmp1 = ojster.example.templates.Base; // fully qualified names can be used a
 <% @block main } %>
 
 <%
-// goog.scope will be finished at the end of file
+// goog.scope will be closed at the end of file
 %>

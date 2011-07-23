@@ -5,12 +5,15 @@ goog.provide('ojster.example.templates.Hobbies');
 
 goog.require('ojster'); // normally path will be just 'ojster'
 
+goog.scope(function() {
+
 ojster.example.templates.Hobbies = function() {
 	ojster.Template.apply(this, arguments);
 };
-goog.inherits(ojster.example.templates.Hobbies, ojster.Template);
+var Hobbies = ojster.example.templates.Hobbies;
+goog.inherits(Hobbies, ojster.Template);
 
-ojster.example.templates.Hobbies.prototype.renderBlockMain = function() { // @6:1
+Hobbies.prototype.renderBlockMain = function() { // @6:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -18,3 +21,4 @@ ojster.example.templates.Hobbies.prototype.renderBlockMain = function() { // @6:
 	);
 }; // @8:1
 
+}); // goog.scope

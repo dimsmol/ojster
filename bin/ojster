@@ -20,10 +20,17 @@ if (argv.goog) {
 	generatorClass = ojster.generators.GoogGenerator;
 }
 
+var useScope = !!argv.scope;
+
 var options = {};
-if (generatorClass != null) {
+if (generatorClass != null || useScope) {
 	options.generator = options.generator || {};
-	options.generator.generatorClass = generatorClass;
+	if (generatorClass != null) {
+		options.generator.generatorClass = generatorClass;
+	}
+	if (useScope) {
+		options.generator.useScope = useScope;
+	}
 }
 
 ojster.compile_path(srcPath, dstPath, options, function(err, results) {
