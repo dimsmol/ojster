@@ -5,7 +5,7 @@ var inherits = require('util').inherits;
 // universal templates must provide both aliases and fully qualified names
 
 // @require also needs path to library for node
-var ojster = require('../../../..'); // normally path will be just 'ojster', fullName = alias if not explicitly specified
+var ojster = require('../../../..'); // normally here will be just 'ojster'
 // example of handling subpath and subname
 var SomeClass = require('../../../somemodule').sub.SomeClass;
 

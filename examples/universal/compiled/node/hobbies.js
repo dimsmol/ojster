@@ -2,7 +2,7 @@
 // usually there is no reason to edit it manually
 
 var inherits = require('util').inherits;
-var ojster = require('../../../..'); // normally path will be just 'ojster'
+var ojster = require('../../../..'); // normally here will be just 'ojster'
 
 var Hobbies = function() {
 	ojster.Template.apply(this, arguments);

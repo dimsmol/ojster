@@ -6,7 +6,7 @@ goog.provide('ojster.example.Base');
 // universal templates must provide both aliases and fully qualified names
 
 // @require also needs path to library for node
-goog.require('ojster'); // normally path will be just 'ojster', fullName = alias if not explicitly specified
+goog.require('ojster'); // normally here will be just 'ojster'
 // example of handling subpath and subname
 goog.require('ojster.examples.somemodule');
 
