@@ -1,5 +1,7 @@
 # TODO
 
+* add reference to tmbundle
+
 * fail with error in generator if some required component is not found (alias, path, etc.)
 * add createElement(html) and others (?)
 * parametrized blocks
