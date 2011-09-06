@@ -5,6 +5,7 @@ var inherits = require('util').inherits;
 var Base = require('./base');
 var Hobbies = require('./hobbies');
 
+/** @constructor */
 var Person = function() {
 	Base.apply(this, arguments);
 };
@@ -123,7 +124,7 @@ Person.prototype.renderBlockContent = function() { // @50:1
 
     // rendering other template in place:
     new Hobbies(this.ctx, d).renderTo(this);
-    
+
 
 	// possible but less effective:
 

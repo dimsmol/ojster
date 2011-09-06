@@ -4,6 +4,7 @@
 var inherits = require('util').inherits;
 var ojster = require('../../../..'); // normally here will be just 'ojster'
 
+/** @constructor */
 var Hobbies = function() {
 	ojster.Template.apply(this, arguments);
 };

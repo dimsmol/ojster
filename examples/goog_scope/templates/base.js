@@ -15,6 +15,7 @@ goog.scope(function() {
 
 var SomeClass = ojster.examples.somemodule.sub.SomeClass;
 
+/** @constructor */
 ojster.example.templates.Base = function() {
 	ojster.Template.apply(this, arguments);
 };
@@ -35,7 +36,7 @@ Base.prototype.renderBlockMain = function() { // @20:1
 
         var tmp = ojster.Template.prototype;
         var tmp1 = ojster.Template;
-    
+
 }; // @25:1
 
 

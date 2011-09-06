@@ -7,6 +7,7 @@ goog.require('ojster'); // normally here will be just 'ojster'
 
 goog.scope(function() {
 
+/** @constructor */
 ojster.example.templates.Hobbies = function() {
 	ojster.Template.apply(this, arguments);
 };
