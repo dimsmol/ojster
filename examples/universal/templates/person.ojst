@@ -48,6 +48,9 @@ Person.prototype.calculateScore = function(person) {
 <% @block script } %>
 
 <% @block content { %>
+	<span>A</span>
+	<span>B</span>
+	<% @space %><span>C</span><br />
 	<% @call echo('Hey there!') %>
     <div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block fullName } %>!</div>
     <div>Your score: <%= vars.score %></div>
