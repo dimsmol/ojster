@@ -48,9 +48,10 @@ Person.prototype.calculateScore = function(person) {
 <% @block script } %>
 
 <% @block content { %>
+	<% self.renderBlockEcho('Hey there!'); %>
     <div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block fullName } %>!</div>
     <div>Your score: <%= vars.score %></div>
-    <div>Your skills, <% this.renderBlockFullName(); %>:</div>
+    <div>Your skills:</div>
     <% this.renderBlockSkills(); %>
     <% if (d.events && d.events.length) { %>
         <div>Your events:</div>
@@ -68,9 +69,11 @@ Person.prototype.calculateScore = function(person) {
     // rendering other template in place:
     new Hobbies(this.ctx, d).renderTo(this);
     %>
-    <% // possible but less effective: %>
-    <%- new Hobbies(this.ctx, d).render() %>
 <% @block content } %>
+
+<% @block echo(msg) { %>
+	<%= msg %>
+<% @block echo } %>
 
 <% @block skills { %>
 <%
@@ -88,6 +91,9 @@ Person.prototype.calculateScore = function(person) {
     for (var i=0, l=d.skills.length; i < l; i++) {
         var skill = d.skills[i];
 %>
+		<% @block parametrized(i, l, skill) { %>
+			<div><%= i %> of <%= l %> is &quot;<%= skill.name %>&quot;</div>
+		<% @block parametrized } %>
         <div><%= skill.name %>: <%= skill.value %></div>
 <%
     }
