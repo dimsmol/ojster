@@ -1,12 +1,10 @@
 # TODO
 
-* add reference to tmbundle
-
+* intriduce @call, @render and @space
 * way to specify several templates per file
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 * add createElement(html) and others (?)
-* parametrized blocks
 * fix single file compilation support for path_compiler (works partially)
 * generator-specific includes (parts of template script that will be included for specific generators only)
 
@@ -15,6 +13,7 @@
 
 * finalize readme.md
     * mention that render() always calls renderMainBlock() without arguments
+    * add reference to tmbundle
 * examples need fixes related to alias->name in @require
 * examples are not so good for now, correct them
 
