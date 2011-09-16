@@ -34,20 +34,20 @@ Base.prototype.renderBlockMain = function() { // @24:1
 	self.writer.write(
 		'<!DOCTYPE HTML><html><head>'
 	); // @28:1
-	self.renderBlockMeta();
+	self.renderBlockMeta(); // @28:1
 	self.writer.write(
 		'<title>'
 	); // @29:8
-	self.renderBlockTitle();
+	self.renderBlockTitle(); // @29:8
 	self.writer.write(
 		'</title>'
 	); // @30:1
-	self.renderBlockCss();
-	self.renderBlockScript();
+	self.renderBlockCss(); // @30:1
+	self.renderBlockScript(); // @31:1
 	self.writer.write(
 		'</head><body>'
 	); // @33:7
-	self.renderBlockContent();
+	self.renderBlockContent(); // @33:7
 	self.writer.write(
 		'</body></html>'
 	);

@@ -71,13 +71,11 @@ Person.prototype.renderBlockScript = function() { // @39:1
 Person.prototype.renderBlockContent = function() { // @50:1
 	var self = this;
 	var d = this.data, vars = this.vars;
-
-	self.renderBlockEcho('Hey there!');
-
+	self.renderBlockEcho('Hey there!'); // @51:2
 	self.writer.write(
 		'<div>Hello, '
 	); // @52:17
-	self.renderBlockFullName();
+	self.renderBlockFullName(); // @52:17
 	self.writer.write(
 		'!</div><div>Your score: ',
 		self.escape(vars.score), // @53:22
@@ -95,7 +93,7 @@ Person.prototype.renderBlockContent = function() { // @50:1
 
 	d.events.forEach(function(event) {
 
-	self.renderBlockBeforeEvent();
+	self.renderBlockBeforeEvent(); // @59:13
 	self.writer.write(
 		'<div>',
 		self.escape(event.Name), // @60:18
@@ -165,7 +163,7 @@ Person.prototype.renderBlockSkills = function() { // @78:1
     for (var i=0, l=d.skills.length; i < l; i++) {
         var skill = d.skills[i];
 
-	self.renderBlockParametrized(i, l, skill);
+	self.renderBlockParametrized(i, l, skill); // @94:3
 	self.writer.write(
 		'<div>',
 		self.escape(skill.name), // @97:14
