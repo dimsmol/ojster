@@ -86,9 +86,7 @@ Person.prototype.renderBlockContent = function() { // @50:1
 		self.escape(vars.score), // @56:22
 		'</div><div>Your skills:</div>'
 	); // @58:5
-
-	this.renderBlockSkills();
-
+	self.renderBlockSkills(); // @58:5
 
 	if (d.events && d.events.length) {
 
@@ -104,9 +102,7 @@ Person.prototype.renderBlockContent = function() { // @50:1
 		self.escape(event.Name), // @63:18
 		'</div>'
 	); // @64:13
-
-	self.renderBlockAfterEvent(); // 'self' alias of 'this' can be used when needed
-
+	self.renderBlockAfterEvent(); // @64:13
 
 	});
 

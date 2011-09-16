@@ -55,13 +55,13 @@ Person.prototype.calculateScore = function(person) {
     <div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block fullName } %>!</div>
     <div>Your score: <%= vars.score %></div>
     <div>Your skills:</div>
-    <% this.renderBlockSkills(); %>
+    <% @call skills %>
     <% if (d.events && d.events.length) { %>
         <div>Your events:</div>
         <% d.events.forEach(function(event) { %>
             <% @block beforeEvent {} %>
             <div><%= event.Name %></div>
-            <% self.renderBlockAfterEvent(); // 'self' alias of 'this' can be used when needed %>
+            <% @call afterEvent %>
         <% }); %>
     <% } %>
 
