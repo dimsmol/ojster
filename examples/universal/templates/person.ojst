@@ -65,10 +65,7 @@ Person.prototype.calculateScore = function(person) {
     <% // checking whitespaces compaction: %>
     <%-'<div>-'%> <%-'-</div>'%>
 
-    <%
-    // rendering other template in place:
-    new Hobbies(d, this.ctx).renderTo(this);
-    %>
+    <% @insert Hobbies(d, this.ctx) %>
 <% @block content } %>
 
 <% @block echo(msg) { %>
