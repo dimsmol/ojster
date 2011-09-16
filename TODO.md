@@ -1,26 +1,32 @@
 # TODO
 
-* intriduce @call, @render and @space
+* introduce @insert and @space
 * way to specify several templates per file
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
-* add createElement(html) and others (?)
 * fix single file compilation support for path_compiler (works partially)
-* generator-specific includes (parts of template script that will be included for specific generators only)
+
+* write generic generator for jQuery/commonJS/...
 
 * write usage for bin/ojster (within the script)
-* way to override constructor
 
-* finalize readme.md
-    * mention that render() always calls renderMainBlock() without arguments
-    * add reference to tmbundle
-* examples need fixes related to alias->name in @require
-* examples are not so good for now, correct them
+## readme.md
 
-* ensure ojster can be used with jQuery and other libraries, at least skipping module-related stuff (without maintaining compatibility with Node and Closure)
-* fs watcher for autocompilation (needs some kind of config - which src and dst paths to use, which options)
-* perform JS-linting after template compilation
+* add reference to tmbundle
+* rewrite readme
 
-* fix identifierRegExp in tokenizer (too strict for now)
+## examples
+
+* fixes related to alias->name in @require
+* better examples
+
+## known issues
+
+* tokenizer's regex that parses identifiers is too strict, but don't want to fix it
+
+## add if somebody really need it
+
+* generator-specific includes (parts of template script that will be included for specific generators only)
+* way to override constructor (?)
 * make Tokenizer extendable (allow to add new commands)
 * dynamic inheritance (skins support) - allow to choose which template to inherit in runtime
