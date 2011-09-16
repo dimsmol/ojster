@@ -118,7 +118,7 @@ Person.prototype.renderBlockContent = function() { // @50:1
 	); // @68:5
 
     // rendering other template in place:
-    new Hobbies(this.ctx, d).renderTo(this);
+    new Hobbies(d, this.ctx).renderTo(this);
 
 }; // @72:1
 
