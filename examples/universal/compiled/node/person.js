@@ -37,8 +37,8 @@ Person.prototype.renderBlockMain = function() { // @27:1
 
     // TODO bad example, need 'init' function instead
     vars.score = this.calculateScore(d); // vars is right place for template-level variables
-    Base.prototype.renderBlockMain.call(this);
 
+	Base.prototype.renderBlockMain.call(self); // @32:2
 }; // @33:1
 
 // code could be here too, almost anywhere

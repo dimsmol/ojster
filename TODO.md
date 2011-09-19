@@ -1,6 +1,5 @@
 # TODO
 
-* introduce @base
 * way to specify several templates per file
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
@@ -13,7 +12,7 @@
 ## readme.md
 
 * add reference to tmbundle
-* add description for new commands (@call, @insert, @space)
+* add description for new commands and keywords (@call, @insert, @space, $base)
 * rewrite readme
 
 ## examples
