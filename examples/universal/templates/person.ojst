@@ -1,6 +1,9 @@
 <% @require Base = './base' ojster.example.templates.Base %>
 <% @require Hobbies = './hobbies' ojster.example.templates.Hobbies %>
 
+<% @require SomeTool = './tools'.SomeTool ojster.example.templates.Tools.SomeTool %>
+<% @require SomeOtherTool = './tools'.SomeOtherTool ojster.example.templates.Tools.SomeOtherTool %>
+
 <% @template Person ojster.example.templates.Person %>
 <% @inherits Base ojster.example.templates.Base %>
 
@@ -69,6 +72,9 @@ Person.prototype.calculateScore = function(person) {
     <%-'<div>-'%> <%-'-</div>'%>
 
     <% @insert Hobbies(d, this.ctx) %>
+
+    <% @insert SomeTool(d) %>
+    <% @insert SomeOtherTool(d) %>
 <% @block content } %>
 
 <% @block echo(msg) { %>

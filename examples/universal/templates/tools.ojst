@@ -1,0 +1,13 @@
+<% @require ojster = '../../../..' ojster %> <% // normally here will be just 'ojster' %>
+
+<% @template SomeTool ojster.example.templates.Tools.SomeTool %>
+<% @inherits ojster.Template %>
+<% @block main { %>
+    <div>Some tool</div>
+<% @block main } %>
+
+<% @template SomeOtherTool ojster.example.templates.Tools.SomeOtherTool %>
+<% @inherits ojster.Template %>
+<% @block main { %>
+    <div>Other tool</div>
+<% @block main } %>

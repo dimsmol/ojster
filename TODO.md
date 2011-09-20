@@ -23,6 +23,7 @@
 ## known issues
 
 * tokenizer's regex that parses identifiers is too strict, but don't want to fix it
+* @insert doesn't understand template references like `TemplatesBundle.SomeTemplate`, need separate @require for every subname
 
 ## add if somebody really need it
 

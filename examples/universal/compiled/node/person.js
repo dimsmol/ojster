@@ -5,6 +5,9 @@ var inherits = require('util').inherits;
 var Base = require('./base');
 var Hobbies = require('./hobbies');
 
+var SomeTool = require('./tools').SomeTool;
+var SomeOtherTool = require('./tools').SomeOtherTool;
+
 /** @constructor */
 var Person = function() {
 	Base.apply(this, arguments);
@@ -31,78 +34,78 @@ Person.prototype.calculateScore = function(person) {
     return twistScore(person.score);
 };
 
-Person.prototype.renderBlockMain = function() { // @27:1
+Person.prototype.renderBlockMain = function() { // @30:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
     // TODO bad example, need 'init' function instead
     vars.score = this.calculateScore(d); // vars is right place for template-level variables
 
-	Base.prototype.renderBlockMain.call(self); // @32:2
-}; // @33:1
+	Base.prototype.renderBlockMain.call(self); // @35:2
+}; // @36:1
 
 // code could be here too, almost anywhere
 
-Person.prototype.renderBlockTitle = function() { // @37:1
+Person.prototype.renderBlockTitle = function() { // @40:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'Person #',
-		self.escape(d.id) // @37:29
+		self.escape(d.id) // @40:29
 	);
-}; // @37:40
+}; // @40:40
 
-Person.prototype.renderBlockScript = function() { // @39:1
+Person.prototype.renderBlockScript = function() { // @42:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<script>'
-	); // @41:1
+	); // @44:1
 
 	// seems like jslint tries to check code within 'script' tags even if it's part of string constant, so avoid it
 
 	self.writer.write(
 		'(function() {\n    // TODO good for node, but bad for goog\n    var settings = ',
-		JSON.stringify(this.ctx.pageSettings), // @44:20
+		JSON.stringify(this.ctx.pageSettings), // @47:20
 		'; // inserting JSON unescaped\n    ojster.example.page.initPage(settings);\n})();</script>'
 	);
-}; // @48:1
+}; // @51:1
 
-Person.prototype.renderBlockContent = function() { // @50:1
+Person.prototype.renderBlockContent = function() { // @53:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<span>A</span><span>B</span>',
 		' ',
 		'<span>C</span><br />'
-	); // @54:2
-	self.renderBlockEcho('Hey there!'); // @54:2
+	); // @57:2
+	self.renderBlockEcho('Hey there!'); // @57:2
 	self.writer.write(
 		'<div>Hello, '
-	); // @55:17
-	self.renderBlockFullName(); // @55:17
+	); // @58:17
+	self.renderBlockFullName(); // @58:17
 	self.writer.write(
 		'!</div><div>Your score: ',
-		self.escape(vars.score), // @56:22
+		self.escape(vars.score), // @59:22
 		'</div><div>Your skills:</div>'
-	); // @58:5
-	self.renderBlockSkills(); // @58:5
+	); // @61:5
+	self.renderBlockSkills(); // @61:5
 
 	if (d.events && d.events.length) {
 
 	self.writer.write(
 		'<div>Your events:</div>'
-	); // @61:9
+	); // @64:9
 
 	d.events.forEach(function(event) {
 
-	self.renderBlockBeforeEvent(); // @62:13
+	self.renderBlockBeforeEvent(); // @65:13
 	self.writer.write(
 		'<div>',
-		self.escape(event.Name), // @63:18
+		self.escape(event.Name), // @66:18
 		'</div>'
-	); // @64:13
-	self.renderBlockAfterEvent(); // @64:13
+	); // @67:13
+	self.renderBlockAfterEvent(); // @67:13
 
 	});
 
@@ -113,37 +116,39 @@ Person.prototype.renderBlockContent = function() { // @50:1
 	// checking whitespaces compaction:
 
 	self.writer.write(
-		'<div>-', // @69:5
+		'<div>-', // @72:5
 		' ',
-		'-</div>' // @69:19
-	); // @71:5
-	new Hobbies(d, this.ctx).renderTo(self); // @71:5
-}; // @72:1
+		'-</div>' // @72:19
+	); // @74:5
+	new Hobbies(d, this.ctx).renderTo(self); // @74:5
+	new SomeTool(d).renderTo(self); // @76:5
+	new SomeOtherTool(d).renderTo(self); // @77:5
+}; // @78:1
 
-Person.prototype.renderBlockFullName = function() { // @55:17
+Person.prototype.renderBlockFullName = function() { // @58:17
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		self.escape(d.firstName), // @55:40
+		self.escape(d.firstName), // @58:40
 		' ',
-		self.escape(d.lastName) // @55:59
+		self.escape(d.lastName) // @58:59
 	);
-}; // @55:76
+}; // @58:76
 
-Person.prototype.renderBlockBeforeEvent = function() { // @62:13
+Person.prototype.renderBlockBeforeEvent = function() { // @65:13
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Person.prototype.renderBlockEcho = function(msg) { // @74:1
+Person.prototype.renderBlockEcho = function(msg) { // @80:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		self.escape(msg) // @75:2
+		self.escape(msg) // @81:2
 	);
-}; // @76:1
+}; // @82:1
 
-Person.prototype.renderBlockSkills = function() { // @78:1
+Person.prototype.renderBlockSkills = function() { // @84:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -161,42 +166,42 @@ Person.prototype.renderBlockSkills = function() { // @78:1
     for (var i=0, l=d.skills.length; i < l; i++) {
         var skill = d.skills[i];
 
-	self.renderBlockParametrized(i, l, skill); // @94:3
+	self.renderBlockParametrized(i, l, skill); // @100:3
 	self.writer.write(
 		'<div>',
-		self.escape(skill.name), // @97:14
+		self.escape(skill.name), // @103:14
 		': ',
-		self.escape(skill.value), // @97:33
+		self.escape(skill.value), // @103:33
 		'</div>'
-	); // @98:1
+	); // @104:1
 
     }
 
-}; // @101:1
+}; // @107:1
 
-Person.prototype.renderBlockParametrized = function(i, l, skill) { // @94:3
+Person.prototype.renderBlockParametrized = function(i, l, skill) { // @100:3
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<div>',
-		self.escape(i), // @95:9
+		self.escape(i), // @101:9
 		' of ',
-		self.escape(l), // @95:21
+		self.escape(l), // @101:21
 		' is &quot;',
-		self.escape(skill.name), // @95:39
+		self.escape(skill.name), // @101:39
 		'&quot;</div>'
 	);
-}; // @96:3
+}; // @102:3
 
-Person.prototype.renderBlockNoSkills = function() { // @103:1
+Person.prototype.renderBlockNoSkills = function() { // @109:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<div>You have no skills :(</div>'
 	);
-}; // @105:1
+}; // @111:1
 
-Person.prototype.renderBlockAfterEvent = function() { // @107:1
+Person.prototype.renderBlockAfterEvent = function() { // @113:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
