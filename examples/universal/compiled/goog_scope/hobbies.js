@@ -14,8 +14,8 @@ goog.scope(function() {
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.templates.Hobbies = function() {
-	ojster.Template.apply(this, arguments);
+ojster.example.templates.Hobbies = function(opt_data, opt_ctx, opt_writer) {
+	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 var Hobbies = ojster.example.templates.Hobbies;
 goog.inherits(Hobbies, ojster.Template);

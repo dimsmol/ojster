@@ -17,8 +17,8 @@ goog.scope(function() {
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.templates.Tools.SomeTool = function() {
-	ojster.Template.apply(this, arguments);
+ojster.example.templates.Tools.SomeTool = function(opt_data, opt_ctx, opt_writer) {
+	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 var SomeTool = ojster.example.templates.Tools.SomeTool;
 goog.inherits(SomeTool, ojster.Template);
@@ -37,8 +37,8 @@ SomeTool.prototype.renderBlockMain = function() { // @5:1
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.templates.Tools.SomeOtherTool = function() {
-	ojster.Template.apply(this, arguments);
+ojster.example.templates.Tools.SomeOtherTool = function(opt_data, opt_ctx, opt_writer) {
+	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 var SomeOtherTool = ojster.example.templates.Tools.SomeOtherTool;
 goog.inherits(SomeOtherTool, ojster.Template);

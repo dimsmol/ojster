@@ -23,8 +23,8 @@ var SomeOtherTool = ojster.example.templates.Tools.SomeOtherTool;
  * @constructor
  * @extends {Base}
  */
-ojster.example.templates.Person = function() {
-	Base.apply(this, arguments);
+ojster.example.templates.Person = function(opt_data, opt_ctx, opt_writer) {
+	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 var Person = ojster.example.templates.Person;
 goog.inherits(Person, Base);

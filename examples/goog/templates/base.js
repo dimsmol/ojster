@@ -13,8 +13,8 @@ goog.require('ojster');
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.templates.Base = function() {
-	ojster.Template.apply(this, arguments);
+ojster.example.templates.Base = function(opt_data, opt_ctx, opt_writer) {
+	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 goog.inherits(ojster.example.templates.Base, ojster.Template);
 

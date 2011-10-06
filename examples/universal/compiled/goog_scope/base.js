@@ -21,8 +21,8 @@ var SomeClass = ojster.examples.somemodule.sub.SomeClass;
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.Base = function() {
-	ojster.Template.apply(this, arguments);
+ojster.example.Base = function(opt_data, opt_ctx, opt_writer) {
+	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 var Base = ojster.example.Base;
 goog.inherits(Base, ojster.Template);
