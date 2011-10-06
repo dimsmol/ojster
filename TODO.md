@@ -1,6 +1,7 @@
 # TODO
 
 * way to specify several templates per file
+* fix @insert - support the same syntax as @inherits
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 * fix single file compilation support for path_compiler (works partially)
@@ -23,7 +24,6 @@
 ## known issues
 
 * tokenizer's regex that parses identifiers is too strict, but don't want to fix it
-* @insert doesn't understand template references like `TemplatesBundle.SomeTemplate`, need separate @require for every subname
 
 ## add if somebody really need it
 
