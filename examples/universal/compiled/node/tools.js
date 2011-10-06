@@ -4,7 +4,6 @@
 var inherits = require('util').inherits;
 var ojster = require('../../../..'); // normally here will be just 'ojster'
 
-/** @constructor */
 var SomeTool = function() {
 	ojster.Template.apply(this, arguments);
 };
@@ -17,7 +16,6 @@ SomeTool.prototype.renderBlockMain = function() { // @5:1
 	);
 }; // @7:1
 
-/** @constructor */
 var SomeOtherTool = function() {
 	ojster.Template.apply(this, arguments);
 };

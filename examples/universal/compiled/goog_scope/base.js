@@ -14,7 +14,13 @@ goog.scope(function() {
 
 var SomeClass = ojster.examples.somemodule.sub.SomeClass;
 
-/** @constructor */
+/**
+ * @param {Object=} opt_data
+ * @param {Object=} opt_ctx
+ * @param {Object=} opt_writer
+ * @constructor
+ * @extends {ojster.Template}
+ */
 ojster.example.Base = function() {
 	ojster.Template.apply(this, arguments);
 };

@@ -8,7 +8,6 @@ var Hobbies = require('./hobbies');
 var SomeTool = require('./tools').SomeTool;
 var SomeOtherTool = require('./tools').SomeOtherTool;
 
-/** @constructor */
 var Person = function() {
 	Base.apply(this, arguments);
 };

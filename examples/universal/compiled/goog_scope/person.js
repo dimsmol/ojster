@@ -16,7 +16,13 @@ var Hobbies = ojster.example.templates.Hobbies;
 var SomeTool = ojster.example.templates.Tools.SomeTool;
 var SomeOtherTool = ojster.example.templates.Tools.SomeOtherTool;
 
-/** @constructor */
+/**
+ * @param {Object=} opt_data
+ * @param {Object=} opt_ctx
+ * @param {Object=} opt_writer
+ * @constructor
+ * @extends {Base}
+ */
 ojster.example.templates.Person = function() {
 	Base.apply(this, arguments);
 };

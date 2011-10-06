@@ -20,7 +20,6 @@ var ojster = require('ojster'); // equivalent to: ojster = 'ojster'
 var MyLib = require('./my_lib');
 
 // @template and @inherits need alias only
-/** @constructor */
 var Base = function() {
 	ojster.Template.apply(this, arguments);
 };

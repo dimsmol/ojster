@@ -6,7 +6,13 @@ goog.provide('ojster.example.templates.Base');
 // goog-only templates do not need aliases
 goog.require('ojster');
 
-/** @constructor */
+/**
+ * @param {Object=} opt_data
+ * @param {Object=} opt_ctx
+ * @param {Object=} opt_writer
+ * @constructor
+ * @extends {ojster.Template}
+ */
 ojster.example.templates.Base = function() {
 	ojster.Template.apply(this, arguments);
 };
