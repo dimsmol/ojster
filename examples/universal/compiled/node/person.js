@@ -76,13 +76,13 @@ Person.prototype.renderBlockContent = function() { // @53:1
 	self.writer.write(
 		'<span class="',
 		self.baseCssName, // @54:15
-		'">no args</span><br /><span class="',
+		'">base css</span><br /><span class="',
 		self.getCssName('abc'), // @55:15
-		'">abc</span><br /><span class="',
+		'">\'abc\'</span><br /><span class="',
 		self.getCssName(d.css, 'abc'), // @56:15
-		'">d.css abc</span><br /><span class="',
+		'">d.css with \'abc\'</span><br /><span class="',
 		self.getCssName(self.baseCssName, 'abc'), // @57:15
-		'">+abc</span><br /><br /><span>A</span><span>B</span>',
+		'">base with \'abc\'</span><br /><br /><span>A</span><span>B</span>',
 		' ',
 		'<span>C</span><br />'
 	); // @62:2

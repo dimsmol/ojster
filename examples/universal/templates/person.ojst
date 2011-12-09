@@ -51,10 +51,10 @@ Person.prototype.calculateScore = function(person) {
 <% @block script } %>
 
 <% @block content { %>
-	<span class="<% @css %>">no args</span><br />
-	<span class="<% @css abc %>">abc</span><br />
-	<span class="<% @css d.css abc %>">d.css abc</span><br />
-	<span class="<% @css +abc %>">+abc</span><br />
+	<span class="<% @css %>">base css</span><br />
+	<span class="<% @css abc %>">'abc'</span><br />
+	<span class="<% @css d.css abc %>">d.css with 'abc'</span><br />
+	<span class="<% @css +abc %>">base with 'abc'</span><br />
 	<br />
 	<span>A</span>
 	<span>B</span>
