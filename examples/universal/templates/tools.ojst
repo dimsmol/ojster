@@ -3,11 +3,11 @@
 <% @template SomeTool ojster.example.templates.Tools.SomeTool %>
 <% @inherits ojster.Template %>
 <% @block main { %>
-    <div>Some tool</div>
+	<div>Some tool</div>
 <% @block main } %>
 
 <% @template SomeOtherTool ojster.example.templates.Tools.SomeOtherTool %>
 <% @inherits ojster.Template %>
 <% @block main { %>
-    <div>Other tool</div>
+	<div>Other tool</div>
 <% @block main } %>

@@ -18,10 +18,10 @@ var tmp1 = ojster.example.templates.Base; // fully qualified names can be used a
 %>
 
 <% @block main { %>
-    <%
-        var tmp = ojster.Template.prototype;
-        var tmp1 = ojster.Template;
-    %>
+	<%
+		var tmp = ojster.Template.prototype;
+		var tmp1 = ojster.Template;
+	%>
 <% @block main } %>
 
 <%

@@ -40,8 +40,8 @@ Base.prototype.renderBlockMain = function() { // @20:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
-        var tmp = ojster.Template.prototype;
-        var tmp1 = ojster.Template;
+		var tmp = ojster.Template.prototype;
+		var tmp1 = ojster.Template;
 
 }; // @25:1
 

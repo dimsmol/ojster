@@ -18,19 +18,19 @@
 <%
 // usually code is enclosed into such a "tag"
 function twistScore(value) {
-    return value * 5 / 3;
+	return value * 5 / 3;
 };
 %>
 
 // but beyond blocks code can be inserted just plain
 Person.prototype.calculateScore = function(person) {
-    return twistScore(person.score);
+	return twistScore(person.score);
 };
 
 <% @block main { %>
 <%
-    // TODO bad example, need 'init' function instead
-    vars.score = this.calculateScore(d); // vars is right place for template-level variables
+	// TODO bad example, need 'init' function instead
+	vars.score = this.calculateScore(d); // vars is right place for template-level variables
 %>
 	<% @call $base %>
 <% @block main } %>
@@ -43,9 +43,9 @@ Person.prototype.calculateScore = function(person) {
 <script>
 <% // seems like jslint tries to check code within 'script' tags even if it's part of string constant, so avoid it %>
 (function() {
-    // TODO good for node, but bad for goog
-    var settings = <%- JSON.stringify(this.ctx.pageSettings) %>; // inserting JSON unescaped
-    ojster.example.page.initPage(settings);
+	// TODO good for node, but bad for goog
+	var settings = <%- JSON.stringify(this.ctx.pageSettings) %>; // inserting JSON unescaped
+	ojster.example.page.initPage(settings);
 })();
 </script>
 <% @block script } %>
@@ -60,26 +60,26 @@ Person.prototype.calculateScore = function(person) {
 	<span>B</span>
 	<% @space %><span>C</span><br />
 	<% @call echo('Hey there!') %>
-    <div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block fullName } %>!</div>
-    <div>Your score: <%= vars.score %></div>
-    <div>Your skills:</div>
-    <% @call skills %>
-    <% if (d.events && d.events.length) { %>
-        <div>Your events:</div>
-        <% d.events.forEach(function(event) { %>
-            <% @block beforeEvent {} %>
-            <div><%= event.Name %></div>
-            <% @call afterEvent %>
-        <% }); %>
-    <% } %>
+	<div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block fullName } %>!</div>
+	<div>Your score: <%= vars.score %></div>
+	<div>Your skills:</div>
+	<% @call skills %>
+	<% if (d.events && d.events.length) { %>
+		<div>Your events:</div>
+		<% d.events.forEach(function(event) { %>
+			<% @block beforeEvent {} %>
+			<div><%= event.Name %></div>
+			<% @call afterEvent %>
+		<% }); %>
+	<% } %>
 
-    <% // checking whitespaces compaction: %>
-    <%-'<div>-'%> <%-'-</div>'%>
+	<% // checking whitespaces compaction: %>
+	<%-'<div>-'%> <%-'-</div>'%>
 
-    <% @insert Hobbies(d, this.ctx) %>
+	<% @insert Hobbies(d, this.ctx) %>
 
-    <% @insert SomeTool(d) %>
-    <% @insert SomeOtherTool(d) %>
+	<% @insert SomeTool(d) %>
+	<% @insert SomeOtherTool(d) %>
 <% @block content } %>
 
 <% @block echo(msg) { %>
@@ -88,31 +88,31 @@ Person.prototype.calculateScore = function(person) {
 
 <% @block skills { %>
 <%
-    if (vars.areSkillsRendered) {
-        return;
-    }
+	if (vars.areSkillsRendered) {
+		return;
+	}
 
-    vars.areSkillsRendered = true;
+	vars.areSkillsRendered = true;
 
-    if (!d.skills) {
-        this.renderBlockNoSkills();
-        return;
-    }
+	if (!d.skills) {
+		this.renderBlockNoSkills();
+		return;
+	}
 
-    for (var i=0, l=d.skills.length; i < l; i++) {
-        var skill = d.skills[i];
+	for (var i=0, l=d.skills.length; i < l; i++) {
+		var skill = d.skills[i];
 %>
 		<% @block parametrized(i, l, skill) { %>
 			<div><%= i %> of <%= l %> is &quot;<%= skill.name %>&quot;</div>
 		<% @block parametrized } %>
-        <div><%= skill.name %>: <%= skill.value %></div>
+		<div><%= skill.name %>: <%= skill.value %></div>
 <%
-    }
+	}
 %>
 <% @block skills } %>
 
 <% @block noSkills { %>
-    <div>You have no skills :(</div>
+	<div>You have no skills :(</div>
 <% @block noSkills } %>
 
 <% @block afterEvent {} %>

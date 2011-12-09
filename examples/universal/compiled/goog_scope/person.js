@@ -40,21 +40,21 @@ goog.inherits(Person, Base);
 
 // usually code is enclosed into such a "tag"
 function twistScore(value) {
-    return value * 5 / 3;
+	return value * 5 / 3;
 };
 
 
 // but beyond blocks code can be inserted just plain
 Person.prototype.calculateScore = function(person) {
-    return twistScore(person.score);
+	return twistScore(person.score);
 };
 
 Person.prototype.renderBlockMain = function() { // @30:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
-    // TODO bad example, need 'init' function instead
-    vars.score = this.calculateScore(d); // vars is right place for template-level variables
+	// TODO bad example, need 'init' function instead
+	vars.score = this.calculateScore(d); // vars is right place for template-level variables
 
 	Base.prototype.renderBlockMain.call(self); // @35:2
 }; // @36:1
@@ -80,9 +80,9 @@ Person.prototype.renderBlockScript = function() { // @42:1
 	// seems like jslint tries to check code within 'script' tags even if it's part of string constant, so avoid it
 
 	self.writer.write(
-		'(function() {\n    // TODO good for node, but bad for goog\n    var settings = ',
-		JSON.stringify(this.ctx.pageSettings), // @47:20
-		'; // inserting JSON unescaped\n    ojster.example.page.initPage(settings);\n})();</script>'
+		'(function() {\n\t// TODO good for node, but bad for goog\n\tvar settings = ',
+		JSON.stringify(this.ctx.pageSettings), // @47:17
+		'; // inserting JSON unescaped\n\tojster.example.page.initPage(settings);\n})();</script>'
 	);
 }; // @51:1
 
@@ -105,30 +105,30 @@ Person.prototype.renderBlockContent = function() { // @53:1
 	self.renderBlockEcho('Hey there!'); // @62:2
 	self.writer.write(
 		'<div>Hello, '
-	); // @63:17
-	self.renderBlockFullName(); // @63:17
+	); // @63:14
+	self.renderBlockFullName(); // @63:14
 	self.writer.write(
 		'!</div><div>Your score: ',
-		self.escape(vars.score), // @64:22
+		self.escape(vars.score), // @64:19
 		'</div><div>Your skills:</div>'
-	); // @66:5
-	self.renderBlockSkills(); // @66:5
+	); // @66:2
+	self.renderBlockSkills(); // @66:2
 
 	if (d.events && d.events.length) {
 
 	self.writer.write(
 		'<div>Your events:</div>'
-	); // @69:9
+	); // @69:3
 
 	d.events.forEach(function(event) {
 
-	self.renderBlockBeforeEvent(); // @70:13
+	self.renderBlockBeforeEvent(); // @70:4
 	self.writer.write(
 		'<div>',
-		self.escape(event.Name), // @71:18
+		self.escape(event.Name), // @71:9
 		'</div>'
-	); // @72:13
-	self.renderBlockAfterEvent(); // @72:13
+	); // @72:4
+	self.renderBlockAfterEvent(); // @72:4
 
 	});
 
@@ -139,26 +139,26 @@ Person.prototype.renderBlockContent = function() { // @53:1
 	// checking whitespaces compaction:
 
 	self.writer.write(
-		'<div>-', // @77:5
+		'<div>-', // @77:2
 		' ',
-		'-</div>' // @77:19
-	); // @79:5
-	new Hobbies(d, this.ctx).renderTo(self); // @79:5
-	new SomeTool(d).renderTo(self); // @81:5
-	new SomeOtherTool(d).renderTo(self); // @82:5
+		'-</div>' // @77:16
+	); // @79:2
+	new Hobbies(d, this.ctx).renderTo(self); // @79:2
+	new SomeTool(d).renderTo(self); // @81:2
+	new SomeOtherTool(d).renderTo(self); // @82:2
 }; // @83:1
 
-Person.prototype.renderBlockFullName = function() { // @63:17
+Person.prototype.renderBlockFullName = function() { // @63:14
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		self.escape(d.firstName), // @63:40
+		self.escape(d.firstName), // @63:37
 		' ',
-		self.escape(d.lastName) // @63:59
+		self.escape(d.lastName) // @63:56
 	);
-}; // @63:76
+}; // @63:73
 
-Person.prototype.renderBlockBeforeEvent = function() { // @70:13
+Person.prototype.renderBlockBeforeEvent = function() { // @70:4
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
@@ -175,30 +175,30 @@ Person.prototype.renderBlockSkills = function() { // @89:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
-    if (vars.areSkillsRendered) {
-        return;
-    }
+	if (vars.areSkillsRendered) {
+		return;
+	}
 
-    vars.areSkillsRendered = true;
+	vars.areSkillsRendered = true;
 
-    if (!d.skills) {
-        this.renderBlockNoSkills();
-        return;
-    }
+	if (!d.skills) {
+		this.renderBlockNoSkills();
+		return;
+	}
 
-    for (var i=0, l=d.skills.length; i < l; i++) {
-        var skill = d.skills[i];
+	for (var i=0, l=d.skills.length; i < l; i++) {
+		var skill = d.skills[i];
 
 	self.renderBlockParametrized(i, l, skill); // @105:3
 	self.writer.write(
 		'<div>',
-		self.escape(skill.name), // @108:14
+		self.escape(skill.name), // @108:8
 		': ',
-		self.escape(skill.value), // @108:33
+		self.escape(skill.value), // @108:27
 		'</div>'
 	); // @109:1
 
-    }
+	}
 
 }; // @112:1
 

@@ -4,5 +4,5 @@
 <% @inherits ojster.Template %>
 
 <% @block main { %>
-    <div>No hobbies detected.</div>
+	<div>No hobbies detected.</div>
 <% @block main } %>

@@ -24,7 +24,7 @@ goog.inherits(ojster.example.templates.Base, ojster.Template);
 
 ojster.example.templates.Base.myValue = 5;
 ojster.example.templates.Base.twistScore = function(value) {
-    return value * 5 / 3;
+	return value * 5 / 3;
 };
 
 
@@ -32,17 +32,17 @@ ojster.example.templates.Base.prototype.renderBlockMain = function() { // @17:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
-        // within blocks you can freely define variables and functions
-        // they will be bound by generated method scope
-        var tmp = ojster.Template.prototype;
+		// within blocks you can freely define variables and functions
+		// they will be bound by generated method scope
+		var tmp = ojster.Template.prototype;
 
-        function f() {
-            return 'f';
-        }
+		function f() {
+			return 'f';
+		}
 
-        // you have no automatically defined aliases, but here you can use your own
-        var Base = ojster.example.templates.Base;
-        // they will be visible within block
+		// you have no automatically defined aliases, but here you can use your own
+		var Base = ojster.example.templates.Base;
+		// they will be visible within block
 
 }; // @31:1
 

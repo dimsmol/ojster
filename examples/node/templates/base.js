@@ -11,7 +11,7 @@ var tmp;
 
 // the same is true for functions
 function abc() {
-    return 'abc';
+	return 'abc';
 }
 
 
