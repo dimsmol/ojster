@@ -11,7 +11,6 @@
 
 ## readme.md
 
-* add reference to tmbundle
 * add description for all commands
 * rewrite readme
 
