@@ -8,6 +8,8 @@
 
 * write usage for bin/ojster (within the script)
 
+* move tokens parsing code into tokens, handle it more object-oriented way
+
 ## readme.md
 
 * add description for all commands
