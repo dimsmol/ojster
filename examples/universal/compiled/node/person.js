@@ -40,7 +40,7 @@ Person.prototype.renderBlockMain = function() { // @30:1
 	// TODO bad example, need 'init' function instead
 	vars.score = this.calculateScore(d); // vars is right place for template-level variables
 
-	Base.prototype.renderBlockMain.call(self); // @35:2
+	Base.prototype.renderBlockMain.call(self); // @35:5
 }; // @36:1
 
 // code could be here too, almost anywhere
@@ -65,7 +65,7 @@ Person.prototype.renderBlockScript = function() { // @42:1
 
 	self.writer.write(
 		'(function() {\n\t// TODO good for node, but bad for goog\n\tvar settings = ',
-		JSON.stringify(this.ctx.pageSettings), // @47:17
+		JSON.stringify(this.ctx.pageSettings), // @47:20
 		'; // inserting JSON unescaped\n\tojster.example.page.initPage(settings);\n})();</script>'
 	);
 }; // @51:1
@@ -75,44 +75,44 @@ Person.prototype.renderBlockContent = function() { // @53:1
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<span class="',
-		self.baseCssName, // @54:15
+		self.baseCssName, // @54:18
 		'">base css</span><br /><span class="',
-		self.getCssName('abc'), // @55:15
+		self.getCssName('abc'), // @55:18
 		'">\'abc\'</span><br /><span class="',
-		self.getCssName(d.css, 'abc'), // @56:15
+		self.getCssName(d.css, 'abc'), // @56:18
 		'">d.css with \'abc\'</span><br /><span class="',
-		self.getCssName(self.baseCssName, 'abc'), // @57:15
+		self.getCssName(self.baseCssName, 'abc'), // @57:18
 		'">base with \'abc\'</span><br /><br /><span>A</span><span>B</span>',
 		' ',
 		'<span>C</span><br />'
-	); // @62:2
-	self.renderBlockEcho('Hey there!'); // @62:2
+	); // @62:5
+	self.renderBlockEcho('Hey there!'); // @62:5
 	self.writer.write(
 		'<div>Hello, '
-	); // @63:14
-	self.renderBlockFullName(); // @63:14
+	); // @63:17
+	self.renderBlockFullName(); // @63:17
 	self.writer.write(
 		'!</div><div>Your score: ',
-		self.escape(vars.score), // @64:19
+		self.escape(vars.score), // @64:22
 		'</div><div>Your skills:</div>'
-	); // @66:2
-	self.renderBlockSkills(); // @66:2
+	); // @66:5
+	self.renderBlockSkills(); // @66:5
 
 	if (d.events && d.events.length) {
 
 	self.writer.write(
 		'<div>Your events:</div>'
-	); // @69:3
+	); // @69:9
 
 	d.events.forEach(function(event) {
 
-	self.renderBlockBeforeEvent(); // @70:4
+	self.renderBlockBeforeEvent(); // @70:13
 	self.writer.write(
 		'<div>',
-		self.escape(event.Name), // @71:9
+		self.escape(event.Name), // @71:18
 		'</div>'
-	); // @72:4
-	self.renderBlockAfterEvent(); // @72:4
+	); // @72:13
+	self.renderBlockAfterEvent(); // @72:13
 
 	});
 
@@ -123,26 +123,26 @@ Person.prototype.renderBlockContent = function() { // @53:1
 	// checking whitespaces compaction:
 
 	self.writer.write(
-		'<div>-', // @77:2
+		'<div>-', // @77:5
 		' ',
-		'-</div>' // @77:16
-	); // @79:2
-	new Hobbies(d, this.ctx).renderTo(self); // @79:2
-	new SomeTool(d).renderTo(self); // @81:2
-	new SomeOtherTool(d).renderTo(self); // @82:2
+		'-</div>' // @77:19
+	); // @79:5
+	new Hobbies(d, this.ctx).renderTo(self); // @79:5
+	new SomeTool(d).renderTo(self); // @81:5
+	new SomeOtherTool(d).renderTo(self); // @82:5
 }; // @83:1
 
-Person.prototype.renderBlockFullName = function() { // @63:14
+Person.prototype.renderBlockFullName = function() { // @63:17
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		self.escape(d.firstName), // @63:37
+		self.escape(d.firstName), // @63:40
 		' ',
-		self.escape(d.lastName) // @63:56
+		self.escape(d.lastName) // @63:59
 	);
-}; // @63:73
+}; // @63:76
 
-Person.prototype.renderBlockBeforeEvent = function() { // @70:4
+Person.prototype.renderBlockBeforeEvent = function() { // @70:13
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
@@ -151,7 +151,7 @@ Person.prototype.renderBlockEcho = function(msg) { // @85:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		self.escape(msg) // @86:2
+		self.escape(msg) // @86:5
 	);
 }; // @87:1
 
@@ -173,12 +173,12 @@ Person.prototype.renderBlockSkills = function() { // @89:1
 	for (var i=0, l=d.skills.length; i < l; i++) {
 		var skill = d.skills[i];
 
-	self.renderBlockParametrized(i, l, skill); // @105:3
+	self.renderBlockParametrized(i, l, skill); // @105:9
 	self.writer.write(
 		'<div>',
-		self.escape(skill.name), // @108:8
+		self.escape(skill.name), // @108:14
 		': ',
-		self.escape(skill.value), // @108:27
+		self.escape(skill.value), // @108:33
 		'</div>'
 	); // @109:1
 
@@ -186,19 +186,19 @@ Person.prototype.renderBlockSkills = function() { // @89:1
 
 }; // @112:1
 
-Person.prototype.renderBlockParametrized = function(i, l, skill) { // @105:3
+Person.prototype.renderBlockParametrized = function(i, l, skill) { // @105:9
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<div>',
-		self.escape(i + 1), // @106:9
+		self.escape(i + 1), // @106:18
 		' of ',
-		self.escape(l), // @106:25
+		self.escape(l), // @106:34
 		' is &quot;',
-		self.escape(skill.name), // @106:43
+		self.escape(skill.name), // @106:52
 		'&quot;</div>'
 	);
-}; // @107:3
+}; // @107:9
 
 Person.prototype.renderBlockNoSkills = function() { // @114:1
 	var self = this;

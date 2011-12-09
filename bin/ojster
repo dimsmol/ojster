@@ -33,6 +33,13 @@ if (generatorClass != null || useScope) {
 	}
 }
 
+if (argv.tab) {
+	tabSize = parseInt(argv.tab, 10); // WARN can return NaN
+	if (tabSize > 0) {
+		options.tabSize = tabSize;
+	}
+}
+
 ojster.compile_path(srcPath, dstPath, options, function(err, results) {
 	if (err) {
 		process.exit(1);
