@@ -6,6 +6,7 @@ var ctx = {
 	pageSettings: {a: 'a', b: 'b'}
 };
 var data = {
+	css: 'xyz',
 	firstName: 'Sam',
 	lastName: 'Smith',
 	score: 8,
@@ -15,6 +16,8 @@ var data = {
 	]
 };
 
-var rendered = new Person(data, ctx).render();
+var template = new Person(data, ctx);
+template.setBaseCssName('basecss');
+var rendered = template.render();
 
 fs.writeFileSync(path.join(__dirname, 'rendered', 'person.html'), rendered);

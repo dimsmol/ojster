@@ -33,32 +33,24 @@ ojster.DefaultWriterClass = ojster.StringWriter;
  * @constructor
  */
 ojster.Template = function(opt_data, opt_ctx, opt_writer) {
+	/** @type {Object} */
 	this.data = opt_data || null;
+	/** @type {Object} */
 	this.ctx = opt_ctx || null;
+	/** @type {Object} */
 	this.writer = opt_writer || null;
+	/** @type {!Object} */
 	this.vars = {};
+	/** @type {?string} */
+	this.baseCssName = null;
 };
 
 /**
- * @type {?Object}
+ * @param {string} baseCssName
  */
-ojster.Template.data;
-
-/**
- * @type {?Object}
- */
-ojster.Template.ctx;
-
-/**
- * @type {?Object}
- */
-ojster.Template.writer;
-
-/**
- * @type {Object}
- */
-ojster.Template.vars;
-
+ojster.Template.prototype.setBaseCssName = function(baseCssName) {
+	this.baseCssName = baseCssName;
+};
 
 /**
  * @param {string} str

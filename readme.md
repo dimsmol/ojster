@@ -44,12 +44,14 @@ All the special constructions are enclosed within `<% %>` tags:
 
 ### Commands
 
-There are exactly 4 template commands in Ojster:
-
 * `require` - imports required JS modules
 * `template` - describes template itself (it's name and so on)
 * `inherits` - describes template's base class
 * `block` - breaks a template into reusable parts
+* `call` - calls block, `$base` keyword can be used to call block of superclass
+* `insert` - inserts other template
+* `space` - writes space
+* `css` - inserts `getCssName(...)` call
 
 _...other command descriptions to be added..._
 
