@@ -94,6 +94,9 @@ ojster.Template.prototype.renderBlockMain = function() {
  * @return {string}
  */
 ojster.escape = function(str) {
+	if (str == null) {
+		return str;
+	}
 	return (str+'').replace(/&/g, '&amp;')
 		.replace(/</g, '&lt;')
 		.replace(/>/g, '&gt;')
