@@ -103,7 +103,7 @@ Person.prototype.calculateScore = function(person) {
 		var skill = d.skills[i];
 %>
 		<% @block parametrized(i, l, skill) { %>
-			<div><%= i %> of <%= l %> is &quot;<%= skill.name %>&quot;</div>
+			<div><%= i + 1 %> of <%= l %> is &quot;<%= skill.name %>&quot;</div>
 		<% @block parametrized } %>
 		<div><%= skill.name %>: <%= skill.value %></div>
 <%

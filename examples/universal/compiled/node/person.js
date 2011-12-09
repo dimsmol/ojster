@@ -191,11 +191,11 @@ Person.prototype.renderBlockParametrized = function(i, l, skill) { // @105:3
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<div>',
-		self.escape(i), // @106:9
+		self.escape(i + 1), // @106:9
 		' of ',
-		self.escape(l), // @106:21
+		self.escape(l), // @106:25
 		' is &quot;',
-		self.escape(skill.name), // @106:39
+		self.escape(skill.name), // @106:43
 		'&quot;</div>'
 	);
 }; // @107:3
