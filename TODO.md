@@ -1,6 +1,7 @@
 # TODO
 
-* fix @insert - support the same syntax as @inherits
+* fix problem with @css - there is no way to specify baseCssName when inserting template using @insert
+* think about way of specifying template's default baseCssName
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 

@@ -5,6 +5,7 @@ goog.provide('ojster.example.templates.Base');
 
 // goog-only templates do not need aliases
 goog.require('ojster');
+goog.require('ojster.example.templates.Tools.SomeTool');
 
 /**
  * @param {Object=} opt_data
@@ -28,7 +29,7 @@ ojster.example.templates.Base.twistScore = function(value) {
 };
 
 
-ojster.example.templates.Base.prototype.renderBlockMain = function() { // @17:1
+ojster.example.templates.Base.prototype.renderBlockMain = function() { // @18:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -44,5 +45,6 @@ ojster.example.templates.Base.prototype.renderBlockMain = function() { // @17:1
 		var Base = ojster.example.templates.Base;
 		// they will be visible within block
 
-}; // @31:1
+	new ojster.example.templates.Tools.SomeTool(d).renderTo(self); // @33:5
+}; // @34:1
 

@@ -1,5 +1,6 @@
 <% // goog-only templates do not need aliases %>
 <% @require ojster %>
+<% @require ojster.example.templates.Tools.SomeTool %>
 
 <% @template ojster.example.templates.Base %>
 <% @inherits ojster.Template %>
@@ -28,4 +29,6 @@ ojster.example.templates.Base.twistScore = function(value) {
 		var Base = ojster.example.templates.Base;
 		// they will be visible within block
 	%>
+
+	<% @insert ojster.example.templates.Tools.SomeTool(d) %>
 <% @block main } %>
