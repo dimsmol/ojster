@@ -7,6 +7,7 @@ var ctx = {
 };
 var data = {
 	css: 'xyz',
+	id: 12345,
 	firstName: 'Sam',
 	lastName: 'Smith',
 	score: 8,
