@@ -3,7 +3,6 @@
 * fix @insert - support the same syntax as @inherits
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
-* fix single file compilation support for path_compiler (works partially)
 
 * write generic generator for jQuery/commonJS/...
 
