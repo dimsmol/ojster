@@ -49,6 +49,8 @@ All the special constructions are enclosed within `<% %>` tags:
 * `require` - imports required JS modules
 * `template` - describes template itself (it's name and so on)
 * `inherits` - describes template's base class
+* `init` - defines initializing function
+* `func` - defines function
 * `block` - breaks a template into reusable parts
 * `call` - calls block, `$base` keyword can be used to call block of superclass
 * `insert` - inserts other template

@@ -1,6 +1,12 @@
 # TODO
 
-* provide a way to specify template's default baseCssName - introduce @set command
+* move tokens parsing code into tokens, handle it more object-oriented way
+* refactor generator to make it more object-oriented
+
+* introduce `@func`
+* introduce `@init` (with auto base call)
+* introduce `setup`, extend @insert syntax
+* use goog.base
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 
@@ -8,7 +14,7 @@
 
 * write usage for bin/ojster (within the script)
 
-* move tokens parsing code into tokens, handle it more object-oriented way
+* introduce standard way to handle options and defaults
 
 ## readme.md
 
@@ -27,6 +33,5 @@
 ## add if somebody really need it
 
 * generator-specific includes (parts of template script that will be included for specific generators only)
-* way to override constructor (?)
 * make Tokenizer extendable (allow to add new commands)
-* dynamic inheritance (skins support) - allow to choose which template to inherit in runtime
+* think about skins support

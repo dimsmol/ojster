@@ -7,9 +7,9 @@
 <% @template Person ojster.example.templates.Person %>
 <% @inherits Base ojster.example.templates.Base %>
 
-<% /* @set {
-	baseClassName: 'abc'
-} */ %>
+<% /* @init { %>
+	self.baseCssName = 'basecss';
+<% */ //@init } %>
 
 <%
 // here is assumed that template will be compiled with goog.scope enabled
@@ -82,8 +82,8 @@ Person.prototype.calculateScore = function(person) {
 
 	<% @insert Hobbies(d, this.ctx) %>
 
-	<% @insert SomeTool(d).set({baseCssName: 'basecss1'}) %>
-	<% @insert SomeOtherTool(d).setBaseCssName('basecss1') %>
+	<% @insert SomeTool(d) %><% /* @insert SomeTool(d) { self.baseCssName = 'basecss1'; } */ %>
+	<% @insert SomeOtherTool(d) %>
 <% @block content } %>
 
 <% @block echo(msg) { %>

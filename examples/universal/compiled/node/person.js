@@ -13,9 +13,9 @@ var Person = function() {
 };
 inherits(Person, Base);
 
- /* @set {
-	baseClassName: 'abc'
-} */
+/* @init {
+	self.baseCssName = 'basecss';
+*/ //@init }
 
 
 // here is assumed that template will be compiled with goog.scope enabled
@@ -132,8 +132,11 @@ Person.prototype.renderBlockContent = function() { // @57:1
 		'-</div>' // @81:19
 	); // @83:5
 	new Hobbies(d, this.ctx).renderTo(self); // @83:5
-	new SomeTool(d).set({baseCssName: 'basecss1'}).renderTo(self); // @85:5
-	new SomeOtherTool(d).setBaseCssName('basecss1').renderTo(self); // @86:5
+	new SomeTool(d).renderTo(self); // @85:5
+
+	/* @insert SomeTool(d) { self.baseCssName = 'basecss1'; } */
+
+	new SomeOtherTool(d).renderTo(self); // @86:5
 }; // @87:1
 
 Person.prototype.renderBlockFullName = function() { // @67:17

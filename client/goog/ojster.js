@@ -51,22 +51,25 @@ ojster.Template.prototype.init = function() {
 };
 
 /**
- * @param {!object} props
+ * @param {function(ojster.Template)} props
  */
-ojster.Template.prototype.set = function(props) {
-	for (var propName in props)
-	{
-		this[propName] = props[propName];
-	}
+ojster.Template.prototype.setup = function(setupFunc) {
+	setupFunc(this);
 	return this;
 };
 
 /**
- * @param {string} baseCssName
+ * @return {?string}
  */
-ojster.Template.prototype.setBaseCssName = function(baseCssName) {
+ojster.Template.prototype.getBaseCssName = function(setupFunc) {
+	return this.baseCssName;
+};
+
+/**
+ * @param {?string} baseCssName
+ */
+Template.prototype.setBaseCssName = function(baseCssName) {
 	this.baseCssName = baseCssName;
-	return this;
 };
 
 /**
