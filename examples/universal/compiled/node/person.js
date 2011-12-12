@@ -128,8 +128,8 @@ Person.prototype.renderBlockContent = function() { // @53:1
 		'-</div>' // @77:19
 	); // @79:5
 	new Hobbies(d, this.ctx).renderTo(self); // @79:5
-	new SomeTool(d).renderTo(self); // @81:5
-	new SomeOtherTool(d).renderTo(self); // @82:5
+	new SomeTool(d).set({baseCssName: 'basecss1'}).renderTo(self); // @81:5
+	new SomeOtherTool(d).setBaseCssName('basecss1').renderTo(self); // @82:5
 }; // @83:1
 
 Person.prototype.renderBlockFullName = function() { // @63:17

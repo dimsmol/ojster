@@ -78,8 +78,8 @@ Person.prototype.calculateScore = function(person) {
 
 	<% @insert Hobbies(d, this.ctx) %>
 
-	<% @insert SomeTool(d) %>
-	<% @insert SomeOtherTool(d) %>
+	<% @insert SomeTool(d).set({baseCssName: 'basecss1'}) %>
+	<% @insert SomeOtherTool(d).setBaseCssName('basecss1') %>
 <% @block content } %>
 
 <% @block echo(msg) { %>

@@ -1,7 +1,6 @@
 # TODO
 
-* fix problem with @css - there is no way to specify baseCssName when inserting template using @insert
-* think about way of specifying template's default baseCssName
+* provide a way to specify template's default baseCssName - introduce @set command
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 

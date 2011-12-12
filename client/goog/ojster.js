@@ -43,6 +43,22 @@ ojster.Template = function(opt_data, opt_ctx, opt_writer) {
 	this.vars = {};
 	/** @type {?string} */
 	this.baseCssName = null;
+
+	this.init();
+};
+
+ojster.Template.prototype.init = function() {
+};
+
+/**
+ * @param {!object} props
+ */
+ojster.Template.prototype.set = function(props) {
+	for (var propName in props)
+	{
+		this[propName] = props[propName];
+	}
+	return this;
 };
 
 /**
@@ -50,6 +66,7 @@ ojster.Template = function(opt_data, opt_ctx, opt_writer) {
  */
 ojster.Template.prototype.setBaseCssName = function(baseCssName) {
 	this.baseCssName = baseCssName;
+	return this;
 };
 
 /**
@@ -65,7 +82,7 @@ ojster.Template.prototype.escape = function(str) {
  */
 ojster.Template.prototype.render = function() {
 	// ensure we have a writer
-	if (null === this.writer) {
+	if (this.writer == null) {
 		this.writer = new ojster.DefaultWriterClass();
 	}
 
