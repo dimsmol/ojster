@@ -1,6 +1,7 @@
 # TODO
 
-* move tokens parsing code into tokens, handle it more object-oriented way
+* get rid of 'errors' in generator if possible
+* add 'Token' suffix to every token class
 * refactor generator to make it more object-oriented
 
 * introduce `@func`
