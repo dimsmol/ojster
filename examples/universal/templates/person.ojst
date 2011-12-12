@@ -7,6 +7,10 @@
 <% @template Person ojster.example.templates.Person %>
 <% @inherits Base ojster.example.templates.Base %>
 
+<% /* @set {
+	baseClassName: 'abc'
+} */ %>
+
 <%
 // here is assumed that template will be compiled with goog.scope enabled
 // some of features used will provide non-working code if goog.scope is not enabled
