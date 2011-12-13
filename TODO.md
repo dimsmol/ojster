@@ -3,6 +3,8 @@
 * get rid of 'errors' in generator if possible
 * add 'Token' suffix to every token class
 * refactor generator to make it more object-oriented
+* introduce GeneratorBase, extract ClientGenerator superclass
+* review appendLineNumbersTo options
 
 * introduce `@func`
 * introduce `@init` (with auto base call)
