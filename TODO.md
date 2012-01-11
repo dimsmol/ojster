@@ -1,6 +1,5 @@
 # TODO
 
-* provide defaultOptions for compiler and tokenizer
 * move generator under generators/node
 * recheck errors
 * introduce GeneratorBase, extract ClientGenerator superclass
