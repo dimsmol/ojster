@@ -85,7 +85,8 @@ ojster.Template.prototype.escape = function(str) {
  */
 ojster.Template.prototype.render = function() {
 	// ensure we have a writer
-	if (this.writer == null) {
+	if (this.writer == null)
+	{
 		this.writer = new ojster.DefaultWriterClass();
 	}
 
@@ -114,9 +115,11 @@ ojster.Template.prototype.renderBlockMain = function() {
  * @return {string}
  */
 ojster.escape = function(str) {
-	if (str == null) {
+	if (str == null)
+	{
 		return str;
 	}
+
 	return (str+'').replace(/&/g, '&amp;')
 		.replace(/</g, '&lt;')
 		.replace(/>/g, '&gt;')
@@ -145,11 +148,13 @@ ojster.createElement = function(template, opt_domHelper) {
 	var wrapper = dom.createElement(goog.dom.TagName.DIV);
 	wrapper.innerHTML = template.render();
 
-	if (wrapper.childNodes.length == 1) {
+	if (wrapper.childNodes.length == 1)
+	{
 		/** @type {Element} */
 		var firstChild = wrapper.firstChild;
 
-		if (firstChild.nodeType == goog.dom.NodeType.ELEMENT) {
+		if (firstChild.nodeType == goog.dom.NodeType.ELEMENT)
+		{
 			return firstChild;
 		}
 	}

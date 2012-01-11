@@ -5,43 +5,52 @@ var ojster = require('../');
 
 var args = argv._;
 var l = args.length;
-if (l < 1) {
+if (l < 1)
+{
 	abort('srcPath argument required');
 }
 
 var srcPath = args[0];
 var dstPath = null;
-if (l >= 2) {
+if (l >= 2)
+{
 	dstPath = args[1];
 }
 
 var generatorClass = null;
-if (argv.goog) {
+if (argv.goog)
+{
 	generatorClass = ojster.generators.GoogGenerator;
 }
 
 var useScope = !!argv.scope;
 
 var options = {};
-if (generatorClass != null || useScope) {
+if (generatorClass != null || useScope)
+{
 	options.generator = options.generator || {};
-	if (generatorClass != null) {
+	if (generatorClass != null)
+	{
 		options.generator.generatorClass = generatorClass;
 	}
-	if (useScope) {
+	if (useScope)
+	{
 		options.generator.useScope = useScope;
 	}
 }
 
-if (argv.tab) {
+if (argv.tab)
+{
 	tabSize = parseInt(argv.tab, 10); // WARN can return NaN
-	if (tabSize > 0) {
+	if (tabSize > 0)
+	{
 		options.tabSize = tabSize;
 	}
 }
 
 ojster.compile_path(srcPath, dstPath, options, function(err, results) {
-	if (err) {
+	if (err)
+	{
 		process.exit(1);
 	}
 
