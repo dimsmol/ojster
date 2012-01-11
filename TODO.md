@@ -1,7 +1,7 @@
 # TODO
 
-* move generator under generators/node
 * recheck errors
+* fix TODOs in code
 * introduce GeneratorBase, extract ClientGenerator superclass
 
 * introduce `@func`
