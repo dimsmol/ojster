@@ -1,10 +1,9 @@
 # TODO
 
-* rename `*_errors.js` to `errors.js`
-* introduce GeneratorBase, extract ClientGenerator superclass
 * provide defaultOptions for compiler and tokenizer
 * move generator under generators/node
 * recheck errors
+* introduce GeneratorBase, extract ClientGenerator superclass
 
 * introduce `@func`
 * introduce `@init` (with auto base call)
