@@ -1,10 +1,11 @@
 # TODO
 
-* get rid of 'errors' in generator if possible
-* add 'Token' suffix to every token class
-* refactor generator to make it more object-oriented
+* get rid of 'errors' in generator, use exceptions!
+* use exceptions in tokenizer as well
 * introduce GeneratorBase, extract ClientGenerator superclass
-* review appendLineNumbersTo options
+* provide defaultOptions for compiler and tokenizer
+* move generator under generators/node
+* recheck errors
 
 * introduce `@func`
 * introduce `@init` (with auto base call)
@@ -16,8 +17,6 @@
 * write generic generator for jQuery/commonJS/...
 
 * write usage for bin/ojster (within the script)
-
-* introduce standard way to handle options and defaults
 
 ## readme.md
 
