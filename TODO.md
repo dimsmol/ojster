@@ -1,7 +1,6 @@
 # TODO
 
-* get rid of 'errors' in generator, use exceptions!
-* use exceptions in tokenizer as well
+* rename `*_errors.js` to `errors.js`
 * introduce GeneratorBase, extract ClientGenerator superclass
 * provide defaultOptions for compiler and tokenizer
 * move generator under generators/node
