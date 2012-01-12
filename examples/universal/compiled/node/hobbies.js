@@ -4,8 +4,8 @@
 var inherits = require('util').inherits;
 var ojster = require('../../../..'); // normally here will be just 'ojster'
 
-var Hobbies = function() {
-	ojster.Template.apply(this, arguments);
+var Hobbies = function(opt_data, opt_ctx, opt_writer) {
+	ojster.Template.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(Hobbies, ojster.Template);
 

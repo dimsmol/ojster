@@ -9,8 +9,8 @@ var ojster = require('../../../..'); // normally here will be just 'ojster'
 // example of handling subpath and subname
 var SomeClass = require('../../../somemodule').sub.SomeClass;
 
-var Base = function() {
-	ojster.Template.apply(this, arguments);
+var Base = function(opt_data, opt_ctx, opt_writer) {
+	ojster.Template.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(Base, ojster.Template);
 

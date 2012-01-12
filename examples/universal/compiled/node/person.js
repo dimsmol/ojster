@@ -8,8 +8,8 @@ var Hobbies = require('./hobbies');
 var SomeTool = require('./tools').SomeTool;
 var SomeOtherTool = require('./tools').SomeOtherTool;
 
-var Person = function() {
-	Base.apply(this, arguments);
+var Person = function(opt_data, opt_ctx, opt_writer) {
+	Base.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(Person, Base);
 

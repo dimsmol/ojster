@@ -4,8 +4,8 @@
 var inherits = require('util').inherits;
 var ojster = require('../../../..'); // normally here will be just 'ojster'
 
-var SomeTool = function() {
-	ojster.Template.apply(this, arguments);
+var SomeTool = function(opt_data, opt_ctx, opt_writer) {
+	ojster.Template.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(SomeTool, ojster.Template);
 SomeTool.prototype.renderBlockMain = function() { // @5:1
@@ -16,8 +16,8 @@ SomeTool.prototype.renderBlockMain = function() { // @5:1
 	);
 }; // @7:1
 
-var SomeOtherTool = function() {
-	ojster.Template.apply(this, arguments);
+var SomeOtherTool = function(opt_data, opt_ctx, opt_writer) {
+	ojster.Template.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(SomeOtherTool, ojster.Template);
 SomeOtherTool.prototype.renderBlockMain = function() { // @11:1
