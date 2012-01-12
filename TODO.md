@@ -2,7 +2,6 @@
 
 * names for tokens
 * examples for error check
-* more effective buffers join
 * introduce GeneratorBase, extract ClientGenerator superclass
 
 * introduce `@func`
