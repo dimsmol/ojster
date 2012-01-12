@@ -7,8 +7,6 @@
 * introduce `@init` (with auto base call)
 * introduce `setup`, extend @insert syntax
 
-* fail with error in generator if some required component is not found (alias, path, etc.)
-
 * write generic generator for jQuery/commonJS/...
 * write usage for bin/ojster (within the script)
 
@@ -16,6 +14,7 @@
 * make tests (use examples)
 * make tests for errors
 
+* fail with error in generator if some required component is not found (alias, path, etc.)
 * add more checks for tokenizer (see TODOs in source code)
 * TODOs in path_compiler.js
 * TODOs in tools/fs.js
