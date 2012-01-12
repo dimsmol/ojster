@@ -18,3 +18,9 @@ examples-universal-node:
 
 examples-universal-goog-scope:
 	ojster ./examples/universal/templates ./examples/universal/compiled/goog_scope --goog --scope
+
+
+errors: errors-tokenization
+
+errors-tokenization:
+	ojster ./error_examples/tokenization.ojst 2>&1 | tee ./error_examples/results/tokenization_errors.txt

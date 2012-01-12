@@ -1,0 +1,20 @@
+<% @require ojster = '../../../..' ojster %> <% // normally here will be just 'ojster' %>
+
+<% @template TokenizaionErrors %>
+<% @inherits ojster.Template %>
+
+<% // unknown command %>
+<% @nosuchcommand blah blah %>
+
+<% // invalid command syntax %>
+
+<% @block tra ta ta ta ta %>
+
+<% @block main { %>
+<% @block main } %>
+
+<% // close instruction mark missed %>
+
+<%
+
+any trash, parsing will be stopped on missing mark

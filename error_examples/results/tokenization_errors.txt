@@ -1,0 +1,12 @@
+File "error_examples/tokenization.ojst" compilation failed:
+    7: <% @nosuchcommand blah blah %>
+       ^
+       Unknown command "nosuchcommand"
+   11: <% @block tra ta ta ta ta %>
+       ^
+       Invalid "block" command syntax
+   18: <%
+       ^
+       Close instruction mark missed
+
+1 files total, 1 failed
