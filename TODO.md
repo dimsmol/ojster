@@ -11,13 +11,17 @@
 * write generic generator for jQuery/commonJS/...
 * write usage for bin/ojster (within the script)
 
-
-* make tests (use examples)
+## enhancements
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 * add more checks for tokenizer (see TODOs in source code)
+
 * TODOs in path_compiler.js
 * TODOs in tools/fs.js
+
+* think about way of using regular Array as writer
+
+* make tests (use examples)
 
 ## readme.md
 
@@ -36,5 +40,3 @@
 ## add if somebody really need it
 
 * generator-specific includes (parts of template script that will be included for specific generators only)
-* make Tokenizer extendable (allow to add new commands)
-* think about skins support
