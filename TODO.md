@@ -1,7 +1,6 @@
 # TODO
 
 * recheck errors
-* fix TODOs in code
 * introduce GeneratorBase, extract ClientGenerator superclass
 
 * introduce `@func`
