@@ -1,6 +1,5 @@
 # TODO
 
-* names for tokens
 * examples for error check
 * introduce GeneratorBase, extract ClientGenerator superclass
 
