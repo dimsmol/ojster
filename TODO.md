@@ -1,6 +1,8 @@
 # TODO
 
-* recheck errors
+* names for tokens
+* examples for error check
+* more effective buffers join
 * introduce GeneratorBase, extract ClientGenerator superclass
 
 * introduce `@func`
@@ -12,7 +14,6 @@
 
 
 * make tests (use examples)
-* make tests for errors
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 * add more checks for tokenizer (see TODOs in source code)
