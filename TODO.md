@@ -11,8 +11,15 @@
 * fail with error in generator if some required component is not found (alias, path, etc.)
 
 * write generic generator for jQuery/commonJS/...
-
 * write usage for bin/ojster (within the script)
+
+
+* make tests (use examples)
+* make tests for errors
+
+* add more checks for tokenizer (see TODOs in source code)
+* TODOs in path_compiler.js
+* TODOs in tools/fs.js
 
 ## readme.md
 
