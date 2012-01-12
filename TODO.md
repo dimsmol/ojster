@@ -6,10 +6,10 @@
 * introduce `@init` (with auto base call)
 * introduce `setup`, extend @insert syntax
 
+## enhancements
+
 * write generic generator for jQuery/commonJS/...
 * write usage for bin/ojster (within the script)
-
-## enhancements
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 * add more checks to tokenizer (see TODOs in source code)
