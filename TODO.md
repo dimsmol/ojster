@@ -7,7 +7,6 @@
 * introduce `@func`
 * introduce `@init` (with auto base call)
 * introduce `setup`, extend @insert syntax
-* use goog.base
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 
