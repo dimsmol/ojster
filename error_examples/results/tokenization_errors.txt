@@ -9,4 +9,3 @@ File "error_examples/tokenization.ojst" compilation failed:
        ^
        Close instruction mark missed
 
-1 files total, 1 failed

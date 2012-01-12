@@ -1,0 +1,27 @@
+<% @require ojster = '../..' ojster %> <% // normally here will be just 'ojster' %>
+
+<% // token must be within template %>
+<% @inherits ojster.Template %>
+
+<% @template GenerationErrors %>
+<% @inherits ojster.Template %>
+
+<% // duplicate inherits token %>
+<% @inherits ojster.Template %>
+
+<% // token must be beyond template %>
+<% @require somelib = 'somelib' somelib %>
+
+<% // token must be within block %>
+<%= 1 + 1 %>
+
+<% @block main { %>
+	<% // token must be beyond block %>
+	<% @inherits ojster.Template %>
+<% @block main } %>
+
+<% // duplicate block name (block will not be opened) %>
+<% @block main { %>
+
+<% // block closed without openning %>
+<% @block abc } %>

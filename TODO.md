@@ -1,6 +1,5 @@
 # TODO
 
-* examples for error check
 * introduce GeneratorBase, extract ClientGenerator superclass
 
 * introduce `@func`
@@ -13,14 +12,17 @@
 ## enhancements
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
-* add more checks for tokenizer (see TODOs in source code)
+* add more checks to tokenizer (see TODOs in source code)
+
+* do not skip BlockStart token on duplicate block name, but still report an error (how?)
 
 * TODOs in path_compiler.js
 * TODOs in tools/fs.js
 
 * think about way of using regular Array as writer
 
-* make tests (use examples)
+* more error_examples
+* make tests (use examples and error_examples)
 
 ## readme.md
 

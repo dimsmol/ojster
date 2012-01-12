@@ -1,0 +1,29 @@
+File "error_examples/generation/no_template.ojst" compilation failed:
+Template token not found
+
+File "error_examples/generation/generation.ojst" compilation failed:
+    4: <% @inherits ojster.Template %>
+       ^
+       This token must be placed within template
+   10: <% @inherits ojster.Template %>
+       ^
+       Duplicate inherits token within template
+   13: <% @require somelib = 'somelib' somelib %>
+       ^
+       This token must be placed beyond template
+   16: <%= 1 + 1 %>
+       ^
+       This token must be placed within block
+   20:     <% @inherits ojster.Template %>
+           ^
+       This token must be placed beyond block
+   24: <% @block main { %>
+       ^
+       Duplicate block name "main" within template
+   27: <% @block abc } %>
+       ^
+       Block "abc" closed without openning
+
+File "error_examples/generation/inherits_token_not_found.ojst" compilation failed:
+Inherits token not found
+

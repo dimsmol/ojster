@@ -1,0 +1,7 @@
+<% @require ojster = '..' ojster %> <% // normally here will be just 'ojster' %>
+
+<% @template GenerationErrors %>
+<% // inherits token not found %>
+
+<% @block main { %>
+<% @block main } %>

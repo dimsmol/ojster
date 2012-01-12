@@ -20,7 +20,10 @@ examples-universal-goog-scope:
 	ojster ./examples/universal/templates ./examples/universal/compiled/goog_scope --goog --scope
 
 
-errors: errors-tokenization
+errors: errors-tokenization errors-generation
 
 errors-tokenization:
-	ojster ./error_examples/tokenization.ojst 2>&1 | tee ./error_examples/results/tokenization_errors.txt
+	ojster ./error_examples/tokenization.ojst 2> ./error_examples/results/tokenization_errors.txt || true
+
+errors-generation:
+	ojster ./error_examples/generation 2> ./error_examples/results/generation_errors.txt || true

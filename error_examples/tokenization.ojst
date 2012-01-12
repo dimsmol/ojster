@@ -1,4 +1,4 @@
-<% @require ojster = '../../../..' ojster %> <% // normally here will be just 'ojster' %>
+<% @require ojster = '..' ojster %> <% // normally here will be just 'ojster' %>
 
 <% @template TokenizaionErrors %>
 <% @inherits ojster.Template %>
