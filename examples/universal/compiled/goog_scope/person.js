@@ -237,6 +237,8 @@ Person.prototype.renderBlockAfterEvent = function() { // @122:1
 };
 
 Person.prototype.testFunc = function() { // @124:1
+	var self = this;
+	var d = this.data, vars = this.vars;
 
 	return 'testValue';
 }; // @126:1

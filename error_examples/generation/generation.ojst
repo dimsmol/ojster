@@ -6,6 +6,11 @@
 <% @template GenerationErrors %>
 <% @inherits ojster.Template %>
 
+<% @func testFunc { %>
+	// code fragment must be placed without any special markup within function
+	<% var a = 5; %>
+<% @func testFunc } %>
+
 <% // duplicate inherits token %>
 <% @inherits ojster.Template %>
 
