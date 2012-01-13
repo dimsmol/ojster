@@ -1,5 +1,7 @@
 # TODO
 
+* move sequence-bound appends to sequence
+
 * introduce `@func`
 * introduce `@funcs` (static func)
 * introduce `@init` (with auto base call)
