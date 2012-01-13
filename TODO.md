@@ -4,11 +4,6 @@
 * introduce `@init` (with auto base call)
 * introduce `setup`, extend @insert syntax
 
-* remove extra line break after function definition
-* add locals for func
-* add base calls for func
-* introduce `@base` (remove $base)
-
 ## enhancements
 
 * make errors-generation produces results in random order, do something with it

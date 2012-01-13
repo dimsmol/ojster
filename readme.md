@@ -51,8 +51,10 @@ All the special constructions are enclosed within `<% %>` tags:
 * `inherits` - describes template's base class
 * `init` - defines initializing function
 * `func` - defines function
+* `funcs` - defines static function
 * `block` - breaks a template into reusable parts
-* `call` - calls block, `$base` keyword can be used to call block of superclass
+* `base` - base method call
+* `call` - calls block
 * `insert` - inserts other template
 * `space` - writes space
 * `css` - inserts `getCssName(...)` call

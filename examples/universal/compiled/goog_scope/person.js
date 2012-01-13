@@ -60,7 +60,7 @@ Person.prototype.renderBlockMain = function() { // @34:1
 	// TODO bad example, need 'init' function instead
 	vars.score = this.calculateScore(d); // vars is right place for template-level variables
 
-	goog.base(self, 'renderBlockMain'); // @39:5
+	goog.base(this, 'renderBlockMain'); // @39:5
 }; // @40:1
 
 // code could be here too, almost anywhere

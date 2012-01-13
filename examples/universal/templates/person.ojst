@@ -36,7 +36,7 @@ Person.prototype.calculateScore = function(person) {
 	// TODO bad example, need 'init' function instead
 	vars.score = this.calculateScore(d); // vars is right place for template-level variables
 %>
-	<% @call $base %>
+	<% @base %>
 <% @block main } %>
 
 // code could be here too, almost anywhere
