@@ -1,7 +1,5 @@
 # TODO
 
-* introduce GeneratorBase, extract ClientGenerator superclass
-
 * introduce `@func`
 * introduce `@funcs` (static func)
 * introduce `@init` (with auto base call)
@@ -12,7 +10,7 @@
 * make errors-generation produces results in random order, do something with it
 * better option for useGoogGetCssName
 
-* write generic generator for jQuery/commonJS/...
+* write generic generator for client-side (to use with jQuery, etc.)
 * write usage for bin/ojster (within the script)
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
