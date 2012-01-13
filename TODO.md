@@ -1,7 +1,5 @@
 # TODO
 
-* move sequence-bound appends to sequence
-
 * introduce `@func`
 * introduce `@funcs` (static func)
 * introduce `@init` (with auto base call)
@@ -18,6 +16,7 @@
 * add more checks to tokenizer (see TODOs in source code)
 
 * do not skip BlockStart token on duplicate block name, but still report an error (how?)
+* think about way to add common functionality to core by subclassing without need to create subclass for every kind of generator (node, goog, etc.)
 
 * TODOs in path_compiler.js
 * TODOs in tools/fs.js
