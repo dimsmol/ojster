@@ -35,7 +35,7 @@ Person.prototype.init = function() { // @10:1
 	goog.base(this, 'init');
 
 	self.baseCssName = 'basecss';
-}; // @12:1
+};
 
 
 // here is assumed that template will be compiled with goog.scope enabled
@@ -243,9 +243,5 @@ Person.prototype.testFunc = function() { // @124:1
 
 	return 'testValue';
 }; // @126:1
-
-Person.testStaticFunc = function() { // @128:1
-	return 'testValue';
-}; // @130:1
 
 }); // goog.scope
