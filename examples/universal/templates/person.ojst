@@ -7,9 +7,9 @@
 <% @template Person ojster.example.templates.Person %>
 <% @inherits Base ojster.example.templates.Base %>
 
-<% /* @init { %>
+<% @init { %>
 	self.baseCssName = 'basecss';
-<% */ //@init } %>
+<% @init } %>
 
 <%
 // here is assumed that template will be compiled with goog.scope enabled

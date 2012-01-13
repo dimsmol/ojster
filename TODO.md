@@ -1,9 +1,12 @@
 # TODO
 
-* introduce `@init` (with auto base call)
 * introduce `setup`, extend `@insert` syntax
 
 * prevent closing `@func` with `@funcs` or `@init` and vice versa
+* prevent duplicate func names
+* prevent using @base within sfunc
+
+* new comment for goog
 
 ## enhancements
 

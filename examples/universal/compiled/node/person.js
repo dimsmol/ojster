@@ -13,9 +13,13 @@ var Person = function(opt_data, opt_ctx, opt_writer) {
 };
 inherits(Person, Base);
 
-/* @init {
+Person.prototype.init = function() { // @10:1
+	var self = this;
+	var d = this.data, vars = this.vars;
+	Base.prototype.init.call(this);
+
 	self.baseCssName = 'basecss';
-*/ //@init }
+}; // @12:1
 
 
 // here is assumed that template will be compiled with goog.scope enabled
