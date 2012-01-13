@@ -8,7 +8,7 @@
 <% @inherits Base ojster.example.templates.Base %>
 
 <% @init {
-	self.baseCssName = 'basecss';
+	this.baseCssName = 'basecss';
 } %>
 
 <%
@@ -82,7 +82,9 @@ Person.prototype.calculateScore = function(person) {
 
 	<% @insert Hobbies(d, this.ctx) %>
 
-	<% @insert SomeTool(d) { this.baseCssName = 'basecss1'; } %>
+	<% @insert SomeTool(d) {
+		this.baseCssName = 'basecss1';
+	} %>
 	<% @insert SomeOtherTool(d) %>
 <% @block content } %>
 
