@@ -4,8 +4,6 @@
 * prevent duplicate func names
 * prevent using @base within sfunc
 
-* new comment for goog
-
 ## enhancements
 
 * `make errors-generation` produces results in random order, do something with it

@@ -105,7 +105,7 @@ Person.prototype.renderBlockContent = function() { // @57:1
 		'">\'abc\'</span><br /><span class="',
 		goog.getCssName(d.css, 'abc'), // @60:18
 		'">d.css with \'abc\'</span><br /><span class="',
-		goog.getCssName(self.baseCssName, 'abc'), // @61:18
+		goog.getCssName(/** @type {string} */ (self.baseCssName), 'abc'), // @61:18
 		'">base with \'abc\'</span><br /><br /><span>A</span><span>B</span>',
 		' ',
 		'<span>C</span><br />'
@@ -152,7 +152,7 @@ Person.prototype.renderBlockContent = function() { // @57:1
 		'-</div>' // @81:19
 	); // @83:5
 	new Hobbies(d, this.ctx).renderTo(self); // @83:5
-	new SomeTool(d).setup(function() { this.baseCssName = 'basecss1'; console.log(this); }).renderTo(self); // @85:5
+	new SomeTool(d).setup(function() { this.baseCssName = 'basecss1'; }).renderTo(self); // @85:5
 	new SomeOtherTool(d).renderTo(self); // @86:5
 }; // @87:1
 
