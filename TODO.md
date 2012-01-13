@@ -3,8 +3,6 @@
 * prevent duplicate func names
 * make examples cleaner (remove old style code, etc.)
 
-## enhancements
-
 * use generic Symbol token instead of Space
 
 * `make errors-generation` produces results in random order, do something with it
