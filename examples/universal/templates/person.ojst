@@ -124,3 +124,7 @@ Person.prototype.calculateScore = function(person) {
 <% @func testFunc { %>
 	return 'testValue';
 <% @func } %>
+
+<% @funcs testStaticFunc { %>
+	return 'testValue';
+<% @funcs } %>

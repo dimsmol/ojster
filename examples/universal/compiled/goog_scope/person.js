@@ -243,4 +243,11 @@ Person.prototype.testFunc = function() { // @124:1
 	return 'testValue';
 }; // @126:1
 
+Person.testStaticFunc = function() { // @128:1
+	var self = this;
+	var d = this.data, vars = this.vars;
+
+	return 'testValue';
+}; // @130:1
+
 }); // goog.scope

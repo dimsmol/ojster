@@ -1,15 +1,16 @@
 # TODO
 
-* introduce `@funcs` (static func)
 * introduce `@init` (with auto base call)
-* introduce `setup`, extend @insert syntax
+* introduce `setup`, extend `@insert` syntax
+
+* prevent closing `@func` with `@funcs` or `@init` and vice versa
 
 ## enhancements
 
-* make errors-generation produces results in random order, do something with it
+* `make errors-generation` produces results in random order, do something with it
 
 * write generic generator for client-side (to use with jQuery, etc.)
-* write usage for bin/ojster (within the script)
+* write usage for `bin/ojster` (within the script)
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
 * add more checks to tokenizer (see TODOs in source code)
@@ -17,8 +18,8 @@
 * do not skip BlockStart token on duplicate block name, but still report an error (how?)
 * think about way to add common functionality to core by subclassing without need to create subclass for every kind of generator (node, goog, etc.)
 
-* TODOs in path_compiler.js
-* TODOs in tools/fs.js
+* TODOs in `path_compiler.js`
+* TODOs in `tools/fs.js`
 
 * think about way of using regular Array as writer
 
