@@ -1,7 +1,5 @@
 # TODO
 
-* introduce `setup`, extend `@insert` syntax
-
 * prevent closing `@func` with `@funcs` or `@init` and vice versa
 * prevent duplicate func names
 * prevent using @base within sfunc

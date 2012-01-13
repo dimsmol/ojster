@@ -152,10 +152,7 @@ Person.prototype.renderBlockContent = function() { // @57:1
 		'-</div>' // @81:19
 	); // @83:5
 	new Hobbies(d, this.ctx).renderTo(self); // @83:5
-	new SomeTool(d).renderTo(self); // @85:5
-
-	/* @insert SomeTool(d) { self.baseCssName = 'basecss1'; } */
-
+	new SomeTool(d).setup(function() { this.baseCssName = 'basecss1'; console.log(this); }).renderTo(self); // @85:5
 	new SomeOtherTool(d).renderTo(self); // @86:5
 }; // @87:1
 
