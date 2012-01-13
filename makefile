@@ -1,4 +1,6 @@
 
+check: examples errors
+
 examples: examples-node examples-goog examples-goog-scope examples-universal
 
 examples-node:

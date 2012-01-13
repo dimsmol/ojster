@@ -9,6 +9,9 @@
 
 ## enhancements
 
+* make errors-generation produces results in random order, do something with it
+* better option for useGoogGetCssName
+
 * write generic generator for jQuery/commonJS/...
 * write usage for bin/ojster (within the script)
 
