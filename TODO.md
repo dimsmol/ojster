@@ -1,10 +1,11 @@
 # TODO
 
-* prevent closing `@func` with `@funcs` or `@init` and vice versa
 * prevent duplicate func names
-* prevent using @base within sfunc
+* make examples cleaner (remove old style code, etc.)
 
 ## enhancements
+
+* use generic Symbol token instead of Space
 
 * `make errors-generation` produces results in random order, do something with it
 
