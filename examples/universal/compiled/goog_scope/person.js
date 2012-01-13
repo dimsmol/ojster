@@ -236,4 +236,9 @@ Person.prototype.renderBlockAfterEvent = function() { // @122:1
 	var d = this.data, vars = this.vars;
 };
 
+Person.prototype.testFunc = function() { // @124:1
+
+	return 'testValue';
+}; // @126:1
+
 }); // goog.scope

@@ -120,3 +120,7 @@ Person.prototype.calculateScore = function(person) {
 <% @block noSkills } %>
 
 <% @block afterEvent {} %>
+
+<% @func testFunc { %>
+	return 'testValue';
+<% @func } %>
