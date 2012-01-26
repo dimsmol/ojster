@@ -1,5 +1,7 @@
 # TODO
 
+* use Buffer instead of `[]` (?)
+
 * remove ability to use `<% %>` code blocks beyond block
 
 * prevent duplicate func names
@@ -27,6 +29,13 @@
 
 * more error_examples
 * make tests (use examples and error_examples)
+
+## modules
+
+* fix package.json
+* publish to npm
+* replace `optimist` with `nomnom`
+* use mkdirp instead of own implementation
 
 ## readme.md
 
