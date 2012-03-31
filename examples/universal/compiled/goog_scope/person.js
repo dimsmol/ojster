@@ -155,8 +155,11 @@ Person.prototype.renderBlockContent = function() { // @57:1
 	new SomeTool(d).setup(function() { var d = this.data, vars = this.vars;
 		this.baseCssName = 'basecss1';
 	}).renderTo(self); // @85:5
-	new SomeOtherTool(d).renderTo(self); // @88:5
-}; // @89:1
+	new SomeOtherTool({
+			parentData: d,
+			someMoreData: 5
+		}).renderTo(self); // @88:5
+}; // @92:1
 
 Person.prototype.renderBlockFullName = function() { // @67:17
 	var self = this;
@@ -173,15 +176,15 @@ Person.prototype.renderBlockBeforeEvent = function() { // @74:13
 	var d = this.data, vars = this.vars;
 };
 
-Person.prototype.renderBlockEcho = function(msg) { // @91:1
+Person.prototype.renderBlockEcho = function(msg) { // @94:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
-		self.escape(msg) // @92:5
+		self.escape(msg) // @95:5
 	);
-}; // @93:1
+}; // @96:1
 
-Person.prototype.renderBlockSkills = function() { // @95:1
+Person.prototype.renderBlockSkills = function() { // @98:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -199,51 +202,51 @@ Person.prototype.renderBlockSkills = function() { // @95:1
 	for (var i=0, l=d.skills.length; i < l; i++) {
 		var skill = d.skills[i];
 
-	self.renderBlockParametrized(i, l, skill); // @111:9
+	self.renderBlockParametrized(i, l, skill); // @114:9
 	self.writer.write(
 		'<div>',
-		self.escape(skill.name), // @114:14
+		self.escape(skill.name), // @117:14
 		': ',
-		self.escape(skill.value), // @114:33
+		self.escape(skill.value), // @117:33
 		'</div>'
-	); // @115:1
+	); // @118:1
 
 	}
 
-}; // @118:1
+}; // @121:1
 
-Person.prototype.renderBlockParametrized = function(i, l, skill) { // @111:9
+Person.prototype.renderBlockParametrized = function(i, l, skill) { // @114:9
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<div>',
-		self.escape(i + 1), // @112:18
+		self.escape(i + 1), // @115:18
 		' of ',
-		self.escape(l), // @112:34
+		self.escape(l), // @115:34
 		' is &quot;',
-		self.escape(skill.name), // @112:52
+		self.escape(skill.name), // @115:52
 		'&quot;</div>'
 	);
-}; // @113:9
+}; // @116:9
 
-Person.prototype.renderBlockNoSkills = function() { // @120:1
+Person.prototype.renderBlockNoSkills = function() { // @123:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
 		'<div>You have no skills :(</div>'
 	);
-}; // @122:1
+}; // @125:1
 
-Person.prototype.renderBlockAfterEvent = function() { // @124:1
+Person.prototype.renderBlockAfterEvent = function() { // @127:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Person.prototype.testFunc = function() { // @126:1
+Person.prototype.testFunc = function() { // @129:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
 	return 'testValue';
-}; // @128:1
+}; // @131:1
 
 }); // goog.scope

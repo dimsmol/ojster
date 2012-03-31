@@ -85,7 +85,10 @@ Person.prototype.calculateScore = function(person) {
 	<% @insert SomeTool(d) {
 		this.baseCssName = 'basecss1';
 	} %>
-	<% @insert SomeOtherTool(d) %>
+	<% @insert SomeOtherTool({
+			parentData: d,
+			someMoreData: 5
+		}) %>
 <% @block content } %>
 
 <% @block echo(msg) { %>
