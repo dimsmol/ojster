@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 
 var optimist = require('optimist');
-optimist.usage('Usage: $0 srcPath [dstPath] --goog [str] --tab [num]');
+optimist.usage('Usage: $0 srcPath [dstPath] --tab [num] --goog --scope');
+optimist.boolean('goog').describe('goog', 'Use Google Closure module system.');
+optimist.describe('tab', 'Replace tabs with given number of spaces.');
+optimist.describe('scope', 'FIXME');
 
 var ojster = require('../');
-var argv = optimist.argv._;
+var argv = optimist.argv;
+var args = argv._;
 var l = args.length;
 if (l < 1)
 {
-	abort(optimist.help() + 'srcPath argument is required');
+	abort(optimist.help());
 }
 
 var srcPath = args[0];
