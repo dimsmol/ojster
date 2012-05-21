@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-var argv = require('optimist').argv;
-var ojster = require('../');
+var optimist = require('optimist');
+optimist.usage('Usage: $0 srcPath [dstPath] --goog [str] --tab [num]');
 
-var args = argv._;
+var ojster = require('../');
+var argv = optimist.argv._;
 var l = args.length;
 if (l < 1)
 {
-	abort('srcPath argument required');
+	abort(optimist.help() + 'srcPath argument is required');
 }
 
 var srcPath = args[0];
