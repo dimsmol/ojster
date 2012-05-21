@@ -14,7 +14,7 @@ Templates use full power of JS with minimal additions of non-JS syntax. You don'
 Ojster provides tags and other non-JS constructions only as a syntax sugar and to hide differences between various frameworks' inheritance and module systems.
 
 With compilation templates are faster and have less errors, because they are already parsed and checked when it's time to render.
-Compilation is as simple and straightforward as possible. It's always clear what final code will look like. And you can manage this code as any other code in your project - check it with a linter or any other favorite tool, compress with JS-compressor and so on.
+Compilation is as simple and straightforward as possible. It's always clear what final code looks like. And you can manage this code as any other code in your project - check it with a linter or any other favorite tool, compress with JS-compressor and so on.
 Template is a regular JS class, so you can inherit it from any other class or inherit some class from it or do whatever you usually do with your classes.
 
 ## Features
@@ -34,15 +34,15 @@ Compilation is very fast because it's damn simple. All JS fragments of template 
 ## Syntax
 
 It's recommended to take a look at `examples` directory before continue to read. Examples are very simple and intuitive.
-By examining .ojst files and their corresponding .js files (compilation results) you will understand how template code is translated into JS code clearly enough. Further reading will provide you with details you could missed.
+By examining .ojst files and their corresponding .js files (compilation results) you will understand how template code is translated into JS code clearly enough. Further reading provides you with details you could missed.
 
 Template syntax is similar to EJS, but it has some extra conceptions.
 All the special constructions are enclosed within `<% %>` tags:
 
-* `<%= ... %>`  - calculate expression and render result escaped. Will be translated into something like `this.append(this.escape(...))`
-* `<%- ... %>`  - calculate expression and render result unescaped. Will be translated into something like `this.append(...)`
+* `<%= ... %>`  - calculate an expression and render result escaped. Translates into something like `this.append(this.escape(...))`
+* `<%- ... %>`  - calculate an expression and render result unescaped. Translates into something like `this.append(...)`
 * `<% @commandName ... %>`  - one of the commands _(described below)_.
-* `<% ... %>` - raw JS code fragment. Will be transferred literally. Can contain any JS code including `this.append(...)` calls.
+* `<% ... %>` - a raw JS code fragment. Transferees literally. Can contain any JS code including `this.append(...)` calls.
 
 ### Commands
 
@@ -65,8 +65,8 @@ _...other command descriptions to be added..._
 * `<% @block blockName { %>` - opens block _blockName_
 * `<% @block blockName } %>` - closes block _blockName_ (blockName is optional here)
 
-Code related to content between these two commands will be placed to _appendBlockBlockName_ method of resulting template class.
-Blocks can be nested. If block is nested corresponding method call will be placed in appropriate place of nesting block.
+Code related to content between these two commands goes into _appendBlockBlockName_ method of resulting template class.
+Blocks can be nested. When block is nested then corresponding method call goes into appropriate place of nesting block.
 
 	<% @block A { %>
 		a
@@ -75,7 +75,7 @@ Blocks can be nested. If block is nested corresponding method call will be place
 		<% @block } %>
 	<% @block } %>
 
-will be translated into something like
+translates into something like
 
 	TemplateClass.prototype.appendBlockA = function() {
 		this.append('a');
@@ -86,7 +86,7 @@ will be translated into something like
 		this.append('b');
 	};
 
-Note, that nested blocks haven't access to local variables of nesting block, because blocks are translated into completely separated (not nested) functions. Following example will not work as expected:
+Note, that nested blocks does not have an access to local variables of nested block, because blocks are translated into completely separated (not nested) functions. The following example doesn't work as you might expect:
 
 	<% @block A { %>
 		<% for (var i=0; i<10; i++) { %>
@@ -96,7 +96,7 @@ Note, that nested blocks haven't access to local variables of nesting block, bec
 		<% } %>
 	<% @block } %>
 
-This examples will be translated into something like this:
+The examples translate into something like this:
 
 	TemplateClass.prototype.appendBlockA = function() {
 		for (var i=0; i<10; i++) {
@@ -108,12 +108,12 @@ This examples will be translated into something like this:
 		this.append(i);
 	};
 
-And of course `i` is undefined within `appendBlockB` function scope. Use parametrized blocks to transfer local variables into scope of nested block.
+And of course `i` is undefined within `appendBlockB` function scope. Use parametrized blocks to transfer local variables into scope of a nested block.
 
-`<% @block blockName {} %>` - opens and closes block _blockName_. Such an empty block can be defined to be overriden in child templates.
+`<% @block blockName {} %>` - opens and closes block _blockName_. Such an empty block can be defined to be overridden in child templates.
 
-`main` is a special block name indicating a block that will be appended on template's `render()` method call.
-By default, text outside of any block will be supposed to be a raw JS code.
+`main` is a special block name indicating a block that appends to template's `render()` method call.
+By default, text outside of any block can be a raw JS code.
 
 
 ## Readme TODO
