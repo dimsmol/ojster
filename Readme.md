@@ -1,6 +1,6 @@
 # Ojster
 
-Ojster is "objective javascript templater" - dead simple template engine that translates .ojst templates into javascript classes capable of template content rendering.
+Ojster is "objective javascript templater" -- dead simple template engine that translates .ojst templates into javascript classes capable of rendering templates content.
 
 TextMate bundle for Ojster can be found here: https://github.com/4u/Ojster.tmbundle
 
@@ -10,7 +10,7 @@ TextMate bundle for Ojster can be found here: https://github.com/4u/Ojster.tmbun
 * Templates need "compilation" _(similar to Google Closure Templates)_
 * Compiled template is a regular JS class
 
-Templates use full power of JS with minimal additions of non-JS syntax. You don't need to learn lot of new stuff, because you already know the language that is powerful enough to manage your templates. Ojster does not stop you from doing terrible things in templates, just like JS hardly stops you from writing terrible code. You can easily use any dirty tricks, but generally you shouldn't. Be good all the time and be evil only when you really have to.
+Templates use full power of JS with minimal additions of non-JS syntax. You don't have to learn lot of new stuff, because you already know the language that is powerful enough to manage your templates. Ojster does not stop you from doing terrible things in templates, just like JS hardly stops you from writing terrible code. You can easily use any dirty tricks, but generally you shouldn't. Be good all the time and be evil only when you really have to.
 Ojster provides tags and other non-JS constructions only as a syntax sugar and to hide differences between various frameworks' inheritance and module systems.
 
 With compilation templates are faster and have less errors, because they are already parsed and checked when it's time to render.
