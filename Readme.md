@@ -10,11 +10,11 @@ TextMate bundle for Ojster can be found here: https://github.com/4u/Ojster.tmbun
 * Templates need "compilation" _(similar to Google Closure Templates)_
 * Compiled template is a regular JS class
 
-Templates use full power of JS with minimal additions of non-JS syntax. You don't have to learn lot of new stuff, because you already know the language that is powerful enough to manage your templates. Ojster does not stop you from doing terrible things in templates, just like JS hardly stops you from writing terrible code. You can easily use any dirty tricks, but generally you shouldn't. Be good all the time and be evil only when you really have to.
+Templates use full power of JS with minimal additions of non-JS syntax. You don't have to learn a lot of new stuff, because you already know the language that is powerful enough to manage your templates. Ojster does not stop you from doing terrible things in templates, just like JS hardly stops you from writing terrible code. You can easily use any dirty tricks, but generally you shouldn't. Be good all the time and be evil only when you really have to.
 Ojster provides tags and other non-JS constructions only as a syntax sugar and to hide differences between various frameworks' inheritance and module systems.
 
 With compilation templates are faster and have less errors, because they are already parsed and checked when it's time to render.
-Compilation is as simple and straight as possible. It always clear what final code will look like. And you can manage this code as any other code in your project - check with linter or your other favorite tool, compress with JS-compressor and so on.
+Compilation is as simple and straightforward as possible. It's always clear what final code will look like. And you can manage this code as any other code in your project - check it with a linter or any other favorite tool, compress with JS-compressor and so on.
 Template is a regular JS class, so you can inherit it from any other class or inherit some class from it or do whatever you usually do with your classes.
 
 ## Features
@@ -24,12 +24,12 @@ Template is a regular JS class, so you can inherit it from any other class or in
 	* Google Closure Library
 	* _other frameworks support can be added easily_
 * Same template file _(if properly written)_ can be used to produce code for both node.js and Google Closure Library
-* Template blocks can be overriden _(similar to Django templates' blocks, but more rich)_
+* Template blocks can be overridden _(similar to Django templates' blocks, but more rich)_
 * Parametrized template blocks are yet not ready, but planned
 * Any JS constructions allowed _(for, if, etc.)_
 * "Filters" are NOT supported _(use JS code instead)_
 
-Compilation is very fast because it's dumb simple. All JS fragments of template are transferred to final code literally. Template blocks are translated into regular methods of compiled JS class. These methods capable of appending corresponding content and nothing more. They can be called any number of times at any place of template, overriden in child templates and so on.
+Compilation is very fast because it's damn simple. All JS fragments of template are transferred to final code literally. Template blocks are translated into regular methods of compiled JS class. These methods capable of appending corresponding content and nothing more. They can be called any number of times at any place of template, overridden in child templates and so on.
 
 ## Syntax
 
