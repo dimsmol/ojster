@@ -1,6 +1,6 @@
 # Ojster
 
-Ojster is "objective javascript templater" - dead simple template engine which translates .ojst templates into javascript classes capable of template content rendering.
+Ojster is "objective javascript templater" - dead simple template engine that translates .ojst templates into javascript classes capable of template content rendering.
 
 TextMate bundle for Ojster can be found here: https://github.com/4u/Ojster.tmbundle
 
