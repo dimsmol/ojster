@@ -68,7 +68,7 @@ ojster.Template.prototype.getBaseCssName = function(setupFunc) {
 /**
  * @param {?string} baseCssName
  */
-Template.prototype.setBaseCssName = function(baseCssName) {
+ojster.Template.prototype.setBaseCssName = function(baseCssName) {
 	this.baseCssName = baseCssName;
 };
 
