@@ -48,6 +48,12 @@ if (argv.tab)
 	}
 }
 
+if (argv.indent)
+{
+	options.generator = options.generator || {};
+	options.generator.indentStr = argv.indent;
+}
+
 ojster.compile_path(srcPath, dstPath, options, function(err, results) {
 	if (err)
 	{
