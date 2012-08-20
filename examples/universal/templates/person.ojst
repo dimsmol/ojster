@@ -9,6 +9,7 @@
 
 <% @init {
 	this.baseCssName = 'basecss';
+	vars.score = this.calculateScore(d); // vars is right place for template-level variables
 } %>
 
 <%
@@ -30,14 +31,6 @@ function twistScore(value) {
 Person.prototype.calculateScore = function(person) {
 	return twistScore(person.score);
 };
-
-<% @block main { %>
-<%
-	// TODO bad example, need 'init' function instead
-	vars.score = this.calculateScore(d); // vars is right place for template-level variables
-%>
-	<% @base %>
-<% @block main } %>
 
 // code could be here too, almost anywhere
 
