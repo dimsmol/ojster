@@ -1,6 +1,8 @@
+"use strict";
 var Person = require('./compiled/node/person');
 var fs = require('fs');
 var path = require('path');
+
 
 var ctx = {
 	pageSettings: {a: 'a', b: 'b'}

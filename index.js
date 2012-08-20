@@ -1,1 +1,5 @@
-module.exports = require('./lib/ojster');
+"use strict";
+var ojster = require('./lib/ojster');
+
+
+module.exports = ojster;
