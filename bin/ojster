@@ -4,6 +4,11 @@
 var argv = require('optimist').argv;
 var ojster = require('../');
 
+function abort(str) {
+	console.error(str);
+	process.exit(1);
+}
+
 var args = argv._;
 var l = args.length;
 if (l < 1) {
@@ -22,17 +27,19 @@ if (argv.goog) {
 }
 
 var useScope = !!argv.scope;
+var noStrict = !!argv.noStrict;
 
 var options = {};
-if (generatorClass != null || useScope) {
+if (generatorClass != null || useScope || noStrict) {
 	options.generator = options.generator || {};
-	if (generatorClass != null)
-	{
+	if (generatorClass != null) {
 		options.generator.generatorClass = generatorClass;
 	}
-	if (useScope)
-	{
+	if (useScope) {
 		options.generator.useScope = useScope;
+	}
+	if (noStrict) {
+		options.generator.useStrict = false;
 	}
 }
 
@@ -59,9 +66,3 @@ ojster.compilePath(srcPath, dstPath, options, function(err, results) {
 
 	process.exit(0);
 });
-
-
-function abort(str) {
-	console.error(str);
-	process.exit(1);
-}

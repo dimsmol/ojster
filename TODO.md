@@ -2,8 +2,6 @@
 * use ops
 * use mkdirp
 
-* optionally add "use strict"; for files generated for node
-
 * use Buffer instead of `[]` (?)
 
 * remove ability to use `<% %>` code blocks beyond block

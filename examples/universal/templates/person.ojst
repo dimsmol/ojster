@@ -24,7 +24,7 @@
 // usually code is enclosed into such a "tag"
 function twistScore(value) {
 	return value * 5 / 3;
-};
+}
 %>
 
 // but beyond blocks code can be inserted just plain
