@@ -7,7 +7,7 @@
 		"name": "Dmitry Smolin",
 		"email": "dimsmol@gmail.com"
 	},
-	"preferGlobal": false,
+	"preferGlobal": true,
 	"private": false,
 	"dependencies": {
 		"async": ">= 0.1.9",

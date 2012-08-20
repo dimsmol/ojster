@@ -1,4 +1,6 @@
-# TODO
+* use args
+* use ops
+* use mkdirp
 
 * use Buffer instead of `[]` (?)
 
@@ -23,21 +25,11 @@
 * think about way to add common functionality to core by subclassing without need to create subclass for every kind of generator (node, goog, etc.)
 
 * TODOs in `path_compiler.js`
-* TODOs in `tools/fs.js`
-
-* think about way of using regular Array as writer
 
 * more error_examples
-* make tests (use examples and error_examples)
+* tests (use examples and error_examples)
 
-## modules
-
-* fix package.json
-* publish to npm
-* replace `optimist` with `nomnom`
-* use mkdirp instead of own implementation
-
-## readme.md
+## readme
 
 * add description for all commands
 * rewrite readme
