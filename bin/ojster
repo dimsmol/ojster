@@ -2,7 +2,7 @@
 
 "use strict";
 var argv = require('optimist').argv;
-var ojster = require('../');
+var ojster = require('../lib');
 
 function abort(str) {
 	console.error(str);

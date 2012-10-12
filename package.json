@@ -18,13 +18,13 @@
 	},
 	"repository": "git://github.com/dimsmol/ojster",
 	"directories": {
-		"lib": "./lib",
-		"bin": "./bin",
-		"example": "./examples"
+		"lib": "lib",
+		"bin": "bin",
+		"example": "examples"
 	},
-	"main": "index",
+	"main": "lib",
 	"bin": {
-		"ojster": "./bin/ojster"
+		"ojster": "bin/ojster"
 	},
 	"scripts": {
 		"test": "make test"

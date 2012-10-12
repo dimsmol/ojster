@@ -1,7 +1,7 @@
 <% // universal templates must provide both aliases and fully qualified names %>
 
 <% // @require also needs path to library for node %>
-<% @require ojster = '../../../..' ojster %> <% // normally here will be just 'ojster' %>
+<% @require ojster = '../../../../lib' ojster %> <% // normally here will be just 'ojster' %>
 <% // example of handling subpath and subname %>
 <% @require SomeClass = '../../../somemodule'.sub.SomeClass ojster.examples.somemodule..sub.SomeClass %>
 

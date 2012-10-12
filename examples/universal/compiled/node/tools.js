@@ -2,7 +2,7 @@
 // usually there is no reason to edit it manually
 "use strict";
 var inherits = require('util').inherits;
-var ojster = require('../../../..'); // normally here will be just 'ojster'
+var ojster = require('../../../../lib'); // normally here will be just 'ojster'
 
 var SomeTool = function(opt_data, opt_ctx, opt_writer) {
 	ojster.Template.call(this, opt_data, opt_ctx, opt_writer);
