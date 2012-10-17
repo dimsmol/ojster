@@ -29,7 +29,9 @@ if (argv.goog) {
 var useScope = !!argv.scope;
 var noStrict = !!argv.noStrict;
 
-var options = {};
+var options = {
+	silent: false
+};
 if (generatorClass != null || useScope || noStrict) {
 	options.generator = options.generator || {};
 	if (generatorClass != null) {
