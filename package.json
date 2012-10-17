@@ -12,7 +12,8 @@
 	"dependencies": {
 		"async": "~0.1.9",
 		"optimist": "~0.2.3",
-		"nerr": "~0.0.1"
+		"nerr": "~0.0.1",
+		"ops": "~0.0.1"
 	},
 	"engines": {
 		"node": "~0.8.0"

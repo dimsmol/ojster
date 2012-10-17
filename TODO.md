@@ -1,5 +1,4 @@
 * use args
-* use ops
 * use mkdirp
 
 * use Buffer instead of `[]` (?)
