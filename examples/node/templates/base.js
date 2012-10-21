@@ -15,7 +15,7 @@ function abc() {
 }
 
 
-// @require needs path and optional subpath as defined below
+// @require needs path and optional subpath
 var ojster = require('ojster'); // equivalent to: ojster = 'ojster'
 var MyLib = require('./my_lib');
 

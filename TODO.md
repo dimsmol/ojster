@@ -1,3 +1,8 @@
+* --amd --browserglobal options
+* inherits - add to ojster, allow override
+* noConflict
+* extra empty lines?
+
 * use args
 * use mkdirp
 
@@ -11,8 +16,6 @@
 * use generic Symbol token instead of Space
 
 * `make errors-generation` produces results in random order, do something with it
-
-* write common generator for client-side (to use with amd or browser global)
 * write usage for `bin/ojster` (within the script)
 
 * fail with error in generator if some required component is not found (alias, path, etc.)

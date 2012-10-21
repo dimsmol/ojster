@@ -4,21 +4,12 @@
 	"use strict";
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
-		define([
-			'ojster',
-			'./my_lib'
-		], factory);
+		define(['ojster', './my_lib'], factory);
 	} else {
 		// Browser globals
-		root.ojster = factory(
-			root.ojster,
-			root.MyLib
-		);
+		root.ojster = factory(root.ojster, root.MyLib);
 	}
-}(this, function (
-	ojster,
-	MyLib
-) {
+}(this, function (ojster, MyLib) {
 "use strict";
 
 // variables can be safely defined at any place
@@ -31,7 +22,7 @@ function abc() {
 }
 
 
-// @require needs path and optional subpath as defined below
+// @require needs path and optional subpath, fully qualified names can be provided for browser global
  // equivalent to: ojster = 'ojster'
 
 

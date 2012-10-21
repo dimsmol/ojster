@@ -4,21 +4,12 @@
 	"use strict";
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
-		define([
-			'../../../../lib',
-			'../../../somemodule'
-		], factory);
+		define(['../../../../lib', '../../../somemodule'], factory);
 	} else {
 		// Browser globals
-		root.ojster = factory(
-			root.ojster,
-			root.ojster.examples.somemodule
-		);
+		root.ojster = factory(root.ojster, root.ojster.examples.somemodule);
 	}
-}(this, function (
-	ojster,
-	SomeClass
-) {
+}(this, function (ojster, SomeClass) {
 "use strict";
 // universal templates must provide both aliases and fully qualified names
 

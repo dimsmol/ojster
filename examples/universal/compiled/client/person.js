@@ -4,27 +4,12 @@
 	"use strict";
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
-		define([
-			'./base',
-			'./hobbies',
-			'./tools',
-			'./tools'
-		], factory);
+		define(['./base', './hobbies', './tools', './tools'], factory);
 	} else {
 		// Browser globals
-		root.ojster = factory(
-			root.ojster.example.templates.Base,
-			root.ojster.example.templates.Hobbies,
-			root.ojster.example.templates.Tools.SomeTool,
-			root.ojster.example.templates.Tools.SomeOtherTool
-		);
+		root.ojster = factory(root.ojster.example.templates.Base, root.ojster.example.templates.Hobbies, root.ojster.example.templates.Tools.SomeTool, root.ojster.example.templates.Tools.SomeOtherTool);
 	}
-}(this, function (
-	Base,
-	Hobbies,
-	SomeTool,
-	SomeOtherTool
-) {
+}(this, function (Base, Hobbies, SomeTool, SomeOtherTool) {
 "use strict";
 
 

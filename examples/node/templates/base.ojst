@@ -11,7 +11,7 @@ function abc() {
 }
 %>
 
-<% // @require needs path and optional subpath as defined below  %>
+<% // @require needs path and optional subpath  %>
 <% @require ojster %> // equivalent to: ojster = 'ojster'
 <% @require MyLib = './my_lib' %>
 

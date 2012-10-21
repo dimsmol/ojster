@@ -4,18 +4,12 @@
 	"use strict";
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
-		define([
-			'../../../../lib'
-		], factory);
+		define(['../../../../lib'], factory);
 	} else {
 		// Browser globals
-		root.ojster = factory(
-			root.ojster
-		);
+		root.ojster = factory(root.ojster);
 	}
-}(this, function (
-	ojster
-) {
+}(this, function (ojster) {
 "use strict";
  // normally here will be just 'ojster'
 
