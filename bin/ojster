@@ -21,20 +21,27 @@ if (l >= 2) {
 	dstPath = args[1];
 }
 
+var options = {
+	silent: false
+};
+
 var generatorClass = null;
+var clientType = null;
 if (argv.goog) {
 	generatorClass = ojster.generators.GoogGenerator;
 }
-else if (argv.client) {
+else if (argv.client || argv.amd || argv.browserglobal) {
 	generatorClass = ojster.generators.ClientGenerator;
+	if (argv.amd) {
+		clientType = 'amd';
+	}
+	else if (argv.browserglobal) {
+		clientType = 'browserglobal';
+	}
 }
 
 var useScope = !!argv.scope;
 var noStrict = !!argv.noStrict;
-
-var options = {
-	silent: false
-};
 if (generatorClass != null || useScope || noStrict) {
 	options.generator = options.generator || {};
 	if (generatorClass != null) {
@@ -45,6 +52,9 @@ if (generatorClass != null || useScope || noStrict) {
 	}
 	if (noStrict) {
 		options.generator.useStrict = false;
+	}
+	if (clientType) {
+		options.generator.clientType = clientType;
 	}
 }
 

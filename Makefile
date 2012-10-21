@@ -6,8 +6,16 @@ examples: examples-node examples-client examples-goog examples-goog-scope exampl
 examples-node:
 	ojster ./examples/node/templates
 
-examples-client:
-	ojster ./examples/client/templates --client
+examples-client: examples-amd examples-browserglobal examples-client-universal
+
+examples-amd:
+	ojster ./examples/client/templates ./examples/client/compiled/amd --amd
+
+examples-browserglobal:
+	ojster ./examples/client/templates ./examples/client/compiled/browserglobal --browserglobal
+
+examples-client-universal:
+	ojster ./examples/client/templates ./examples/client/compiled/universal --client
 
 examples-goog:
 	ojster ./examples/goog/templates --goog
@@ -21,8 +29,16 @@ examples-universal-node:
 	ojster ./examples/universal/templates ./examples/universal/compiled/node
 	node ./examples/universal/node_example.js
 
-examples-universal-client:
-	ojster ./examples/universal/templates ./examples/universal/compiled/client --client
+examples-universal-client: examples-universal-amd examples-universal-browserglobal examples-universal-client-universal
+
+examples-universal-amd:
+	ojster ./examples/universal/templates ./examples/universal/compiled/client/amd --amd
+
+examples-universal-browserglobal:
+	ojster ./examples/universal/templates ./examples/universal/compiled/client/browserglobal --browserglobal
+
+examples-universal-client-universal:
+	ojster ./examples/universal/templates ./examples/universal/compiled/client/universal --client
 
 examples-universal-goog-scope:
 	ojster ./examples/universal/templates ./examples/universal/compiled/goog_scope --goog --scope
