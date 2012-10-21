@@ -19,4 +19,4 @@ Hobbies.prototype.renderBlockMain = function() { // @6:1
 
 return Hobbies;
 
-}));
+});

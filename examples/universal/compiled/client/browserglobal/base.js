@@ -84,4 +84,4 @@ Base.prototype.renderBlockContent = function() { // @33:7
 
 return Base;
 
-})();
+}));

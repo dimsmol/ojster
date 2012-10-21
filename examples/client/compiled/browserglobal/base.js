@@ -38,4 +38,4 @@ Base.prototype.renderBlockMain = function() { // @25:1
 
 return Base;
 
-})();
+}));

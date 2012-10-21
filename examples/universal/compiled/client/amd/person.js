@@ -231,4 +231,4 @@ Person.prototype.testFunc = function() { // @122:1
 
 return Person;
 
-}));
+});

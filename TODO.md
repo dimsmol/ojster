@@ -1,4 +1,3 @@
-* --amd --browserglobal options
 * inherits - add to ojster, allow override
 * noConflict
 * extra empty lines?

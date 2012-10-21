@@ -33,4 +33,4 @@ return = {
 	SomeOtherTool: SomeOtherTool
 };
 
-}));
+});
