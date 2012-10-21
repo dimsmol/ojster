@@ -12,7 +12,7 @@
 
 * `make errors-generation` produces results in random order, do something with it
 
-* write generic generator for client-side (to use with jQuery, etc.)
+* write common generator for client-side (to use with amd or browser global)
 * write usage for `bin/ojster` (within the script)
 
 * fail with error in generator if some required component is not found (alias, path, etc.)
