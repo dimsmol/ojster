@@ -1,4 +1,4 @@
-* fix export name for browserglobal
+* fix export name for browserglobals
 * inherits - add to ojster, allow override
 * extra empty lines?
 

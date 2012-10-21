@@ -30,13 +30,13 @@ var clientType = null;
 if (argv.goog) {
 	generatorClass = ojster.generators.GoogGenerator;
 }
-else if (argv.client || argv.amd || argv.browserglobal) {
+else if (argv.client || argv.amd || argv.browserglobals) {
 	generatorClass = ojster.generators.ClientGenerator;
 	if (argv.amd) {
 		clientType = 'amd';
 	}
-	else if (argv.browserglobal) {
-		clientType = 'browserglobal';
+	else if (argv.browserglobals) {
+		clientType = 'browserglobals';
 	}
 }
 
