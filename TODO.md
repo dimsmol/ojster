@@ -1,6 +1,11 @@
-* fix export name for browserglobals
-* inherits - add to ojster, allow override
-* extra empty lines?
+* remove universal client generation - too dirty code
+* extract browserglobals to standalone class
+* split client library, provide amd and browserglobal versions separately
+* inherits - proper require needed for both amd and browserglobals
+* ignore whitespaces between require() for amd - use inplace schema?
+* improve node.js escape as for clients
+* change require schema for browserglobals (render in place)
+* fix export names for browserglobals, export in place
 
 * use args
 * use mkdirp
