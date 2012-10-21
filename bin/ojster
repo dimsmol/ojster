@@ -25,6 +25,9 @@ var generatorClass = null;
 if (argv.goog) {
 	generatorClass = ojster.generators.GoogGenerator;
 }
+else if (argv.client) {
+	generatorClass = ojster.generators.ClientGenerator;
+}
 
 var useScope = !!argv.scope;
 var noStrict = !!argv.noStrict;
