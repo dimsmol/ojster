@@ -22,7 +22,7 @@ examples-universal-node:
 	node ./examples/universal/node_example.js
 
 examples-universal-client:
-	ojster ./examples/universal/templates ./examples/universal/compiled/client
+	ojster ./examples/universal/templates ./examples/universal/compiled/client --client
 
 examples-universal-goog-scope:
 	ojster ./examples/universal/templates ./examples/universal/compiled/goog_scope --goog --scope

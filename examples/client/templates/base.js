@@ -4,12 +4,21 @@
 	"use strict";
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
-		define([], factory);
+		define([
+			'ojster',
+			'./my_lib'
+		], factory);
 	} else {
 		// Browser globals
-		root.ojster = factory();
+		root.ojster = factory(
+			root.ojster,
+			root.MyLib
+		);
 	}
-}(this, function () {
+}(this, function (
+	ojster,
+	MyLib
+) {
 "use strict";
 
 // variables can be safely defined at any place
@@ -43,4 +52,5 @@ Base.prototype.renderBlockMain = function() { // @25:1
 };
 
 return Base;
+
 }));
