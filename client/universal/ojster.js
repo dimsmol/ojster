@@ -5,7 +5,16 @@
 		define([], factory);
 	} else {
 		// Browser globals
+		var old = root.ojster;
 		root.ojster = factory();
+		root.ojster.noConflict = function () {
+			if (old === undefined) {
+				delete root.ojster;
+			}
+			else {
+				root.ojster = old;
+			}
+		};
 	}
 }(this, function () {
 "use strict";

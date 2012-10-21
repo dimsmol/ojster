@@ -1,5 +1,5 @@
+* fix export name for browserglobal
 * inherits - add to ojster, allow override
-* noConflict
 * extra empty lines?
 
 * use args
