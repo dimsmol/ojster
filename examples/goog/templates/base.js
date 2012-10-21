@@ -46,4 +46,3 @@ ojster.example.templates.Base.prototype.renderBlockMain = function() { // @18:1
 
 	new ojster.example.templates.Tools.SomeTool(d).renderTo(self); // @33:5
 }; // @34:1
-
