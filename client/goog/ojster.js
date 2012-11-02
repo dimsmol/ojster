@@ -74,8 +74,8 @@ ojster.Template.prototype.setBaseCssName = function (baseCssName) {
 };
 
 /**
- * @param {string} str
- * @return {string}
+ * @param {?string} str
+ * @return {?string}
  */
 ojster.Template.prototype.escape = function (str) {
   return ojster.escape(str);
@@ -111,16 +111,16 @@ ojster.Template.prototype.renderBlockMain = function () {
 // functions
 
 /**
- * @param {string} str
+ * @param {?string} str
  * @param {boolean=} opt_isLikelyToContainHtmlChars Don't perform a check to see
  *     if the character needs replacing - use this option if you expect each of
  *     the characters to appear often. Leave false if you expect few html
  *     characters to occur in your strings, such as if you are escaping HTML.
- * @return {string}
+ * @return {?string}
  */
 ojster.escape = function (str, opt_isLikelyToContainHtmlChars) {
   if (str != null) {
-	str = goog.string.htmlEscape(str, opt_isLikelyToContainHtmlChars);
+    str = goog.string.htmlEscape(str, opt_isLikelyToContainHtmlChars);
   }
   return str;
 };
