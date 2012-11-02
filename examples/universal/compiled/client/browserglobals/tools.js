@@ -7,11 +7,11 @@
 "use strict";
  // normally here will be just 'ojster'
 
-var SomeTool = function(opt_data, opt_ctx, opt_writer) {
+var SomeTool = function (opt_data, opt_ctx, opt_writer) {
 	ojster.Template.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(SomeTool, ojster.Template);
-SomeTool.prototype.renderBlockMain = function() { // @5:1
+SomeTool.prototype.renderBlockMain = function () { // @5:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -19,11 +19,11 @@ SomeTool.prototype.renderBlockMain = function() { // @5:1
 	);
 }; // @7:1
 
-var SomeOtherTool = function(opt_data, opt_ctx, opt_writer) {
+var SomeOtherTool = function (opt_data, opt_ctx, opt_writer) {
 	ojster.Template.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(SomeOtherTool, ojster.Template);
-SomeOtherTool.prototype.renderBlockMain = function() { // @11:1
+SomeOtherTool.prototype.renderBlockMain = function () { // @11:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(

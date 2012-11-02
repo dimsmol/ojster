@@ -1,7 +1,7 @@
 "use strict";
 // fake module for examples
 
-var SomeClass = function() {
+var SomeClass = function () {
 };
 
 var sub = {

@@ -77,12 +77,12 @@ Blocks can be nested. If block is nested corresponding method call will be place
 
 will be translated into something like
 
-	TemplateClass.prototype.appendBlockA = function() {
+	TemplateClass.prototype.appendBlockA = function () {
 		this.append('a');
 		this.appendBlockB();
 	};
 
-	TemplateClass.prototype.appendBlockB = function() {
+	TemplateClass.prototype.appendBlockB = function () {
 		this.append('b');
 	};
 
@@ -98,13 +98,13 @@ Note, that nested blocks haven't access to local variables of nesting block, bec
 
 This examples will be translated into something like this:
 
-	TemplateClass.prototype.appendBlockA = function() {
+	TemplateClass.prototype.appendBlockA = function () {
 		for (var i=0; i<10; i++) {
 			this.appendBlockB();
 		}
 	};
 
-	TemplateClass.prototype.appendBlockB = function() {
+	TemplateClass.prototype.appendBlockB = function () {
 		this.append(i);
 	};
 

@@ -16,12 +16,12 @@ var Hobbies = ojster.example.templates.Hobbies;
 var SomeTool = ojster.example.templates.Tools.SomeTool;
 var SomeOtherTool = ojster.example.templates.Tools.SomeOtherTool;
 
-var Person = function(opt_data, opt_ctx, opt_writer) {
+var Person = function (opt_data, opt_ctx, opt_writer) {
 	Base.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(Person, Base);
 
-Person.prototype.init = function() { // @10:1
+Person.prototype.init = function () { // @10:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	Base.prototype.init.call(this);
@@ -52,7 +52,7 @@ Person.prototype.calculateScore = function(person) {
 
 // code could be here too, almost anywhere
 
-Person.prototype.renderBlockTitle = function() { // @37:1
+Person.prototype.renderBlockTitle = function () { // @37:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -61,7 +61,7 @@ Person.prototype.renderBlockTitle = function() { // @37:1
 	);
 }; // @37:40
 
-Person.prototype.renderBlockScript = function() { // @39:1
+Person.prototype.renderBlockScript = function () { // @39:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -77,7 +77,7 @@ Person.prototype.renderBlockScript = function() { // @39:1
 	);
 }; // @48:1
 
-Person.prototype.renderBlockContent = function() { // @50:1
+Person.prototype.renderBlockContent = function () { // @50:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -135,7 +135,7 @@ Person.prototype.renderBlockContent = function() { // @50:1
 		'-</div>' // @74:19
 	); // @76:5
 	new Hobbies(d, this.ctx).renderTo(self); // @76:5
-	new SomeTool(d).setup(function() { var d = this.data, vars = this.vars;
+	new SomeTool(d).setup(function () { var d = this.data, vars = this.vars;
 		this.baseCssName = 'basecss1';
 	}).renderTo(self); // @78:5
 	new SomeOtherTool({
@@ -144,7 +144,7 @@ Person.prototype.renderBlockContent = function() { // @50:1
 		}).renderTo(self); // @81:5
 }; // @85:1
 
-Person.prototype.renderBlockFullName = function() { // @60:17
+Person.prototype.renderBlockFullName = function () { // @60:17
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -154,12 +154,12 @@ Person.prototype.renderBlockFullName = function() { // @60:17
 	);
 }; // @60:76
 
-Person.prototype.renderBlockBeforeEvent = function() { // @67:13
+Person.prototype.renderBlockBeforeEvent = function () { // @67:13
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Person.prototype.renderBlockEcho = function(msg) { // @87:1
+Person.prototype.renderBlockEcho = function (msg) { // @87:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -167,7 +167,7 @@ Person.prototype.renderBlockEcho = function(msg) { // @87:1
 	);
 }; // @89:1
 
-Person.prototype.renderBlockSkills = function() { // @91:1
+Person.prototype.renderBlockSkills = function () { // @91:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -198,7 +198,7 @@ Person.prototype.renderBlockSkills = function() { // @91:1
 
 }; // @114:1
 
-Person.prototype.renderBlockParametrized = function(i, l, skill) { // @107:9
+Person.prototype.renderBlockParametrized = function (i, l, skill) { // @107:9
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -212,7 +212,7 @@ Person.prototype.renderBlockParametrized = function(i, l, skill) { // @107:9
 	);
 }; // @109:9
 
-Person.prototype.renderBlockNoSkills = function() { // @116:1
+Person.prototype.renderBlockNoSkills = function () { // @116:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -220,19 +220,19 @@ Person.prototype.renderBlockNoSkills = function() { // @116:1
 	);
 }; // @118:1
 
-Person.prototype.renderBlockAfterEvent = function() { // @120:1
+Person.prototype.renderBlockAfterEvent = function () { // @120:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Person.prototype.testFunc = function() { // @122:1
+Person.prototype.testFunc = function () { // @122:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
 	return 'testValue';
 }; // @124:1
 
-Person.prototype.renderBlockTest1 = function() { // @126:1
+Person.prototype.renderBlockTest1 = function () { // @126:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 
@@ -241,7 +241,7 @@ Person.prototype.renderBlockTest1 = function() { // @126:1
 	Base.prototype.renderBlockTest1.call(this); // @128:5
 }; // @129:1
 
-Person.prototype.renderBlockTest2 = function(a) { // @131:1
+Person.prototype.renderBlockTest2 = function (a) { // @131:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 

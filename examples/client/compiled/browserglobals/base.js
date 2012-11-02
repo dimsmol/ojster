@@ -21,7 +21,7 @@ function abc() {
 
 
 // @template and @inherits need alias only
-var Base = function(opt_data, opt_ctx, opt_writer) {
+var Base = function (opt_data, opt_ctx, opt_writer) {
 	ojster.Template.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(Base, ojster.Template);
@@ -31,7 +31,7 @@ inherits(Base, ojster.Template);
 var tmp1 = Base.prototype;
 
 
-Base.prototype.renderBlockMain = function() { // @25:1
+Base.prototype.renderBlockMain = function () { // @25:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };

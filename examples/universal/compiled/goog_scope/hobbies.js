@@ -4,7 +4,7 @@ goog.provide('ojster.example.templates.Hobbies');
 
 goog.require('ojster'); // normally here will be just 'ojster'
 
-goog.scope(function() {
+goog.scope(function () {
 "use strict";
 
 /**
@@ -14,13 +14,13 @@ goog.scope(function() {
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.templates.Hobbies = function(opt_data, opt_ctx, opt_writer) {
+ojster.example.templates.Hobbies = function (opt_data, opt_ctx, opt_writer) {
 	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 var Hobbies = ojster.example.templates.Hobbies;
 goog.inherits(Hobbies, ojster.Template);
 
-Hobbies.prototype.renderBlockMain = function() { // @6:1
+Hobbies.prototype.renderBlockMain = function () { // @6:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(

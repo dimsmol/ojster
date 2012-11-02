@@ -20,7 +20,7 @@
 
 var SomeClass = ojster.examples.somemodule.sub.SomeClass;
 
-var Base = function(opt_data, opt_ctx, opt_writer) {
+var Base = function (opt_data, opt_ctx, opt_writer) {
 	ojster.Template.call(this, opt_data, opt_ctx, opt_writer);
 };
 inherits(Base, ojster.Template);
@@ -38,7 +38,7 @@ inherits(Base, ojster.Template);
 // so, enabling goog.scope can sometimes be the only way to get trully universal template
 
 
-Base.prototype.renderBlockMain = function() { // @24:1
+Base.prototype.renderBlockMain = function () { // @24:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -63,41 +63,40 @@ Base.prototype.renderBlockMain = function() { // @24:1
 	);
 }; // @35:1
 
-Base.prototype.renderBlockMeta = function() { // @28:1
+Base.prototype.renderBlockMeta = function () { // @28:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockTitle = function() { // @29:8
+Base.prototype.renderBlockTitle = function () { // @29:8
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockCss = function() { // @30:1
+Base.prototype.renderBlockCss = function () { // @30:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockScript = function() { // @31:1
+Base.prototype.renderBlockScript = function () { // @31:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockContent = function() { // @33:7
+Base.prototype.renderBlockContent = function () { // @33:7
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockTest1 = function() { // @37:1
+Base.prototype.renderBlockTest1 = function () { // @37:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
 
-Base.prototype.renderBlockTest2 = function(a, b) { // @39:1
+Base.prototype.renderBlockTest2 = function (a, b) { // @39:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 };
-
 
 return Base;
 

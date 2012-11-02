@@ -74,7 +74,7 @@ if (argv.ext) {
 	options.ext = argv.ext;
 }
 
-ojster.compilePath(srcPath, dstPath, options, function(err, results) {
+ojster.compilePath(srcPath, dstPath, options, function (err, results) {
 	if (err) {
 		process.exit(1);
 	}

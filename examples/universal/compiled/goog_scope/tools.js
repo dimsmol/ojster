@@ -5,7 +5,7 @@ goog.provide('ojster.example.templates.Tools.SomeOtherTool');
 
 goog.require('ojster'); // normally here will be just 'ojster'
 
-goog.scope(function() {
+goog.scope(function () {
 "use strict";
 
 /**
@@ -15,12 +15,12 @@ goog.scope(function() {
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.templates.Tools.SomeTool = function(opt_data, opt_ctx, opt_writer) {
+ojster.example.templates.Tools.SomeTool = function (opt_data, opt_ctx, opt_writer) {
 	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 var SomeTool = ojster.example.templates.Tools.SomeTool;
 goog.inherits(SomeTool, ojster.Template);
-SomeTool.prototype.renderBlockMain = function() { // @5:1
+SomeTool.prototype.renderBlockMain = function () { // @5:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(
@@ -35,12 +35,12 @@ SomeTool.prototype.renderBlockMain = function() { // @5:1
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.templates.Tools.SomeOtherTool = function(opt_data, opt_ctx, opt_writer) {
+ojster.example.templates.Tools.SomeOtherTool = function (opt_data, opt_ctx, opt_writer) {
 	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 var SomeOtherTool = ojster.example.templates.Tools.SomeOtherTool;
 goog.inherits(SomeOtherTool, ojster.Template);
-SomeOtherTool.prototype.renderBlockMain = function() { // @11:1
+SomeOtherTool.prototype.renderBlockMain = function () { // @11:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 	self.writer.write(

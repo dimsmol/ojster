@@ -10,7 +10,7 @@ goog.require('ojster.examples.somemodule');
 // any aliases defined above can be used within scope,
 // because they will be explicitly defined
 
-goog.scope(function() {
+goog.scope(function () {
 "use strict";
 
 var SomeClass = ojster.examples.somemodule.sub.SomeClass;
@@ -22,7 +22,7 @@ var SomeClass = ojster.examples.somemodule.sub.SomeClass;
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.templates.Base = function(opt_data, opt_ctx, opt_writer) {
+ojster.example.templates.Base = function (opt_data, opt_ctx, opt_writer) {
 	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 var Base = ojster.example.templates.Base;
@@ -36,7 +36,7 @@ var tmp = Base.prototype; // using alias
 var tmp1 = ojster.example.templates.Base; // fully qualified names can be used as well
 
 
-Base.prototype.renderBlockMain = function() { // @20:1
+Base.prototype.renderBlockMain = function () { // @20:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 

@@ -13,7 +13,7 @@ goog.require('ojster.example.templates.Tools.SomeTool');
  * @constructor
  * @extends {ojster.Template}
  */
-ojster.example.templates.Base = function(opt_data, opt_ctx, opt_writer) {
+ojster.example.templates.Base = function (opt_data, opt_ctx, opt_writer) {
 	goog.base(this, opt_data, opt_ctx, opt_writer);
 };
 goog.inherits(ojster.example.templates.Base, ojster.Template);
@@ -28,7 +28,7 @@ ojster.example.templates.Base.twistScore = function(value) {
 };
 
 
-ojster.example.templates.Base.prototype.renderBlockMain = function() { // @18:1
+ojster.example.templates.Base.prototype.renderBlockMain = function () { // @18:1
 	var self = this;
 	var d = this.data, vars = this.vars;
 

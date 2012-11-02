@@ -19,20 +19,20 @@
 }(this, function () {
 "use strict";
 
-var StringWriter = function() {
+var StringWriter = function () {
 	this.buff = [];
 };
 
-StringWriter.prototype.write = function() {
+StringWriter.prototype.write = function () {
 	this.buff.push.apply(this.buff, arguments);
 };
 
-StringWriter.prototype.done = function() {
+StringWriter.prototype.done = function () {
 	return this.buff.join('');
 };
 
 
-var Template = function(opt_data, opt_ctx, opt_writer) {
+var Template = function (opt_data, opt_ctx, opt_writer) {
 	this.data = opt_data || null;
 	this.ctx = opt_ctx || null;
 	this.writer = opt_writer || null;
@@ -42,31 +42,31 @@ var Template = function(opt_data, opt_ctx, opt_writer) {
 	this.init();
 };
 
-Template.prototype.init = function() {
+Template.prototype.init = function () {
 };
 
-Template.prototype.setup = function(setupFunc) {
+Template.prototype.setup = function (setupFunc) {
 	setupFunc.call(this);
 	return this;
 };
 
-Template.prototype.getBaseCssName = function(setupFunc) {
+Template.prototype.getBaseCssName = function (setupFunc) {
 	return this.baseCssName;
 };
 
-Template.prototype.setBaseCssName = function(baseCssName) {
+Template.prototype.setBaseCssName = function (baseCssName) {
 	this.baseCssName = baseCssName;
 };
 
-Template.prototype.escape = function(str) {
+Template.prototype.escape = function (str) {
 	return Template.escape(str);
 };
 
-Template.prototype.createWriter = function() {
+Template.prototype.createWriter = function () {
 	return new StringWriter();
 };
 
-Template.prototype.render = function() {
+Template.prototype.render = function () {
 	// ensure we have a writer
 	if (this.writer == null) {
 		this.writer = this.createWriter();
@@ -77,12 +77,12 @@ Template.prototype.render = function() {
 	return this.writer.done();
 };
 
-Template.prototype.renderTo = function(template) {
+Template.prototype.renderTo = function (template) {
 	this.writer = template.writer;
 	this.renderBlockMain();
 };
 
-Template.prototype.renderBlockMain = function() {
+Template.prototype.renderBlockMain = function () {
 	throw new Error('Not implemented');
 };
 
@@ -95,7 +95,7 @@ var gtRe = />/g;
 var dqRe = /"/g;
 var needEscRe = /[&<>"]/;
 
-var escape = function(str, opt_isLikelyToContainHtmlChars) {
+var escape = function (str, opt_isLikelyToContainHtmlChars) {
 	if (str != null) {
 		if (opt_isLikelyToContainHtmlChars) {
 			str = (str+'')
@@ -121,12 +121,12 @@ var escape = function(str, opt_isLikelyToContainHtmlChars) {
 	return str;
 };
 
-var fillElement = function(element, template) {
+var fillElement = function (element, template) {
 	element.innerHTML = template.render();
 	return element;
 };
 
-var createElement = function(template) {
+var createElement = function (template) {
 	var wrapper = document.createElement('div');
 	wrapper.innerHTML = (template.constructor === String ? template : template.render());
 
@@ -141,7 +141,7 @@ var createElement = function(template) {
 	return wrapper;
 };
 
-var createFragment = function(template, opt_skipIeWorkaround) {
+var createFragment = function (template, opt_skipIeWorkaround) {
 	var htmlString = (template.constructor === String ? template : template.render());
 	var tempDiv = document.createElement('div');
 	if (!opt_skipIeWorkaround) {
