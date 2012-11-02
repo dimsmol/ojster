@@ -240,4 +240,22 @@ Person.prototype.testFunc = function() { // @122:1
 	return 'testValue';
 }; // @124:1
 
+Person.prototype.renderBlockTest1 = function() { // @126:1
+	var self = this;
+	var d = this.data, vars = this.vars;
+
+	// base call example
+
+	goog.base(this, 'renderBlockTest1'); // @128:5
+}; // @129:1
+
+Person.prototype.renderBlockTest2 = function(a) { // @131:1
+	var self = this;
+	var d = this.data, vars = this.vars;
+
+	// parametrized base call example
+
+	goog.base(this, 'renderBlockTest2', a, 1); // @133:5
+}; // @134:1
+
 }); // goog.scope

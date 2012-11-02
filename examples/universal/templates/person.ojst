@@ -122,3 +122,13 @@ Person.prototype.calculateScore = function(person) {
 <% @func testFunc { %>
 	return 'testValue';
 <% @func } %>
+
+<% @block test1 { %>
+	<% // base call example %>
+	<% @base %>
+<% @block test1 } %>
+
+<% @block test2 (a) { %>
+	<% // parametrized base call example %>
+	<% @base (a, 1) %>
+<% @block test2 } %>

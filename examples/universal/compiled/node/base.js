@@ -77,4 +77,15 @@ Base.prototype.renderBlockContent = function() { // @33:7
 	var d = this.data, vars = this.vars;
 };
 
+Base.prototype.renderBlockTest1 = function() { // @37:1
+	var self = this;
+	var d = this.data, vars = this.vars;
+};
+
+Base.prototype.renderBlockTest2 = function(a, b) { // @39:1
+	var self = this;
+	var d = this.data, vars = this.vars;
+};
+
+
 module.exports = Base;

@@ -224,4 +224,22 @@ Person.prototype.testFunc = function() { // @122:1
 	return 'testValue';
 }; // @124:1
 
+Person.prototype.renderBlockTest1 = function() { // @126:1
+	var self = this;
+	var d = this.data, vars = this.vars;
+
+	// base call example
+
+	Base.prototype.renderBlockTest1.call(this); // @128:5
+}; // @129:1
+
+Person.prototype.renderBlockTest2 = function(a) { // @131:1
+	var self = this;
+	var d = this.data, vars = this.vars;
+
+	// parametrized base call example
+
+	Base.prototype.renderBlockTest2.call(this, a, 1); // @133:5
+}; // @134:1
+
 module.exports = Person;

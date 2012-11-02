@@ -33,3 +33,7 @@
 <body><% @block content {} %></body>
 </html>
 <% @block main } %>
+
+<% @block test1 {} %>
+
+<% @block test2 (a, b) {} %>
