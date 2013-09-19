@@ -12,6 +12,7 @@
 	"dependencies": {
 		"async": "~0.1.9",
 		"optimist": "~0.2.3",
+		"marked_types": "~0.0.1",
 		"nerr": "~0.0.1",
 		"ops": "~0.0.1"
 	},
