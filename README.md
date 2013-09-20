@@ -128,3 +128,7 @@ By default, text outside of any block will be supposed to be a raw JS code.
 * programmatic usage of ojster
 * provide short usage of `bin/ojster`
 * describe difference between Node and Closure module systems and how it is handled by Ojster
+
+## License
+
+MIT
