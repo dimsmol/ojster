@@ -51,8 +51,15 @@ Person.prototype.calculateScore = function(person) {
 </script>
 <% @block script } %>
 
+<% @block //commented { %>
+	commented block example
+<% @block commented } %>
+
 <% @block content { %>
 	<span class="<% @css %>">base css</span><br />
+	<% @block //commented { %>
+		one more commented block example
+	<% @block commented } %>
 	<span class="<% @css abc %>">'abc'</span><br />
 	<span class="<% @css d.css abc %>">d.css with 'abc'</span><br />
 	<span class="<% @css +abc %>">base with 'abc'</span><br />
@@ -130,6 +137,10 @@ Person.prototype.calculateScore = function(person) {
 		<% */
 	*/%>
 	return 'testValue';
+<% @func } %>
+
+<% @func //commentedFunc { %>
+	bububu
 <% @func } %>
 
 <% @block test1 { %>
