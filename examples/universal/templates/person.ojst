@@ -1,6 +1,10 @@
 <% @require Base = './base' ojster.example.templates.Base %>
 <% @require Hobbies = './hobbies' ojster.example.templates.Hobbies %>
 
+<%/* testing comments
+	<% */ any trash can be within
+*/%>
+
 <% @require SomeTool = './tools'.SomeTool ojster.example.templates.Tools.SomeTool %>
 <% @require SomeOtherTool = './tools'.SomeOtherTool ojster.example.templates.Tools.SomeOtherTool %>
 
@@ -58,7 +62,9 @@ Person.prototype.calculateScore = function(person) {
 	<% @space %><span>C</span><br />
 	<% @call echo('Hey there!') %>
 	<div>Hello, <% @block fullName { %><%= d.firstName %> <%= d.lastName %><% @block fullName } %>!</div>
-	<div>Your score: <%= vars.score %></div>
+	<div>Your score: <%= vars.score %></div><%/* testing comments
+		<% */
+	*/%>
 	<div>Your skills:</div>
 	<% @call skills %>
 	<% if (d.events && d.events.length) { %>
@@ -120,6 +126,9 @@ Person.prototype.calculateScore = function(person) {
 <% @block afterEvent {} %>
 
 <% @func testFunc { %>
+	<%/* testing comments
+		<% */
+	*/%>
 	return 'testValue';
 <% @func } %>
 
