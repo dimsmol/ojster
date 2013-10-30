@@ -24,13 +24,11 @@ ojster.StringWriter.prototype.done = function () {
   return this.buff.join('');
 };
 
-ojster.DefaultWriterClass = ojster.StringWriter;
-
 
 /**
  * @param {Object=} opt_data
  * @param {Object=} opt_ctx
- * @param {Object=} opt_writer
+ * @param {ojster.StringWriter=} opt_writer
  * @constructor
  */
 ojster.Template = function (opt_data, opt_ctx, opt_writer) {
@@ -52,7 +50,7 @@ ojster.Template.prototype.init = function () {
 };
 
 /**
- * @param {function (ojster.Template)} props
+ * @param {function (ojster.Template)} setupFunc
  */
 ojster.Template.prototype.setup = function (setupFunc) {
   setupFunc.call(this);
@@ -82,12 +80,19 @@ ojster.Template.prototype.escape = function (str) {
 };
 
 /**
+ * @return {ojster.StringWriter}
+ */
+Template.prototype.createWriter = function () {
+  return new StringWriter();
+};
+
+/**
  * @return {string}
  */
 ojster.Template.prototype.render = function () {
   // ensure we have a writer
   if (this.writer == null) {
-    this.writer = new ojster.DefaultWriterClass();
+    this.writer = this.createWriter();
   }
 
   // render
