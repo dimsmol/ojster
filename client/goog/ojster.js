@@ -1,19 +1,25 @@
 goog.provide('ojster');
+goog.provide('ojster.StringWriter');
+goog.provide('ojster.Template');
 
-goog.require('goog.string');
 goog.require('goog.dom');
 goog.require('goog.dom.NodeType');
 goog.require('goog.dom.TagName');
+goog.require('goog.string');
 
 
 /**
  * @constructor
  */
 ojster.StringWriter = function () {
+  /** @type {!Array.<number|string|null>} */
   this.buff = [];
 };
 
-ojster.StringWriter.prototype.write = function () {
+/**
+ * @param {...(number|string|null)} var_args
+ */
+ojster.StringWriter.prototype.write = function (var_args) {
   this.buff.push.apply(this.buff, arguments);
 };
 
@@ -36,21 +42,21 @@ ojster.Template = function (opt_data, opt_ctx, opt_writer) {
   this.data = opt_data || null;
   /** @type {Object} */
   this.ctx = opt_ctx || null;
-  /** @type {Object} */
+  /** @type {ojster.StringWriter} */
   this.writer = opt_writer || null;
   /** @type {!Object} */
   this.vars = {};
-  /** @type {?string} */
-  this.baseCssName = null;
+  /** @type {string} */
+  this.baseCssName = '';
 
   this.init();
 };
 
-ojster.Template.prototype.init = function () {
-};
+ojster.Template.prototype.init = goog.nullFunction;
 
 /**
- * @param {function (ojster.Template)} setupFunc
+ * @param {function (this:ojster.Template)} setupFunc
+ * @return {!ojster.Template}
  */
 ojster.Template.prototype.setup = function (setupFunc) {
   setupFunc.call(this);
@@ -58,29 +64,29 @@ ojster.Template.prototype.setup = function (setupFunc) {
 };
 
 /**
- * @return {?string}
+ * @return {string}
  */
-ojster.Template.prototype.getBaseCssName = function (setupFunc) {
+ojster.Template.prototype.getBaseCssName = function () {
   return this.baseCssName;
 };
 
 /**
- * @param {?string} baseCssName
+ * @param {string} baseCssName
  */
 ojster.Template.prototype.setBaseCssName = function (baseCssName) {
   this.baseCssName = baseCssName;
 };
 
 /**
- * @param {?string} str
- * @return {?string}
+ * @param {string?} str
+ * @return {string?}
  */
 ojster.Template.prototype.escape = function (str) {
   return ojster.escape(str);
 };
 
 /**
- * @return {ojster.StringWriter}
+ * @return {!ojster.StringWriter}
  */
 Template.prototype.createWriter = function () {
   return new StringWriter();
@@ -91,7 +97,7 @@ Template.prototype.createWriter = function () {
  */
 ojster.Template.prototype.render = function () {
   // ensure we have a writer
-  if (this.writer == null) {
+  if (goog.isNull(this.writer)) {
     this.writer = this.createWriter();
   }
 
@@ -108,23 +114,21 @@ ojster.Template.prototype.renderTo = function (template) {
   this.renderBlockMain();
 };
 
-ojster.Template.prototype.renderBlockMain = function () {
-  throw new Error('Not implemented');
-};
+ojster.Template.prototype.renderBlockMain = goog.abstractMethod;
 
 
 // functions
 
 /**
- * @param {?string} str
+ * @param {string?} str
  * @param {boolean=} opt_isLikelyToContainHtmlChars Don't perform a check to see
  *     if the character needs replacing - use this option if you expect each of
  *     the characters to appear often. Leave false if you expect few html
  *     characters to occur in your strings, such as if you are escaping HTML.
- * @return {?string}
+ * @return {string?}
  */
 ojster.escape = function (str, opt_isLikelyToContainHtmlChars) {
-  if (str != null) {
+  if (!goog.isNull(str)) {
     str = goog.string.htmlEscape(str, opt_isLikelyToContainHtmlChars);
   }
   return str;
@@ -143,17 +147,17 @@ ojster.fillElement = function (element, template) {
 /**
  * @param {ojster.Template} template
  * @param {goog.dom.DomHelper=} opt_domHelper
- * @return {Element}
+ * @return {!Element}
  */
 ojster.createElement = function (template, opt_domHelper) {
   /** @type {goog.dom.DomHelper} */
   var dom = opt_domHelper || goog.dom.getDomHelper();
-  /** @type {Element} */
+  /** @type {!Element} */
   var wrapper = dom.createElement(goog.dom.TagName.DIV);
   wrapper.innerHTML = template.render();
 
   if (wrapper.childNodes.length == 1) {
-    /** @type {Element} */
+    /** @type {!Element} */
     var firstChild = wrapper.firstChild;
 
     if (firstChild.nodeType == goog.dom.NodeType.ELEMENT) {
