@@ -9,7 +9,7 @@ goog.require('ojster.example.templates.Tools.SomeTool');
 /**
  * @param {Object=} opt_data
  * @param {Object=} opt_ctx
- * @param {Object=} opt_writer
+ * @param {ojster.StringWriter=} opt_writer
  * @constructor
  * @extends {ojster.Template}
  */

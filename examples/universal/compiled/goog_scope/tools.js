@@ -11,7 +11,7 @@ goog.scope(function () {
 /**
  * @param {Object=} opt_data
  * @param {Object=} opt_ctx
- * @param {Object=} opt_writer
+ * @param {ojster.StringWriter=} opt_writer
  * @constructor
  * @extends {ojster.Template}
  */
@@ -31,7 +31,7 @@ SomeTool.prototype.renderBlockMain = function () { // @5:1
 /**
  * @param {Object=} opt_data
  * @param {Object=} opt_ctx
- * @param {Object=} opt_writer
+ * @param {ojster.StringWriter=} opt_writer
  * @constructor
  * @extends {ojster.Template}
  */
