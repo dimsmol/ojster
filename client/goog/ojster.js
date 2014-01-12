@@ -88,8 +88,8 @@ ojster.Template.prototype.escape = function (str) {
 /**
  * @return {!ojster.StringWriter}
  */
-Template.prototype.createWriter = function () {
-  return new StringWriter();
+ojster.Template.prototype.createWriter = function () {
+  return new ojster.StringWriter();
 };
 
 /**
