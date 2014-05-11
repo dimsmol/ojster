@@ -1,0 +1,12 @@
+<% @require ojster %>
+
+<% @template Base ojster.examples.templates.Base %>
+<% @inherits ojster.Template %>
+
+<% @block main { %>
+	It is a base
+<% @block main } %>
+
+<% @block foo (a) { %>
+	foo <%= a %>
+<% @block foo } %>

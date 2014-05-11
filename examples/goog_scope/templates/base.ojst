@@ -6,7 +6,7 @@
 // any aliases defined above can be used within scope,
 // because they will be explicitly defined
 %>
-<% @template Base ojster.example.templates.Base %>
+<% @template Base ojster.examples.templates.Base %>
 <% @inherits ojster.Template %>
 
 <%
@@ -14,7 +14,7 @@
 // they will not be available outside
 
 var tmp = Base.prototype; // using alias
-var tmp1 = ojster.example.templates.Base; // fully qualified names can be used as well
+var tmp1 = ojster.examples.templates.Base; // fully qualified names can be used as well
 %>
 
 <% @block main { %>

@@ -20,6 +20,9 @@ examples-client-universal:
 examples-goog:
 	ojster examples/goog/templates --goog
 
+examples-goog-oldbase:
+	ojster examples/goog_oldbase/templates --goog --oldbase
+
 examples-goog-scope:
 	ojster examples/goog_scope/templates --goog --scope
 

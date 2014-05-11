@@ -26,7 +26,7 @@ var SomeOtherTool = ojster.example.templates.Tools.SomeOtherTool;
  * @extends {Base}
  */
 ojster.example.templates.Person = function (opt_data, opt_ctx, opt_writer) {
-	goog.base(this, opt_data, opt_ctx, opt_writer);
+	ojster.example.templates.Person.base(this, 'constructor', opt_data, opt_ctx, opt_writer);
 };
 var Person = ojster.example.templates.Person;
 goog.inherits(Person, Base);
@@ -34,7 +34,7 @@ goog.inherits(Person, Base);
 Person.prototype.init = function () { // @14:1
 	var self = this;
 	var d = this.data, vars = this.vars;
-	goog.base(this, 'init');
+	ojster.example.templates.Person.base(this, 'init');
 
 	this.baseCssName = 'basecss';
 	vars.score = this.calculateScore(d); // vars is right place for template-level variables
@@ -265,7 +265,7 @@ Person.prototype.renderBlockTest1 = function () { // @146:1
 
 	// base call example
 
-	goog.base(this, 'renderBlockTest1'); // @148:5
+	ojster.example.templates.Person.base(this, 'renderBlockTest1'); // @148:5
 }; // @149:1
 
 Person.prototype.renderBlockTest2 = function (a) { // @151:1
@@ -274,7 +274,7 @@ Person.prototype.renderBlockTest2 = function (a) { // @151:1
 
 	// parametrized base call example
 
-	goog.base(this, 'renderBlockTest2', a, 1); // @153:5
+	ojster.example.templates.Person.base(this, 'renderBlockTest2', a, 1); // @153:5
 }; // @154:1
 
 }); // goog.scope

@@ -14,7 +14,7 @@ goog.require('ojster.example.templates.Tools.SomeTool');
  * @extends {ojster.Template}
  */
 ojster.example.templates.Base = function (opt_data, opt_ctx, opt_writer) {
-	goog.base(this, opt_data, opt_ctx, opt_writer);
+	ojster.example.templates.Base.base(this, 'constructor', opt_data, opt_ctx, opt_writer);
 };
 goog.inherits(ojster.example.templates.Base, ojster.Template);
 

@@ -41,6 +41,7 @@ else if (argv.client || argv.amd || argv.browserglobals) {
 }
 
 var useScope = !!argv.scope;
+var useOldBaseCall = !!argv.oldbase;
 var noStrict = !!argv.noStrict;
 if (generatorClass != null || useScope || noStrict) {
 	options.generator = options.generator || {};
@@ -49,6 +50,9 @@ if (generatorClass != null || useScope || noStrict) {
 	}
 	if (useScope) {
 		options.generator.useScope = useScope;
+	}
+	if (useOldBaseCall) {
+		options.generator.useOldBaseCall = useOldBaseCall;
 	}
 	if (noStrict) {
 		options.generator.useStrict = false;

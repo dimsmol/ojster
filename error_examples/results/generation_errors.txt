@@ -1,3 +1,6 @@
+File "error_examples/generation/no_template.ojst" compilation failed:
+Template token not found
+
 File "error_examples/generation/generation.ojst" compilation failed:
     4: <% @inherits ojster.Template %>
        ^
@@ -26,7 +29,4 @@ File "error_examples/generation/generation.ojst" compilation failed:
 
 File "error_examples/generation/inherits_token_not_found.ojst" compilation failed:
 Inherits token not found
-
-File "error_examples/generation/no_template.ojst" compilation failed:
-Template token not found
 
